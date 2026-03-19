@@ -1,6 +1,10 @@
 
 using UnityEngine;
 
+/// <summary>
+/// Handles first-person camera rotation based on mouse input.
+/// Rotates both the camera and the player orientation.
+/// </summary>
 public class PlayerCam : MonoBehaviour
 {
     #region References

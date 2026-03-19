@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Handles player movement using Rigidbody physics.
+/// The player can move based on input relative to an orientation transform.
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     #region References
