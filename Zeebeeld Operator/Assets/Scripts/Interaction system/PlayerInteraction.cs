@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Sets out a sphere cast when looking at an interactable show a canvas on screen
+/// </summary>
+using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -13,9 +16,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private IInterface _currentInteractable;
 
-    /// <summary>
-    /// Sets out a sphere cast when looking at an interactable show a canvas on screen
-    /// </summary>
+
     void Update()
     {
         DetectInteractable();
