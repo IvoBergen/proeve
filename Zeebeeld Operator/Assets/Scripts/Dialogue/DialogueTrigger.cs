@@ -6,24 +6,33 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour, IInterface
 {
     [Header("Components")]
-
+    [SerializeField] private GameObject _dialogueUI;
     public Dialogue dialogue;
+
+    private DialogueManager _dialogueManager;
+
+    private void Awake()
+    {
+        // Fix 3: cache the reference instead of using FindObjectOfType every call
+        _dialogueManager = FindObjectOfType<DialogueManager>();
+    }
 
     public void Interact()
     {
+        _dialogueUI.SetActive(true);
         TriggerDialogue();
     }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TriggerDialogue();
+            // Fix 2: advance to next line instead of restarting dialogue
+            _dialogueManager.SpawnNextLine();
         }
     }
+
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().BeginDialogue(dialogue);
+        _dialogueManager.BeginDialogue(dialogue);
     }
-
 }
