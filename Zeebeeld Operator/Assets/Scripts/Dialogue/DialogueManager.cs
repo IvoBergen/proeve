@@ -4,34 +4,33 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// <c>DialogueManager</c> Handels the generation of the given dialogue and going to the next line(s).
+/// <c>DialogueManager</c> Handles the generation of the given dialogue and going to the next line(s).
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
     [Header("Components")]
-
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] protected TextMeshProUGUI _dialogueText;
-
+    [SerializeField] private GameObject _dialogueUI;
+    private DialogueTrigger[] _allDialogues;
     private Queue<string> _sentences;
-
 
     private void Awake()
     {
         _sentences = new Queue<string>();
         _dialogueText.text = "";
         _nameText.text = "";
+        _allDialogues = FindObjectsByType<DialogueTrigger>(FindObjectsSortMode.None);
     }
 
     public void BeginDialogue(Dialogue dialogue)
     {
         _nameText.text = dialogue.name;
-
+        _sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {
             _sentences.Enqueue(sentence);
         }
-
         SpawnNextLine();
     }
 
@@ -42,9 +41,7 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
         _dialogueText.text = "";
-
         string sentence = _sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
@@ -62,6 +59,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        Debug.Log("ended converstation");
+        Debug.Log("Ended conversation");
+        _dialogueUI.SetActive(false);
     }
 }
