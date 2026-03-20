@@ -1,6 +1,10 @@
-﻿/// <summary>
-/// Sets out a sphere cast when looking at an interactable show a canvas on screen
+﻿
+/// <summary>
+/// Sets out a sphere cast when looking at an interactable.
+/// Shows a canvas when looking at an interactable,
+/// and hides it after interacting until you look away.
 /// </summary>
+
 using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
@@ -15,19 +19,20 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private GameObject _canvasHolder;
 
     private IInterface _currentInteractable;
-
+    private bool _hasInteracted = false;
 
     void Update()
     {
         DetectInteractable();
 
-        // Show or hide canvas based on current interactable
-        _canvasHolder.SetActive(_currentInteractable != null);
+        // Show UI only if we have an interactable AND haven't interacted yet
+        _canvasHolder.SetActive(_currentInteractable != null && !_hasInteracted);
 
-        // Interact if pressing E
+        // Interact on key press
         if (Input.GetKeyDown(KeyCode.E) && _currentInteractable != null)
         {
             _currentInteractable.Interact();
+            _hasInteracted = true;
         }
     }
 
@@ -36,20 +41,26 @@ public class PlayerInteraction : MonoBehaviour
         Ray ray = new Ray(_camera.transform.position, _camera.transform.forward);
         RaycastHit hit;
 
-        // SphereCast to detect interactable objects
         if (Physics.SphereCast(ray, _radius, out hit, _range, _interactableLayer))
         {
             IInterface interactable = hit.collider.GetComponent<IInterface>();
 
             if (interactable != null)
             {
+                // Reset interaction state if it's a new object
+                if (_currentInteractable != interactable)
+                {
+                    _hasInteracted = false;
+                }
+
                 _currentInteractable = interactable;
                 return;
             }
         }
 
-        // No interactable found
+        // Nothing hit → reset everything
         _currentInteractable = null;
+        _hasInteracted = false;
     }
 
     private void OnDrawGizmos()
@@ -58,9 +69,11 @@ public class PlayerInteraction : MonoBehaviour
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(_camera.transform.position, _camera.transform.forward * _range);
+
         Gizmos.DrawWireSphere(
             _camera.transform.position + _camera.transform.forward * _range,
             _radius
         );
     }
 }
+
