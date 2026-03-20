@@ -49,7 +49,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        HandleInput();
+        if (DialogueManager.Instance != null && !DialogueManager.Instance.IsDialogueActive)
+        {
+            HandleInput();
+        }
     }
 
 
