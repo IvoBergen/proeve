@@ -8,28 +8,28 @@ using UnityEngine;
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Components")]
+
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] protected TextMeshProUGUI _dialogueText;
 
-    private Queue<string> sentences;
+    private Queue<string> _sentences;
 
 
     private void Awake()
     {
-        sentences = new Queue<string>();
+        _sentences = new Queue<string>();
         _dialogueText.text = "";
+        _nameText.text = "";
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void BeginDialogue(Dialogue dialogue)
     {
-        _nameText.text = "";
         _nameText.text = dialogue.name;
-
-        sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
         {
-            sentences.Enqueue(sentence);
+            _sentences.Enqueue(sentence);
         }
 
         SpawnNextLine();
@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
 
     public void SpawnNextLine()
     {
-        if (sentences.Count == 0)
+        if (_sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
 
         _dialogueText.text = "";
 
-        string sentence = sentences.Dequeue();
+        string sentence = _sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }

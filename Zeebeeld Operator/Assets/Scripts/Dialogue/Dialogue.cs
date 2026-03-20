@@ -1,6 +1,9 @@
 
 using UnityEngine;
 
+/// <summary>
+/// <c>Dialogue</c> a singleton to write the name and lines of dialogue
+/// </summary>
 [System.Serializable]
 public class Dialogue
 {

@@ -1,8 +1,18 @@
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+/// <summary>
+/// <c>DialogueTrigger</c> Handles the start of the dialogue and being able to interact with it
+/// </summary>
+public class DialogueTrigger : MonoBehaviour, IInterface
 {
+    [Header("Components")]
+
     public Dialogue dialogue;
+
+    public void Interact()
+    {
+        TriggerDialogue();
+    }
 
     private void Update()
     {
@@ -13,7 +23,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        FindObjectOfType<DialogueManager>().BeginDialogue(dialogue);
     }
 
 }
