@@ -1,38 +1,43 @@
 using UnityEngine;
 
 /// <summary>
-/// <c>DialogueTrigger</c> Handles the start of the dialogue and being able to interact with it
+/// Handles starting dialogue when interacting with an object.
+/// Allows advancing dialogue with Space or Left Click.
 /// </summary>
 public class DialogueTrigger : MonoBehaviour, IInterface
 {
-    [Header("Components")]
-    [SerializeField] private GameObject _dialogueUI;
+    [Header("Dialogue Data")]
     public Dialogue dialogue;
 
     private DialogueManager _dialogueManager;
 
     private void Awake()
     {
-        // Fix 3: cache the reference instead of using FindObjectOfType every call
         _dialogueManager = FindObjectOfType<DialogueManager>();
+        if (_dialogueManager == null)
+            Debug.LogError("DialogueManager not found in the scene!");
     }
 
+    /// <summary>
+    /// Called when the player interacts with this object.
+    /// Starts the dialogue.
+    /// </summary>
     public void Interact()
     {
-        _dialogueUI.SetActive(true);
-        TriggerDialogue();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Fix 2: advance to next line instead of restarting dialogue
-            _dialogueManager.SpawnNextLine();
-        }
+        if (_dialogueManager == null || dialogue == null) return;
+
+        _dialogueManager.BeginDialogue(dialogue);
     }
 
-    public void TriggerDialogue()
+    private void Update()
     {
-        _dialogueManager.BeginDialogue(dialogue);
+        // Only allow advancing dialogue if it's active
+        if (_dialogueManager != null && _dialogueManager.IsDialogueActive)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            {
+                _dialogueManager.ShowNextLine();
+            }
+        }
     }
 }

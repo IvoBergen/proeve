@@ -1,12 +1,9 @@
-﻿
+﻿using UnityEngine;
+
 /// <summary>
-/// Sets out a sphere cast when looking at an interactable.
-/// Shows a canvas when looking at an interactable,
-/// and hides it after interacting until you look away.
+/// Detects interactables using a spherecast and handles interaction input.
+/// Disabled automatically during dialogue.
 /// </summary>
-
-using UnityEngine;
-
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Settings")]
@@ -23,12 +20,18 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
+        {
+            _currentInteractable = null;
+            _hasInteracted = false;
+            _canvasHolder.SetActive(false);
+            return;
+        }
+
         DetectInteractable();
 
-        // Show UI only if we have an interactable AND haven't interacted yet
         _canvasHolder.SetActive(_currentInteractable != null && !_hasInteracted);
 
-        // Interact on key press
         if (Input.GetKeyDown(KeyCode.E) && _currentInteractable != null)
         {
             _currentInteractable.Interact();
@@ -47,7 +50,6 @@ public class PlayerInteraction : MonoBehaviour
 
             if (interactable != null)
             {
-                // Reset interaction state if it's a new object
                 if (_currentInteractable != interactable)
                 {
                     _hasInteracted = false;
@@ -58,7 +60,6 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
 
-        // Nothing hit → reset everything
         _currentInteractable = null;
         _hasInteracted = false;
     }
@@ -76,4 +77,3 @@ public class PlayerInteraction : MonoBehaviour
         );
     }
 }
-

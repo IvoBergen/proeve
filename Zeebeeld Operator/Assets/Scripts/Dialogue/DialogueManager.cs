@@ -4,53 +4,69 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// <c>DialogueManager</c> Handles the generation of the given dialogue and going to the next line(s).
+/// Controls dialogue flow, UI, and global dialogue state.
+/// Does NOT store dialogue data.
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
-    [Header("Components")]
+    public static DialogueManager Instance;
+
+    [Header("UI")]
     [SerializeField] private TextMeshProUGUI _nameText;
-    [SerializeField] protected TextMeshProUGUI _dialogueText;
+    [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueUI;
-    private DialogueTrigger[] _allDialogues;
+
     private Queue<string> _sentences;
+
+    public bool IsDialogueActive { get; private set; }
 
     private void Awake()
     {
+        Instance = this;
         _sentences = new Queue<string>();
-        _dialogueText.text = "";
+
+        _dialogueUI.SetActive(false);
         _nameText.text = "";
-        _allDialogues = FindObjectsByType<DialogueTrigger>(FindObjectsSortMode.None);
+        _dialogueText.text = "";
     }
 
     public void BeginDialogue(Dialogue dialogue)
     {
+        IsDialogueActive = true;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        _dialogueUI.SetActive(true);
+
         _nameText.text = dialogue.name;
+
         _sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {
             _sentences.Enqueue(sentence);
         }
-        SpawnNextLine();
+
+        ShowNextLine();
     }
 
-    public void SpawnNextLine()
+    public void ShowNextLine()
     {
         if (_sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
-        _dialogueText.text = "";
-        string sentence = _sentences.Dequeue();
+
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(_sentences.Dequeue()));
     }
 
     private IEnumerator TypeSentence(string sentence)
     {
         _dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
+
+        foreach (char letter in sentence)
         {
             _dialogueText.text += letter;
             yield return null;
@@ -59,7 +75,11 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
-        Debug.Log("Ended conversation");
+        IsDialogueActive = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         _dialogueUI.SetActive(false);
     }
 }
