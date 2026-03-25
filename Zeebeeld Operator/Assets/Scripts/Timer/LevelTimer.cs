@@ -9,15 +9,12 @@ using UnityEngine.Events;
 public class LevelTimer : MonoBehaviour
 {
     [Header("Timer Settings")]
-    [SerializeField] private float _startTime = 120f;
+    [SerializeField] private int _startTime = 120;
 
     [Header("UI")]
     [SerializeField] private TMP_Text _timerText;
 
     [Header("Milestone Events")]
-    public UnityEvent on90Seconds;
-    public UnityEvent on60Seconds;
-    public UnityEvent on30Seconds;
     public UnityEvent onTimeUp;
 
     private float _currentTime;
@@ -42,7 +39,6 @@ public class LevelTimer : MonoBehaviour
 
         _currentTime -= Time.deltaTime;
 
-        CheckMilestones();
         UpdateUI();
 
         if (_currentTime <= 0)
@@ -54,26 +50,6 @@ public class LevelTimer : MonoBehaviour
         }
     }
 
-    private void CheckMilestones()
-    {
-        if (!_fired90 && _currentTime <= 90)
-        {
-            _fired90 = true;
-            on90Seconds.Invoke();
-        }
-
-        if (!_fired60 && _currentTime <= 60)
-        {
-            _fired60 = true;
-            on60Seconds.Invoke();
-        }
-
-        if (!_fired30 && _currentTime <= 30)
-        {
-            _fired30 = true;
-            on30Seconds.Invoke();
-        }
-    }
 
     private void UpdateUI()
     {
