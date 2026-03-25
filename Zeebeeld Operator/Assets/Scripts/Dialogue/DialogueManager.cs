@@ -9,9 +9,10 @@ using UnityEngine;
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
+    [SerializeField] PlayerMovement _playerMovement;
+    [SerializeField] PlayerCam _playerCam;
+    [SerializeField] public bool Active;
 
-    [Header("UI")]
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueUI;
@@ -22,7 +23,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         _sentences = new Queue<string>();
 
         _dialogueUI.SetActive(false);
@@ -32,6 +32,9 @@ public class DialogueManager : MonoBehaviour
 
     public void BeginDialogue(Dialogue dialogue)
     {
+        Active = true;
+        _playerMovement.movementdisabled = true;
+        _playerCam._movementDisabled = true;
         IsDialogueActive = true;
 
         Cursor.lockState = CursorLockMode.None;
@@ -81,5 +84,8 @@ public class DialogueManager : MonoBehaviour
         Cursor.visible = false;
 
         _dialogueUI.SetActive(false);
+        _playerMovement.movementdisabled = false;
+        _playerCam._movementDisabled = false;
+        Active = false;
     }
 }
