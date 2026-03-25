@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 23, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 101.1, y: 29.1}
+  m_AnchoredPosition: {x: 96.6, y: 29.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2035867880193962597
@@ -516,7 +516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 21, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4, y: 0}
+  m_AnchoredPosition: {x: 4, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5452964906563911169
@@ -587,9 +587,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 18
-  m_fontSizeBase: 36
+  m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -16.431587, y: 0, z: 36.52825, w: 0}
+  m_margin: {x: -16.431587, y: 0, z: 36.52825, w: -164.2995}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -670,6 +670,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4007036727995377265}
+  - component: {fileID: 4207639398909483775}
   m_Layer: 0
   m_Name: Clipboard
   m_TagString: Untagged
@@ -694,3 +695,17 @@ Transform:
   - {fileID: 3402814347479325026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4207639398909483775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8845669245970299676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4010ce1eba2cf3e498e7d5aa0d0e02de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clueManager: {fileID: 0}
+  _text: {fileID: 3867618180264351780}

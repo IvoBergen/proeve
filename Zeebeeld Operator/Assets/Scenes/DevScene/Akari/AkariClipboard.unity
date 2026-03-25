@@ -826,12 +826,12 @@ PrefabInstance:
     - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -12.79
       objectReference: {fileID: 0}
     - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.8
       objectReference: {fileID: 0}
     - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
         type: 3}
@@ -873,6 +873,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4207639398909483775, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: _clueManager
+      value: 
+      objectReference: {fileID: 1127393785}
     - target: {fileID: 8845669245970299676, guid: ef103bcd9c59feb4a8e550cee69d7f59,
         type: 3}
       propertyPath: m_Name
@@ -1830,10 +1835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clue:
     clueName: test2
-    category: 2
-    flagColor: 3
-    direction: 2
-    description: test2
+    clueType: 0
+    clueText: clue1
 --- !u!1 &1432113633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,10 +1989,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clue:
     clueName: testclue
-    category: 0
-    flagColor: 0
-    direction: 0
-    description: test clue
+    clueType: 0
+    clueText: clue3
 --- !u!114 &1591142897
 MonoBehaviour:
   m_ObjectHideFlags: 0
