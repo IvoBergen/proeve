@@ -34,7 +34,6 @@ public class LevelTimer : MonoBehaviour
 
     private void Update()
     {
-        // Stop everything if time is up or paused
         if (_firedTimeUp || _isPaused) return;
 
         _currentTime -= Time.deltaTime;

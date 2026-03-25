@@ -815,6 +815,79 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1001 &727273222
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007036727995377265, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4207639398909483775, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: _clueManager
+      value: 
+      objectReference: {fileID: 1127393785}
+    - target: {fileID: 8845669245970299676, guid: ef103bcd9c59feb4a8e550cee69d7f59,
+        type: 3}
+      propertyPath: m_Name
+      value: Clipboard
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ef103bcd9c59feb4a8e550cee69d7f59, type: 3}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,8 +1140,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 300, y: 300, z: 300}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1494,15 +1567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startTime: 300
   _timerText: {fileID: 223806670}
-  on90Seconds:
-    m_PersistentCalls:
-      m_Calls: []
-  on60Seconds:
-    m_PersistentCalls:
-      m_Calls: []
-  on30Seconds:
-    m_PersistentCalls:
-      m_Calls: []
   onTimeUp:
     m_PersistentCalls:
       m_Calls:
@@ -1771,8 +1835,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clue:
     clueName: test2
-    category: 2
-    clueText: 
+    clueType: 0
+    clueText: clue1
 --- !u!1 &1432113633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,8 +1989,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clue:
     clueName: testclue
-    category: 0
-    clueText: The ship has a blue flag.
+    clueType: 0
+    clueText: clue3
 --- !u!114 &1591142897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1942,7 +2006,7 @@ MonoBehaviour:
   dialogue:
     name: Rapport
     sentences:
-    - '{bnyhtz.ClueHolder.clueText}'
+    - Het vijandelijke schip gaat richting het noorde
 --- !u!1 &1661609531
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,147 +2137,6 @@ MonoBehaviour:
   _rb: {fileID: 1661609538}
   _orientation: {fileID: 1661609536}
   _moveSpeed: 2
---- !u!1 &1756632181
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1756632187}
-  - component: {fileID: 1756632186}
-  - component: {fileID: 1756632185}
-  - component: {fileID: 1756632184}
-  - component: {fileID: 1756632182}
-  - component: {fileID: 1756632183}
-  m_Layer: 6
-  m_Name: person (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1756632182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756632181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d9f8fd80fbfea44bbad015651d39dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clue:
-    clueName: test2
-    category: 2
-    clueText: 
---- !u!114 &1756632183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756632181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91a5af83ff35114897f282481fe8637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Lisa
-    sentences:
-    - Hello
-    - Hi, how are you doing today my friend
-    - Balls
---- !u!65 &1756632184
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756632181}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1756632185
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756632181}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1756632186
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756632181}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1756632187
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756632181}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.94, y: 1.54, z: 2.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1819229493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,7 +2617,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 885946567}
   - {fileID: 1325105396}
-  - {fileID: 1756632187}
   - {fileID: 1661609536}
   - {fileID: 2058730015}
   - {fileID: 1127393782}
@@ -2703,3 +2625,4 @@ SceneRoots:
   - {fileID: 303773372}
   - {fileID: 1954198213}
   - {fileID: 1591142895}
+  - {fileID: 727273222}
