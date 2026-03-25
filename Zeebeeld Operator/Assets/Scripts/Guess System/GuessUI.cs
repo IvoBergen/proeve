@@ -4,11 +4,13 @@ public class GuessUI : MonoBehaviour
 {
     [Header("Variables")]
     public bool Active;
+
+    [Header("refrences")]
     [SerializeField] private GameObject _guessUI;
     [SerializeField] private GameStateManager _gameStateManager;
-    public static GuessUI Instance;
     [SerializeField] private PlayerCam _playerCam;
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private LevelTimer _timer;
 
     [Header("UI")]
     [SerializeField] private GameObject _yesTarget;
@@ -20,17 +22,6 @@ public class GuessUI : MonoBehaviour
     {
         UpdatePointer();
     }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void Update()
     {
@@ -39,6 +30,7 @@ public class GuessUI : MonoBehaviour
         _guessUI.SetActive(true);
         _playerCam._movementDisabled = true;
         _playerMovement.movementdisabled = true;
+        _timer.PauseTimer();
 
         // LEFT
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -55,7 +47,7 @@ public class GuessUI : MonoBehaviour
         }
 
         // CONFIRM
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             Confirm();
         }
@@ -65,6 +57,7 @@ public class GuessUI : MonoBehaviour
             _playerCam._movementDisabled = false;
             _playerMovement.movementdisabled = false;
             Active = false;
+            _timer.ResumeTimer();
         }
     }
 
@@ -89,7 +82,11 @@ public class GuessUI : MonoBehaviour
         }
         else
         {
-            _gameStateManager.Gameover();
+            _guessUI.SetActive(false);
+            _playerCam._movementDisabled = false;
+            _playerMovement.movementdisabled = false;
+            Active = false;
+            _timer.ResumeTimer();
         }
 
         Active = false;
