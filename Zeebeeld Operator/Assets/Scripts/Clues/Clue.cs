@@ -6,44 +6,26 @@ namespace bnyhtz
     /// <summary>
     /// Represents a clue in the game, which can be of various categories and have different attributes.
     /// </summary>
-    public enum ClueCategory
+    public enum ClueType
     {
         Letter,
         Photo,
         NPC
-    } 
-    public enum ClueFlagColor
-    {
-        Red,
-        Green,
-        Blue,
-        Yellow
-    }
-    public enum ShipDirection
-    {
-        North,
-        South,
-        East,
-        West
     }
     [Serializable]
     public class Clue
     {
         public string clueName; 
-        public ClueCategory category;
-        public ClueFlagColor flagColor;
-        public ShipDirection direction;
-        public string description;
+        public ClueType clueType;
+        public string clueText;
 
         public Clue() {}
 
-        public Clue(string clueName, ClueCategory category, ClueFlagColor flagColor, ShipDirection direction, string description)
+        public Clue(string clueName, ClueType clueType, string clueText)
         {
             this.clueName = clueName;
-            this.category = category;
-            this.flagColor = flagColor;
-            this.direction = direction;
-            this.description = description;
+            this.clueType = clueType;
+            this.clueText = clueText;
         }
     }
 }
