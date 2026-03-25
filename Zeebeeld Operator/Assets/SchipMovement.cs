@@ -1,6 +1,8 @@
 using UnityEngine;
-
-public class SchipMovement : MonoBehaviour
+/// <summary>
+/// does movement for the ship
+/// </summary>
+public class schipMovement : MonoBehaviour
 {
     [Header("Points")]
     [SerializeField] private Transform _pointA;

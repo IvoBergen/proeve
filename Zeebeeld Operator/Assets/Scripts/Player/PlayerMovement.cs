@@ -49,10 +49,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (DialogueManager.Instance != null && !DialogueManager.Instance.IsDialogueActive)
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
         {
-            HandleInput();
+            // Stop input immediately
+            _horizontalInput = 0f;
+            _verticalInput = 0f;
+
+            // Stop current movement
+            _rb.velocity = Vector3.zero;
+            return;
         }
+
+        HandleInput();
     }
 
 

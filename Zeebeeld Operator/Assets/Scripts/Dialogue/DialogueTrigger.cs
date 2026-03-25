@@ -2,6 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Handles starting dialogue when interacting with an object.
+/// It gives the interacted object the owner bool so other objects dont interfere
 /// Allows advancing dialogue with Space or Left Click.
 /// </summary>
 public class DialogueTrigger : MonoBehaviour, IInterface
@@ -10,6 +11,8 @@ public class DialogueTrigger : MonoBehaviour, IInterface
     public Dialogue dialogue;
 
     private DialogueManager _dialogueManager;
+
+    private bool _isOwner = false;
 
     private void Awake()
     {
@@ -26,11 +29,14 @@ public class DialogueTrigger : MonoBehaviour, IInterface
     {
         if (_dialogueManager == null || dialogue == null) return;
 
+        _isOwner = true;
         _dialogueManager.BeginDialogue(dialogue);
     }
 
     private void Update()
     {
+        if (!_isOwner || _dialogueManager == null) return;
+
         // Only allow advancing dialogue if it's active
         if (_dialogueManager != null && _dialogueManager.IsDialogueActive)
         {
@@ -38,6 +44,10 @@ public class DialogueTrigger : MonoBehaviour, IInterface
             {
                 _dialogueManager.ShowNextLine();
             }
+        }
+        else
+        {
+            _isOwner = false;
         }
     }
 }

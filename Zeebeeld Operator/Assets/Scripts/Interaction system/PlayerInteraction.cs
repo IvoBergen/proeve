@@ -1,9 +1,5 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Detects interactables using a spherecast and handles interaction input.
-/// Disabled automatically during dialogue.
-/// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Settings")]
@@ -15,14 +11,14 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _canvasHolder;
 
-    private IInterface _currentInteractable;
+    private IInterface[] _currentInteractables; // all IInterface components on the hit object
     private bool _hasInteracted = false;
 
     void Update()
     {
         if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
         {
-            _currentInteractable = null;
+            _currentInteractables = null;
             _hasInteracted = false;
             _canvasHolder.SetActive(false);
             return;
@@ -30,11 +26,14 @@ public class PlayerInteraction : MonoBehaviour
 
         DetectInteractable();
 
-        _canvasHolder.SetActive(_currentInteractable != null && !_hasInteracted);
+        _canvasHolder.SetActive(_currentInteractables != null && !_hasInteracted);
 
-        if (Input.GetKeyDown(KeyCode.E) && _currentInteractable != null)
+        if (Input.GetKeyDown(KeyCode.E) && _currentInteractables != null)
         {
-            _currentInteractable.Interact();
+            foreach (var interactable in _currentInteractables)
+            {
+                interactable.Interact(); // call interact on all scripts implementing IInterface
+            }
             _hasInteracted = true;
         }
     }
@@ -46,21 +45,20 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Physics.SphereCast(ray, _radius, out hit, _range, _interactableLayer))
         {
-            IInterface interactable = hit.collider.GetComponent<IInterface>();
+            // grab all scripts on the hit object that implement IInterface
+            IInterface[] interactables = hit.collider.GetComponents<IInterface>();
 
-            if (interactable != null)
+            if (interactables.Length > 0)
             {
-                if (_currentInteractable != interactable)
-                {
+                if (_currentInteractables != interactables)
                     _hasInteracted = false;
-                }
 
-                _currentInteractable = interactable;
+                _currentInteractables = interactables;
                 return;
             }
         }
 
-        _currentInteractable = null;
+        _currentInteractables = null;
         _hasInteracted = false;
     }
 
