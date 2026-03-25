@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
+    [SerializeField] public bool _movementDisabled;
     [Header("References")]
     [SerializeField] private Transform _orientation;
 
@@ -20,7 +21,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Update()
     {
-        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
+        if (_movementDisabled == true)
             return;
 
         HandleMouseLook();
