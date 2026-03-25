@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace bnyhtz
     public class ClueManager : MonoBehaviour
     {
         public static ClueManager Instance;
+        public event Action OnCluesChanged;
 
         private List<Clue> clues = new List<Clue>();
 
@@ -20,6 +22,7 @@ namespace bnyhtz
         public void AddClue(Clue clue)
         {
             clues.Add(clue);
+            OnCluesChanged?.Invoke();
         }
 
         public List<Clue> GetAllClues()
