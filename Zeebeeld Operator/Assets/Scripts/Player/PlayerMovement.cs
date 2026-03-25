@@ -7,8 +7,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     #region References
-    [Header("variabels")]
-    public bool movementdisabled;
 
     [Header("References")]
 
@@ -51,10 +49,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (movementdisabled == true)
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
         {
+            // Stop input immediately
             _horizontalInput = 0f;
             _verticalInput = 0f;
+
+            // Stop current movement
             _rb.velocity = Vector3.zero;
             return;
         }

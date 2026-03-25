@@ -10,14 +10,13 @@ public class PlayerInteraction : MonoBehaviour
     [Header("References")]
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _canvasHolder;
-    [SerializeField] private DialogueManager _dialogueManager;
 
     private IInterface[] _currentInteractables; // all IInterface components on the hit object
     private bool _hasInteracted = false;
 
     void Update()
     {
-        if (_dialogueManager.Active)
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialogueActive)
         {
             _currentInteractables = null;
             _hasInteracted = false;
