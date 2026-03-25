@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Are you sure you want to attack this ship?
+  m_text: Weet je zeker dat dit schip de vijand is.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2213,6 +2213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85823a0672927554f87684689a63e705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 1661609539}
+  _playerCam: {fileID: 1819229495}
+  Active: 0
   _nameText: {fileID: 181347579}
   _dialogueText: {fileID: 1898248263}
   _dialogueUI: {fileID: 1862435402}
@@ -2287,8 +2290,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
-  _guessUI: {fileID: 0}
-  _gameStateManager: {fileID: 0}
+  _guessUI: {fileID: 528769231}
+  _gameStateManager: {fileID: 1127393783}
+  _playerCam: {fileID: 1819229495}
+  _playerMovement: {fileID: 1661609539}
+  _timer: {fileID: 1127393784}
   _yesTarget: {fileID: 588519124}
   _noTarget: {fileID: 474416737}
 --- !u!1 &1284275887
@@ -2663,6 +2669,7 @@ MonoBehaviour:
     m_Bits: 64
   _camera: {fileID: 1819229494}
   _canvasHolder: {fileID: 2058730014}
+  _dialogueManager: {fileID: 1127393781}
 --- !u!33 &1661609535
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2750,6 +2757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddebc1f399f1b5c48bfcef9266d64036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementdisabled: 0
   _rb: {fileID: 1661609538}
   _orientation: {fileID: 1661609536}
   _moveSpeed: 2
@@ -2837,6 +2845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d756673dd882445aee1093e57664d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementDisabled: 0
   _orientation: {fileID: 1661609536}
   _sensX: 100
   _sensY: 100
