@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GuessUI : MonoBehaviour
@@ -11,8 +12,10 @@ public class GuessUI : MonoBehaviour
     [SerializeField] private PlayerCam _playerCam;
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private LevelTimer _timer;
-
+    [SerializeField] ShipInfo[] _shipInfo;
+    private ShipInfo _selectedShip;
     [Header("UI")]
+    [SerializeField] TMP_Text shipname;
     [SerializeField] private GameObject _yesTarget;
     [SerializeField] private GameObject _noTarget;
 
@@ -21,6 +24,10 @@ public class GuessUI : MonoBehaviour
     private void OnEnable()
     {
         UpdatePointer();
+    }
+    private void Start()
+    {
+        _shipInfo = FindObjectsOfType<ShipInfo>();
     }
 
     private void Update()
@@ -31,22 +38,16 @@ public class GuessUI : MonoBehaviour
         _playerCam._movementDisabled = true;
         _playerMovement.movementdisabled = true;
         _timer.PauseTimer();
-
-        // LEFT
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             _currentIndex = 0;
             UpdatePointer();
         }
-
-        // RIGHT
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             _currentIndex = 1;
             UpdatePointer();
         }
-
-        // CONFIRM
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             Confirm();
@@ -61,10 +62,21 @@ public class GuessUI : MonoBehaviour
         }
     }
 
-    public void ActivateUI()
+    public void ActivateUI(int shipIndex)
     {
+        if (shipIndex < 0 || shipIndex >= _shipInfo.Length)
+        {
+            Debug.LogWarning("Invalid ship index!");
+            return;
+        }
+
+        _selectedShip = _shipInfo[shipIndex];
+
         Active = true;
         _currentIndex = 0;
+
+        shipname.text = _selectedShip.currentShipName;
+
         UpdatePointer();
     }
 
@@ -73,23 +85,33 @@ public class GuessUI : MonoBehaviour
         _yesTarget.SetActive(_currentIndex == 0);
         _noTarget.SetActive(_currentIndex == 1);
     }
-    // Change this when ship info becomes a thing
     private void Confirm()
     {
         if (_currentIndex == 0)
         {
-            _gameStateManager.GameWin();
+            if (_selectedShip.isenemy)
+            {
+                _gameStateManager.GameWin();
+            }
+            else
+            {
+                _gameStateManager.Gameover();
+            }
         }
         else
         {
-            _guessUI.SetActive(false);
-            _playerCam._movementDisabled = false;
-            _playerMovement.movementdisabled = false;
-            Active = false;
-            _timer.ResumeTimer();
+            CloseUI();
+            return;
         }
 
-        Active = false;
+        CloseUI();
+    }
+    private void CloseUI()
+    {
         _guessUI.SetActive(false);
+        _playerCam._movementDisabled = false;
+        _playerMovement.movementdisabled = false;
+        Active = false;
+        _timer.ResumeTimer();
     }
 }

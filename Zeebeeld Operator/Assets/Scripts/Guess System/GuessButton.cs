@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class GuessButton : MonoBehaviour, IInterface
 {
-    [SerializeField] GuessUI GuessUI;
+    /// <summary>
+    /// Stores the ship number
+    /// </summary>
+    [SerializeField] private GuessUI guessUI;
+    [SerializeField] private int shipnumber;
 
-    void ActivateUI()
-    {
-        GuessUI.ActivateUI();
-    }
     public void Interact()
     {
-        ActivateUI();
+        guessUI.ActivateUI(shipnumber);
     }
 }
