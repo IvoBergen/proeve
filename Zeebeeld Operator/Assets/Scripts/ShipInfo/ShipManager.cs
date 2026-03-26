@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// gives all ship their names randomly 
+/// </summary>
 public class ShipManager : MonoBehaviour
 {
     public static ShipManager Instance;
