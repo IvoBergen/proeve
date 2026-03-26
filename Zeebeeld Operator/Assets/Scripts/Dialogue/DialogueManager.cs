@@ -9,10 +9,10 @@ using UnityEngine;
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] PlayerMovement _playerMovement;
-    [SerializeField] PlayerCam _playerCam;
+    [Header("Refrences")]
+    [SerializeField] GameStateManager gameStateManager;
+    [Header("variables")]
     [SerializeField] public bool Active;
-
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueUI;
@@ -33,8 +33,7 @@ public class DialogueManager : MonoBehaviour
     public void BeginDialogue(Dialogue dialogue)
     {
         Active = true;
-        _playerMovement.movementdisabled = true;
-        _playerCam._movementDisabled = true;
+        gameStateManager.InDialogue();
         IsDialogueActive = true;
 
         Cursor.lockState = CursorLockMode.None;
@@ -84,8 +83,7 @@ public class DialogueManager : MonoBehaviour
         Cursor.visible = false;
 
         _dialogueUI.SetActive(false);
-        _playerMovement.movementdisabled = false;
-        _playerCam._movementDisabled = false;
+        gameStateManager.exitDialouge();
         Active = false;
     }
 }
