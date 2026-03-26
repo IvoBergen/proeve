@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
-
+/// <summary>
+/// Handels guessing and checks if the ship is the enemyship 
+/// </summary>
 public class GuessUI : MonoBehaviour
 {
     [Header("Variables")]
@@ -9,9 +11,6 @@ public class GuessUI : MonoBehaviour
     [Header("refrences")]
     [SerializeField] private GameObject _guessUI;
     [SerializeField] private GameStateManager _gameStateManager;
-    [SerializeField] private PlayerCam _playerCam;
-    [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private LevelTimer _timer;
     [SerializeField] ShipInfo[] _shipInfo;
     private ShipInfo _selectedShip;
     [Header("UI")]
@@ -19,7 +18,7 @@ public class GuessUI : MonoBehaviour
     [SerializeField] private GameObject _yesTarget;
     [SerializeField] private GameObject _noTarget;
 
-    private int _currentIndex = 0; // 0 = Yes, 1 = No
+    private int _currentIndex = 0;
 
     private void OnEnable()
     {
@@ -35,9 +34,8 @@ public class GuessUI : MonoBehaviour
         if (!Active) return;
 
         _guessUI.SetActive(true);
-        _playerCam._movementDisabled = true;
-        _playerMovement.movementdisabled = true;
-        _timer.PauseTimer();
+        _gameStateManager.InDialogue();
+        _gameStateManager.PauseTimer();
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             _currentIndex = 0;
@@ -54,11 +52,7 @@ public class GuessUI : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _guessUI.SetActive(false);
-            _playerCam._movementDisabled = false;
-            _playerMovement.movementdisabled = false;
-            Active = false;
-            _timer.ResumeTimer();
+            CloseUI();
         }
     }
 
@@ -109,9 +103,8 @@ public class GuessUI : MonoBehaviour
     private void CloseUI()
     {
         _guessUI.SetActive(false);
-        _playerCam._movementDisabled = false;
-        _playerMovement.movementdisabled = false;
+        _gameStateManager.exitDialouge();
         Active = false;
-        _timer.ResumeTimer();
+        _gameStateManager.ResumeTimer();
     }
 }
