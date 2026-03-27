@@ -1449,8 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85823a0672927554f87684689a63e705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: 0}
-  _playerCam: {fileID: 0}
+  gameStateManager: {fileID: 1127393783}
   Active: 0
   _nameText: {fileID: 181347579}
   _dialogueText: {fileID: 1898248263}
@@ -1484,6 +1483,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameoverUI: {fileID: 1954198212}
   WinUI: {fileID: 0}
+  playerCam: {fileID: 1819229495}
+  playerMovement: {fileID: 1661609539}
+  levelTimer: {fileID: 1127393784}
 --- !u!114 &1127393784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2051,7 +2053,7 @@ MonoBehaviour:
     m_Bits: 64
   _camera: {fileID: 1819229494}
   _canvasHolder: {fileID: 2058730014}
-  _dialogueManager: {fileID: 0}
+  _dialogueManager: {fileID: 1127393781}
 --- !u!33 &1661609535
 MeshFilter:
   m_ObjectHideFlags: 0
