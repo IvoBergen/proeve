@@ -4,9 +4,7 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// Manages clipboard visibility and clue text rendering.
-/// Toggles the clipboard with TAB, blocks opening during dialogue,
-/// and routes open/close state through the GameStateManager.
+/// xxx
 /// </summary>
 public class Clipboard : MonoBehaviour
 {

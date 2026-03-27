@@ -1,9 +1,6 @@
 using UnityEngine;
 using bnyhtz;
 
-/// <summary>
-/// Central state coordinator for game flow, dialogue, timer, and clipboard open state.
-/// </summary>
 public class GameStateManager : MonoBehaviour
 {
     /// <summary>

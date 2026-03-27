@@ -1,10 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-/// <summary>
-/// Detects nearby interactables, shows the interaction prompt,
-/// and invokes interactions on E. Interaction is paused during dialogue
-/// and while the clipboard is open.
-/// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Settings")]
@@ -98,4 +93,3 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 }
-
