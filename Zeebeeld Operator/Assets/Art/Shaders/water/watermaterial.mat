@@ -53,11 +53,15 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _wafefrequency: 0
+    - _specular_density: 16.53
+    - _specular_speed: 1.9
+    - _specular_thickness: 5.23
+    - _wafefrequency: 24.7
     - _water_depth: 0.05
-    - _waveemplitude: 0
-    - _wavespeed: 0
+    - _waveemplitude: 0.9
+    - _wavespeed: 4.73
     m_Colors:
-    - _deepwater: {r: 0.16301166, g: 0.90943396, b: 0.31874582, a: 0}
-    - _shalowwater: {r: 0.90943396, g: 0.13555704, b: 0.13555704, a: 0}
+    - _deepwater: {r: 0.067176916, g: 0.426967, b: 0.6981132, a: 0}
+    - _shalowwater: {r: 0.57071555, g: 0.85019934, b: 0.87169814, a: 0}
+    - _specular_color: {r: 2.639016, g: 2.639016, b: 2.639016, a: 0}
   m_BuildTextureStacks: []
