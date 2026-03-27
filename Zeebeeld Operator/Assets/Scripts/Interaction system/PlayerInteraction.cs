@@ -11,12 +11,21 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _canvasHolder;
     [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private GameStateManager _gameStateManager;
 
     private IInterface[] _currentInteractables; // all IInterface components on the hit object
     private bool _hasInteracted = false;
 
     void Update()
     {
+        if (_gameStateManager != null && _gameStateManager.IsClipboardOpen)
+        {
+            _currentInteractables = null;
+            _hasInteracted = false;
+            _canvasHolder.SetActive(false);
+            return;
+        }
+
         if (_dialogueManager.Active)
         {
             _currentInteractables = null;
@@ -74,5 +83,13 @@ public class PlayerInteraction : MonoBehaviour
             _camera.transform.position + _camera.transform.forward * _range,
             _radius
         );
+    }
+
+    private void Awake()
+    {
+        if (_gameStateManager == null)
+        {
+            _gameStateManager = FindObjectOfType<GameStateManager>();
+        }
     }
 }
