@@ -26,5 +26,6 @@ namespace bnyhtz
             this.clueType = clueType;
             this.clueText = clueText;
         }
+
     }
 }

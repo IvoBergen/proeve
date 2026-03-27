@@ -1,7 +1,9 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+
 /// <summary>
-/// gives all ship their names randomly 
+/// Assigns ships fixed names automatically based on hierarchy order
 /// </summary>
 public class ShipManager : MonoBehaviour
 {
@@ -9,34 +11,35 @@ public class ShipManager : MonoBehaviour
 
     [SerializeField] private string[] allNames;
 
-    private List<string> availableNames;
-
     private void Awake()
     {
-        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
-            availableNames = new List<string>(allNames);
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        AssignNamesToShips();
     }
 
-    public string GetRandomName()
+    private void AssignNamesToShips()
     {
-        if (availableNames.Count == 0)
+        ShipInfo[] ships = FindObjectsOfType<ShipInfo>();
+        List<ShipInfo> sortedShips = ships
+            .OrderBy(ship => ship.transform.GetSiblingIndex())
+            .ToList();
+
+        for (int i = 0; i < sortedShips.Count; i++)
         {
-            Debug.LogWarning("No names left!");
-            return "Unnamed Ship";
+            string name = (i < allNames.Length)
+                ? allNames[i]
+                : "Unnamed Ship";
+
+            sortedShips[i].SetName(name);
         }
-
-        int index = Random.Range(0, availableNames.Count);
-        string name = availableNames[index];
-
-        availableNames.RemoveAt(index);
-        return name;
     }
 }
