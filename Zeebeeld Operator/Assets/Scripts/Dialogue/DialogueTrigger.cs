@@ -4,6 +4,7 @@ using UnityEngine;
 /// Handles starting dialogue when interacting with an object.
 /// It gives the interacted object the owner bool so other objects dont interfere
 /// Allows advancing dialogue with Space or Left Click.
+/// Prevents dialogue start while the clipboard is open.
 /// </summary>
 public class DialogueTrigger : MonoBehaviour, IInterface
 {
