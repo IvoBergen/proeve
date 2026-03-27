@@ -3,6 +3,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// enemy schip scanner handels clue sending to the clipboard it checks who is enemy and sends that info to the clipboard 
+/// </summary>
 public class EnemyShipScanner : MonoBehaviour, IInterface
 {
     public void Interact()
