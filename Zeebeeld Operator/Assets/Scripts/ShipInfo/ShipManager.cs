@@ -9,7 +9,7 @@ public class ShipManager : MonoBehaviour
 {
     public static ShipManager Instance;
 
-    [SerializeField] private string[] allNames;
+    [SerializeField] private string[] _allNames;
 
     private void Awake()
     {
@@ -35,8 +35,8 @@ public class ShipManager : MonoBehaviour
 
         for (int i = 0; i < sortedShips.Count; i++)
         {
-            string name = (i < allNames.Length)
-                ? allNames[i]
+            string name = (i < _allNames.Length)
+                ? _allNames[i]
                 : "Unnamed Ship";
 
             sortedShips[i].SetName(name);

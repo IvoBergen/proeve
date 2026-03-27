@@ -2,7 +2,6 @@ using UnityEngine;
 /// <summary>
 /// stores ship info, names and if they are the enemy
 /// </summary>
-/// 
 public class ShipInfo : MonoBehaviour
 {
     public enum FlagColour
@@ -12,7 +11,7 @@ public class ShipInfo : MonoBehaviour
         Gele
     }
     public string currentShipName;
-    [SerializeField] private FlagColour colour;
+    [SerializeField] private FlagColour _colour;
     [SerializeField] public bool isenemy;
     public void SetName(string name)
     {
@@ -20,7 +19,7 @@ public class ShipInfo : MonoBehaviour
     }
     public FlagColour GetColour()
     {
-        return colour;
+        return _colour;
     }
 
     public bool IsEnemy()

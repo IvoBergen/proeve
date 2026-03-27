@@ -15,7 +15,6 @@ public class EnemyShipScanner : MonoBehaviour, IInterface
 
     private IEnumerator ScanAndSendClueWithDelay()
     {
-        Debug.Log("triggered");
         yield return new WaitForSeconds(5f);
 
         if (ClueManager.Instance == null)
