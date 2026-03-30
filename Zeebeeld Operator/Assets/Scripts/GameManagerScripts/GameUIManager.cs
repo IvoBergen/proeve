@@ -3,11 +3,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// handels the ui of the game such as the pause and options menu.
+/// </summary>
 public class GameUIManager : MonoBehaviour
 {
-    /// <summary>
-    /// handels the ui of the game such as the pause and options menu.
-    /// </summary>
+
     [Header("Variables")]
     public bool GuessUIActive;
     private bool _pausemenuActive;
