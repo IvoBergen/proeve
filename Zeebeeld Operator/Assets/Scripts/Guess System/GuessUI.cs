@@ -11,6 +11,7 @@ public class GuessUI : MonoBehaviour
     [Header("refrences")]
     [SerializeField] private GameObject _guessUI;
     [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private GameUIManager _gameUIManager;
     [SerializeField] ShipInfo[] _shipInfo;
     private ShipInfo _selectedShip;
     [Header("UI")]
@@ -32,16 +33,16 @@ public class GuessUI : MonoBehaviour
     private void Update()
     {
         if (!Active) return;
-
+        _gameUIManager.GuessUIActive = true;
         _guessUI.SetActive(true);
         _gameStateManager.InDialogue();
         _gameStateManager.PauseTimer();
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.A)))
         {
             _currentIndex = 0;
             UpdatePointer();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetKeyDown(KeyCode.D)))
         {
             _currentIndex = 1;
             UpdatePointer();
