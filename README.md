@@ -33,21 +33,7 @@ Je bent een marinier op een marineschip en werkt als radartopist. Je taak is het
 ---
 
 ## Features / Systemen
-
-| Systeem | Status | Auteur |
-|---|---|---|
-| Clipboard | ✅ Afgerond | Akari Le |
-| Interaction | ✅ Afgerond | Owen Stas |
-| Dialogue | ✅ Afgerond | Ivo Bergen |
-| Movement | ✅ Afgerond | Christiaan Oostwouder |
-| Clues | ✅ Afgerond | Akari Le |
-| Timer | ✅ Afgerond | Owen Stas |
-| Guess System | ✅ Afgerond | Owen Stas |
-| NPC Movement | ✅ Afgerond | Ivo Bergen |
-| Camera Sensitivity | 🔄 In progress | Owen Stas |
-| Sprint systeem | 📋 Gepland | — |
-| Dialog UI verbetering | 📋 Gepland | — |
-| Interactie feedback (geluid) | 📋 Gepland | — |
+general info van alle feature
 
 ---
 
@@ -73,15 +59,8 @@ documentation/<doc-naam>
 
 ## Playtesting & Feedback
 
-User feedback is verwerkt in user stories en prioriteiten.
 
-| Feedback | Status |
-|---|---|
-| Camera sensitivity en Y-rotatie sneller | 🔄 In progress |
-| Mogelijkheid tot rennen toevoegen | 📋 Gepland |
-| Dialog UI logischer positioneren en kleiner maken | 📋 Gepland |
-| Feedback bij interacties (bijv. geluid bij E) | 📋 Gepland |
-
+wiki/usertest moet hier
 ---
 
 ## Code Conventies
@@ -98,16 +77,17 @@ User feedback is verwerkt in user stories en prioriteiten.
 
 ## Game mechanics 
 De mechanics van team 04 marine.
-## moving platform by Ivo
-The moving cubes are made as an obstacle for the player. They Move to random locations decided by the input values on the X an Z axis. The cube also rotates between 90, 0 and -90 degrees to add for an extra layer of difficulty.
+// indepth over elke feature
+## Timer door Owen Stas 
 
-![MovingCubes gif](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/MovingCubes.gif)
+dit is een timer die 5 minuten heeft en dan afgaat en dan heb je het level verloren
+![Timer gif](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/)
 
 This is the visual sheet for the moving cube scripts
 
-![Moving Cubes visualsheet](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/VisualSheetMovingCube.png)
+![Timer visualsheet](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/Timer-visualsheet.png)
 
-* [Moving Cubes](ProefExamenGame/Assets/Scripts/MovingCubes)
+* [Moving Cubes]( proeve/Zeebeeld Operator/Assets/Scripts/Timer) 
 
 The moving platforms are added to challenge the player’s movement, timing, and overall control. Instead of simply walking or jumping across static surfaces, the player must carefully observe the platform’s motion and choose the right moment to move.
 ## Credits
