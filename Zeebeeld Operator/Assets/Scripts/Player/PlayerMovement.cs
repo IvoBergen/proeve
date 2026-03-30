@@ -51,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            bnyhtz.GameReset.ResetGame();
+        }
+
         if (movementdisabled == true)
         {
             _horizontalInput = 0f;

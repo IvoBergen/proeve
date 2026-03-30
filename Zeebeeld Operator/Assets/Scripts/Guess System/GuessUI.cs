@@ -1,5 +1,8 @@
+using TMPro;
 using UnityEngine;
-
+/// <summary>
+/// Handels guessing and checks if the ship is the enemyship 
+/// </summary>
 public class GuessUI : MonoBehaviour
 {
     [Header("Variables")]
@@ -8,19 +11,22 @@ public class GuessUI : MonoBehaviour
     [Header("refrences")]
     [SerializeField] private GameObject _guessUI;
     [SerializeField] private GameStateManager _gameStateManager;
-    [SerializeField] private PlayerCam _playerCam;
-    [SerializeField] private PlayerMovement _playerMovement;
-    [SerializeField] private LevelTimer _timer;
-
+    [SerializeField] ShipInfo[] _shipInfo;
+    private ShipInfo _selectedShip;
     [Header("UI")]
+    [SerializeField] TMP_Text shipname;
     [SerializeField] private GameObject _yesTarget;
     [SerializeField] private GameObject _noTarget;
 
-    private int _currentIndex = 0; // 0 = Yes, 1 = No
+    private int _currentIndex = 0;
 
     private void OnEnable()
     {
         UpdatePointer();
+    }
+    private void Start()
+    {
+        _shipInfo = FindObjectsOfType<ShipInfo>();
     }
 
     private void Update()
@@ -28,43 +34,43 @@ public class GuessUI : MonoBehaviour
         if (!Active) return;
 
         _guessUI.SetActive(true);
-        _playerCam._movementDisabled = true;
-        _playerMovement.movementdisabled = true;
-        _timer.PauseTimer();
-
-        // LEFT
+        _gameStateManager.InDialogue();
+        _gameStateManager.PauseTimer();
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             _currentIndex = 0;
             UpdatePointer();
         }
-
-        // RIGHT
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             _currentIndex = 1;
             UpdatePointer();
         }
-
-        // CONFIRM
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             Confirm();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            _guessUI.SetActive(false);
-            _playerCam._movementDisabled = false;
-            _playerMovement.movementdisabled = false;
-            Active = false;
-            _timer.ResumeTimer();
+            CloseUI();
         }
     }
 
-    public void ActivateUI()
+    public void ActivateUI(int shipIndex)
     {
+        if (shipIndex < 0 || shipIndex >= _shipInfo.Length)
+        {
+            Debug.LogWarning("Invalid ship index!");
+            return;
+        }
+
+        _selectedShip = _shipInfo[shipIndex];
+
         Active = true;
         _currentIndex = 0;
+
+        shipname.text = _selectedShip.currentShipName;
+
         UpdatePointer();
     }
 
@@ -73,23 +79,32 @@ public class GuessUI : MonoBehaviour
         _yesTarget.SetActive(_currentIndex == 0);
         _noTarget.SetActive(_currentIndex == 1);
     }
-    // Change this when ship info becomes a thing
     private void Confirm()
     {
         if (_currentIndex == 0)
         {
-            _gameStateManager.GameWin();
+            if (_selectedShip.isenemy)
+            {
+                _gameStateManager.GameWin();
+            }
+            else
+            {
+                _gameStateManager.Gameover();
+            }
         }
         else
         {
-            _guessUI.SetActive(false);
-            _playerCam._movementDisabled = false;
-            _playerMovement.movementdisabled = false;
-            Active = false;
-            _timer.ResumeTimer();
+            CloseUI();
+            return;
         }
 
-        Active = false;
+        CloseUI();
+    }
+    private void CloseUI()
+    {
         _guessUI.SetActive(false);
+        _gameStateManager.exitDialouge();
+        Active = false;
+        _gameStateManager.ResumeTimer();
     }
 }

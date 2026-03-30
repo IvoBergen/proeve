@@ -1,5 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 
+/// <summary>
+/// Detects nearby interactables, shows the interaction prompt,
+/// and invokes interactions on E. Interaction is paused during dialogue
+/// and while the clipboard is open.
+/// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
     [Header("Settings")]
@@ -11,12 +16,21 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private GameObject _canvasHolder;
     [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private GameStateManager _gameStateManager;
 
     private IInterface[] _currentInteractables; // all IInterface components on the hit object
     private bool _hasInteracted = false;
 
     void Update()
     {
+        if (_gameStateManager != null && _gameStateManager.IsClipboardOpen)
+        {
+            _currentInteractables = null;
+            _hasInteracted = false;
+            _canvasHolder.SetActive(false);
+            return;
+        }
+
         if (_dialogueManager.Active)
         {
             _currentInteractables = null;
@@ -75,4 +89,13 @@ public class PlayerInteraction : MonoBehaviour
             _radius
         );
     }
+
+    private void Awake()
+    {
+        if (_gameStateManager == null)
+        {
+            _gameStateManager = FindObjectOfType<GameStateManager>();
+        }
+    }
 }
+

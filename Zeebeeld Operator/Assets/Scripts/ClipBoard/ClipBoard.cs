@@ -4,18 +4,39 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-/// xxx
+/// Manages clipboard visibility and clue text rendering.
+/// Toggles the clipboard with TAB, blocks opening during dialogue,
+/// and routes open/close state through the GameStateManager.
 /// </summary>
 public class Clipboard : MonoBehaviour
 {
     [SerializeField] private ClueManager _clueManager;
     [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private DialogueManager _dialogueManager;
+    [SerializeField] private KeyCode _toggleKey = KeyCode.Tab;
+    [SerializeField] private bool _startOpen = false;
+    private GameObject _clipboardVisualRoot;
+
+    private bool _isOpen;
 
     private void Awake()
     {
+        _clipboardVisualRoot = gameObject;
+
         if (_clueManager == null)
         {
             _clueManager = ClueManager.Instance;
+        }
+
+        if (_gameStateManager == null)
+        {
+            _gameStateManager = FindObjectOfType<GameStateManager>();
+        }
+
+        if (_dialogueManager == null)
+        {
+            _dialogueManager = FindObjectOfType<DialogueManager>();
         }
     }
 
@@ -34,8 +55,34 @@ public class Clipboard : MonoBehaviour
         RefreshText();
     }
 
+    private void Start()
+    {
+        SetClipboardState(_startOpen, true);
+    }
+
+    private void Update()
+    {
+        if (!Input.GetKeyDown(_toggleKey))
+        {
+            return;
+        }
+
+        bool wantsToOpen = !_isOpen;
+        if (wantsToOpen && _dialogueManager != null && _dialogueManager.Active)
+        {
+            return;
+        }
+
+        SetClipboardState(wantsToOpen, false);
+    }
+
     private void OnDisable()
     {
+        if (_isOpen)
+        {
+            SetClipboardState(false, false);
+        }
+
         if (_clueManager != null)
         {
             _clueManager.OnCluesChanged -= RefreshText;
@@ -76,5 +123,39 @@ public class Clipboard : MonoBehaviour
         }
 
         _text.text = builder.ToString();
+    }
+
+    private void SetClipboardState(bool open, bool force)
+    {
+        if (!force && _isOpen == open)
+        {
+            return;
+        }
+
+        _isOpen = open;
+
+        if (_clipboardVisualRoot != null && _clipboardVisualRoot != gameObject)
+        {
+            _clipboardVisualRoot.SetActive(open);
+        }
+        else
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(open);
+            }
+        }
+
+        if (_gameStateManager != null)
+        {
+            if (open)
+            {
+                _gameStateManager.OpenClipboard();
+            }
+            else
+            {
+                _gameStateManager.CloseClipboard();
+            }
+        }
     }
 }

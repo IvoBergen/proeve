@@ -4,6 +4,7 @@ using UnityEngine;
 /// Handles starting dialogue when interacting with an object.
 /// It gives the interacted object the owner bool so other objects dont interfere
 /// Allows advancing dialogue with Space or Left Click.
+/// Prevents dialogue start while the clipboard is open.
 /// </summary>
 public class DialogueTrigger : MonoBehaviour, IInterface
 {
@@ -11,6 +12,7 @@ public class DialogueTrigger : MonoBehaviour, IInterface
     public Dialogue dialogue;
 
     private DialogueManager _dialogueManager;
+    private GameStateManager _gameStateManager;
 
     private bool _isOwner = false;
 
@@ -19,6 +21,10 @@ public class DialogueTrigger : MonoBehaviour, IInterface
         _dialogueManager = FindObjectOfType<DialogueManager>();
         if (_dialogueManager == null)
             Debug.LogError("DialogueManager not found in the scene!");
+
+        _gameStateManager = FindObjectOfType<GameStateManager>();
+        if (_gameStateManager == null)
+            Debug.LogError("GameStateManager not found in the scene!");
     }
 
     /// <summary>
@@ -28,6 +34,7 @@ public class DialogueTrigger : MonoBehaviour, IInterface
     public void Interact()
     {
         if (_dialogueManager == null || dialogue == null) return;
+        if (_gameStateManager != null && _gameStateManager.IsClipboardOpen) return;
 
         _isOwner = true;
         _dialogueManager.BeginDialogue(dialogue);
