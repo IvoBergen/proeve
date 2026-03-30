@@ -53,20 +53,7 @@ Je bent een marinier op een marineschip en werkt als radartopist. Je taak is het
 
 ## Installatie
 
-1. Clone de repository:
-```bash
-git clone https://github.com/<jouwgebruikersnaam>/NavalRadarGame.git
-```
-
-2. Open het project in **Unity 2022.3.62f3**
-
-3. Zorg dat de volgende packages zijn geïnstalleerd:
-   - TextMeshPro
-   - Unity Input System
-
-4. Open de scene `MainScene` en druk op **Play**.
-
----
+----
 
 ## Contributie
 
@@ -109,6 +96,20 @@ User feedback is verwerkt in user stories en prioriteiten.
 
 ---
 
+## Game mechanics 
+De mechanics van team 04 marine.
+## moving platform by Ivo
+The moving cubes are made as an obstacle for the player. They Move to random locations decided by the input values on the X an Z axis. The cube also rotates between 90, 0 and -90 degrees to add for an extra layer of difficulty.
+
+![MovingCubes gif](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/MovingCubes.gif)
+
+This is the visual sheet for the moving cube scripts
+
+![Moving Cubes visualsheet](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/VisualSheetMovingCube.png)
+
+* [Moving Cubes](ProefExamenGame/Assets/Scripts/MovingCubes)
+
+The moving platforms are added to challenge the player’s movement, timing, and overall control. Instead of simply walking or jumping across static surfaces, the player must carefully observe the platform’s motion and choose the right moment to move.
 ## Credits
 
 | Naam | Rol |
