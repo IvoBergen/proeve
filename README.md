@@ -87,7 +87,7 @@ This is the visual sheet for the moving cube scripts
 
 ![Timer visualsheet](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/Timer-visualsheet.png)
 
-* [TimerScript](Zeebeeld_Operator/Assets/Scripts/Timer) 
+* [TimerScript](Zeebeeld%20Operator/Assets/Scripts/Timer) 
 
 
 The moving platforms are added to challenge the player’s movement, timing, and overall control. Instead of simply walking or jumping across static surfaces, the player must carefully observe the platform’s motion and choose the right moment to move.
