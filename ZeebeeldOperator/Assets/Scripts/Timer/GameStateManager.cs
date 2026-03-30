@@ -1,14 +1,10 @@
 using UnityEngine;
-using bnyhtz;
 
 /// <summary>
 /// Central state coordinator for game flow, dialogue, timer, and clipboard open state.
 /// </summary>
 public class GameStateManager : MonoBehaviour
 {
-    /// <summary>
-    /// Handels the state that the game is currently in
-    /// </summary>
     [SerializeField] GameObject GameoverUI;
     [SerializeField] GameObject WinUI;
     [SerializeField] PlayerCam playerCam;
