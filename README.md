@@ -1,11 +1,11 @@
-# 🚢 Naval Radar Game
+#  Zeebeeld operator
 
 > **Genre:** Detective / Simulation | **Platform:** PC | **Status:** In ontwikkeling / Prototype  
 > **Unity versie:** 2022.3.62f3
 
 ---
 
-## 📖 Over het spel
+## Over het spel
 
 Je bent een marinier op een marineschip en werkt als radartopist. Je taak is het identificeren van schepen in de omgeving. Door radar, verrekijker en communicatie bepaal je of een schip vijandig of vriendelijk is. Het spel draait om observatie, analyse en het maken van de juiste beslissingen onder druk.
 
@@ -17,7 +17,7 @@ Je bent een marinier op een marineschip en werkt als radartopist. Je taak is het
 
 ---
 
-## 🎮 Gameplay
+## Gameplay
 
 | Actie | Besturing |
 |---|---|
@@ -28,11 +28,11 @@ Je bent een marinier op een marineschip en werkt als radartopist. Je taak is het
 | Schip kiezen | Pijltjestoetsen |
 | Bevestigen | Enter |
 
-> ⏱ Spelrondes duren **5 minuten**.
+> Spelrondes duren **5 minuten**.
 
 ---
 
-## 🛠 Features / Systemen
+## Features / Systemen
 
 | Systeem | Status | Auteur |
 |---|---|---|
@@ -51,7 +51,7 @@ Je bent een marinier op een marineschip en werkt als radartopist. Je taak is het
 
 ---
 
-## 📂 Installatie
+## Installatie
 
 1. Clone de repository:
 ```bash
@@ -68,7 +68,7 @@ git clone https://github.com/<jouwgebruikersnaam>/NavalRadarGame.git
 
 ---
 
-## 🔧 Contributie
+## Contributie
 
 Gebruik de volgende branch-naamgeving:
 
@@ -84,7 +84,7 @@ documentation/<doc-naam>
 
 ---
 
-## 🧪 Playtesting & Feedback
+## Playtesting & Feedback
 
 User feedback is verwerkt in user stories en prioriteiten.
 
@@ -97,7 +97,7 @@ User feedback is verwerkt in user stories en prioriteiten.
 
 ---
 
-## 📌 Code Conventies
+## Code Conventies
 
 | Regel | Voorbeeld |
 |---|---|
@@ -109,7 +109,7 @@ User feedback is verwerkt in user stories en prioriteiten.
 
 ---
 
-## 👥 Credits
+## Credits
 
 | Naam | Rol |
 |---|---|
