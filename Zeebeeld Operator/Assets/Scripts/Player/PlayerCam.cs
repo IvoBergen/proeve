@@ -7,8 +7,8 @@ public class PlayerCam : MonoBehaviour
     [SerializeField] private Transform _orientation;
 
     [Header("Sensitivity")]
-    [SerializeField] private float _sensX = 100f;
-    [SerializeField] private float _sensY = 100f;
+    [SerializeField] public float sensX = 100f;
+    [SerializeField] public float sensY = 100f;
 
     private float _xRotation;
     private float _yRotation;
@@ -26,11 +26,18 @@ public class PlayerCam : MonoBehaviour
 
         HandleMouseLook();
     }
+    public void SetSensitivity(float value)
+    {
+        sensX = value;
+        sensY = value;
+        Debug.Log("Sensitivity set to: " + value);
+
+    }
 
     private void HandleMouseLook()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * _sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * _sensY;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
         _yRotation += mouseX;
         _xRotation -= mouseY;
