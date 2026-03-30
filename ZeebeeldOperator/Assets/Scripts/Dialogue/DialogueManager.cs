@@ -16,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueUI;
+    [SerializeField] private float _dialogueTextSpeed;
 
     private Queue<string> _sentences;
 
@@ -70,6 +71,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char letter in sentence)
         {
+            yield return new WaitForSeconds(_dialogueTextSpeed);
             _dialogueText.text += letter;
             yield return null;
         }
