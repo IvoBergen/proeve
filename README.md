@@ -97,7 +97,7 @@ Dit is de visual sheet van de timer script
 
 ![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)
 
-* [TimerScript](ZeebeeldOperator/Assets/Scripts/interactionSysteem/PlayerInteraction)   
+* [TimerScript](ZeebeeldOperator/Assets/Scripts/interactionSystem/PlayerInteraction)   
 
 ## Credits
 
