@@ -60,13 +60,15 @@ Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.
 
 ### Timer (door Owen Stas)  
 Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de tijd op is, verliest de speler automatisch.  
-
+**User story:**  
+> Als speler wil ik een timer die visueel en auditief intensiever wordt naarmate de tijd afloopt, zodat ik de urgentie en stakes voel toenemen. 
 ![Timer gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer.gif)  
 
 Visualisatie van het timerscript:  
 ![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer-visualsheet.png)  
 
 * [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)
+
 ---
 
 ### Interaction Systeem (door Owen Stas)  
@@ -83,6 +85,20 @@ Visualisatie:
 Script:  
 * [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
 ---
+### Guess Systeem (door Owen Stas)  
+
+Met dit systeem kan de speler het vijandelijke schip raden
+
+**User story:**  
+> Als speler wil ik een schip kunnen kiezen en direct feedback krijgen op mijn guess, zodat ik weet of ik correct heb gehandeld en de druk van mijn keuzes voel. 
+
+![GuessSysteem gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/GuessSysteem.gif)  
+
+Visualisatie:  
+![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Guess-System-BWP-VWO-Visualsheet.png)  
+
+Script:  
+* [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)
 
 ## Playtesting & Feedback  
 
