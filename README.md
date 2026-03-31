@@ -66,9 +66,7 @@ Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de
 Visualisatie van het timerscript:  
 ![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer-visualsheet.png)  
 
-Script:  
-- `Assets/Scripts/Timer/LevelTimer.cs`  
-
+* [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)
 ---
 
 ### Interaction Systeem (door Owen Stas)  
@@ -83,8 +81,7 @@ Visualisatie:
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
-- `Assets/Scripts/InteractionSystem/PlayerInteraction.cs`  
-
+* [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
 ---
 
 ## Playtesting & Feedback  
