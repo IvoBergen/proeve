@@ -76,7 +76,7 @@ wiki/usertest moet hier
 ---
 
 ## Game mechanics 
-De mechanics van team 04 marine.
+De mechanics van team 04 marine. 
 // indepth over elke feature
 ## Timer door Owen Stas 
 
@@ -97,7 +97,7 @@ Dit is de visual sheet van de timer script
 
 ![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)
 
-* [TimerScript](ZeebeeldOperator/Assets/Scripts/interactionSystem/PlayerInteraction)   
+* [TimerScript](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
 
 ## Credits
 
