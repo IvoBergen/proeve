@@ -1,109 +1,128 @@
-#  Zeebeeld operator
+# Zeebeeld Operator  
 
-> **Genre:** Detective / Simulation | **Platform:** PC | **Status:** In ontwikkeling / Prototype  
-> **Unity versie:** 2022.3.62f3
-
----
-
-## Over het spel
-
-Je bent een marinier op een marineschip en werkt als radartopist. Je taak is het identificeren van schepen in de omgeving. Door radar, verrekijker en communicatie bepaal je of een schip vijandig of vriendelijk is. Het spel draait om observatie, analyse en het maken van de juiste beslissingen onder druk.
-
-**Kernpunten:**
-- Start je dag in je hut met een korte tutorial.
-- Observeer andere bemanningsleden terwijl je zelfstandig aan de slag gaat.
-- Verzamel aanwijzingen (clues) en gebruik de clipboard om schepen te identificeren.
-- Beslis welke boot de vijand is voordat de tijd om is.
+> **Genre:** Detective / Simulatie  
+> **Platform:** PC  
+> **Status:** In ontwikkeling (Prototype)  
+> **Unity versie:** 2022.3.62f3  
 
 ---
 
-## Gameplay
+## Over het spel  
+
+Je speelt als marinier op een marineschip in de rol van **radartopist**. Jouw taak is het identificeren van schepen in de omgeving. Met behulp van radar, een verrekijker en communicatie bepaal je of een schip vijandig of vriendelijk is.  
+
+Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.  
+
+### Kernpunten  
+- Start je dag in je hut met een korte tutorial  
+- Observeer bemanningsleden en de omgeving  
+- Verzamel aanwijzingen (clues)  
+- Gebruik de clipboard om schepen te analyseren  
+- Identificeer het vijandelijke schip voordat de tijd om is  
+
+---
+
+## Gameplay  
 
 | Actie | Besturing |
-|---|---|
+|------|----------|
 | Bewegen | WASD |
 | Rondkijken | Muis |
 | Interacteren | E |
 | Clipboard openen | TAB |
-| Schip kiezen | Pijltjestoetsen |
+| Schip selecteren | Pijltjestoetsen |
 | Bevestigen | Enter |
 
-> Spelrondes duren **5 minuten**.
+> Een spelronde duurt **5 minuten**  
 
 ---
 
-## Features / Systemen
-general info van alle feature
+## Features / Systemen  
+
+- **Timer systeem** – bepaalt de speelduur en verliesconditie  
+- **Interaction systeem** – interactie met objecten en NPC’s  
+- **Guess systeem** – identificeren van schepen  
+- **Dialogue systeem** – communicatie met NPC’s  
+- **Movement systeem** – speler- en camerabesturing  
+- **Clipboard systeem** – verzamelen en analyseren van informatie  
 
 ---
 
-## Installatie
+## Installatie  
 
-----
+1. Clone de repository  
 
-## Contributie
-
-Gebruik de volgende branch-naamgeving:
-
-```
-feature/<feature-naam>
-bug/<bug-naam>
-documentation/<doc-naam>
-```
-
-- Commit duidelijk met een beschrijving.
-- Pull requests moeten getest en goedgekeurd worden door de lead dev.
-- Na merge, verwijder je feature branch.
+4. Klik op **Play** in de Unity Editor  
 
 ---
 
-## Playtesting & Feedback
+## Game Mechanics  
 
+### Timer (door Owen Stas)  
+Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de tijd op is, verliest de speler automatisch.  
 
-wiki/usertest moet hier
+![Timer gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer.gif)  
+
+Visualisatie van het timerscript:  
+![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer-visualsheet.png)  
+
+Script:  
+- `Assets/Scripts/Timer/LevelTimer.cs`  
+
 ---
 
-## Code Conventies
+### Interaction Systeem (door Owen Stas)  
+Met dit systeem kan de speler interactie hebben met objecten en de spelwereld.  
+
+**User story:**  
+> Als speler wil ik kunnen interacteren met de wereld om informatie te verzamelen.  
+
+![Interaction gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Interaction.gif)  
+
+Visualisatie:  
+![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)  
+
+Script:  
+- `Assets/Scripts/InteractionSystem/PlayerInteraction.cs`  
+
+---
+
+## Playtesting & Feedback  
+
+Usertests en feedback zijn te vinden in de wiki:  
+- `wiki/usertest`  
+
+---
+
+## Contributie  
+
+Gebruik de volgende branch-structuur:  
+
+- Schrijf duidelijke commit messages  
+- Pull requests moeten getest en goedgekeurd worden  
+- Verwijder je branch na een succesvolle merge  
+
+---
+
+## Code Conventies  
 
 | Regel | Voorbeeld |
-|---|---|
+|------|----------|
 | Private variabelen beginnen met `_` | `_slider`, `_text` |
 | Public variabelen zonder `_` | `sensX`, `sensY` |
 | Functies gebruiken PascalCase | `OnSliderChanged()` |
 | Debug.Log verwijderen na testen | — |
-| Summaries boven classes en functies | `/// <summary>` |
+| Gebruik summaries | `/// <summary>` |
 
 ---
 
-## Game mechanics 
-De mechanics van team 04 marine. 
-// indepth over elke feature
-## Timer door Owen Stas 
-
-dit is een timer die 5 minuten heeft en dan afgaat en dan heb je het level verloren
-![Timer gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer.gif ) 
-
-Dit is de visual sheet van de timer script
-
-![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer-visualsheet.png)
-
-* [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer)   
- ## Interaction systeem door Owen Stas 
-
-
-![Timer gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Interaction.gif ) 
-
-Dit is de visual sheet van de timer script
-
-![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)
-
-* [TimerScript](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
-
-## Credits
+## Credits  
 
 | Naam | Rol |
-|---|---|
+|------|-----|
 | Akari Le | Clipboard, Clues |
 | Owen Stas | Interaction, Timer, Guess System |
 | Ivo Bergen | Dialogue, NPC Movement |
 | Christiaan Oostwouder | Movement |
+
+---
