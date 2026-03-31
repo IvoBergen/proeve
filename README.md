@@ -81,11 +81,11 @@ De mechanics van team 04 marine.
 ## Timer door Owen Stas 
 
 dit is een timer die 5 minuten heeft en dan afgaat en dan heb je het level verloren
-![Timer gif](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/Timer.gif)
+![Timer gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer.gif) 
 
 Dit is de visual sheet van de timer script
 
-![Timer visualsheet](https://github.com/IvoBergen/ProefExamenRepo/blob/develop/ReadMEFiles/Timer-visualsheet.png)
+![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer-visualsheet.png)
 
 * [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer)   
 ## Credits
