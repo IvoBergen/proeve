@@ -763,7 +763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -402.1, y: -274.1}
+  m_AnchoredPosition: {x: -574.10004, y: -328.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223806670
@@ -998,7 +998,7 @@ RectTransform:
   m_GameObject: {fileID: 277875655}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.883705, y: 7.1889796, z: 1}
+  m_LocalScale: {x: 0.6814, y: 2.0004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 619452101}
@@ -2587,10 +2587,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 960}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2961,14 +2961,14 @@ RectTransform:
   m_GameObject: {fileID: 771110843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75383997, y: 1.6233813, z: 1.0194399}
+  m_LocalScale: {x: 0.574901, y: 0.97524536, z: 1.0194399}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 559715285}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7, y: -90}
+  m_AnchoredPosition: {x: -38, y: -100}
   m_SizeDelta: {x: -21, y: -359.80383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771110845
@@ -3367,7 +3367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4190,6 +4190,7 @@ MonoBehaviour:
   _nameText: {fileID: 181347579}
   _dialogueText: {fileID: 1898248263}
   _dialogueUI: {fileID: 1862435402}
+  _dialogueTextSpeed: 0
 --- !u!4 &1127393782
 Transform:
   m_ObjectHideFlags: 0
@@ -4217,11 +4218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e3469f6c32b284a9b8bee72245a98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameoverUI: {fileID: 1954198212}
-  WinUI: {fileID: 1046396562}
-  playerCam: {fileID: 1819229495}
-  playerMovement: {fileID: 1661609539}
-  levelTimer: {fileID: 1127393784}
 --- !u!114 &1127393784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5460,7 +5456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -455, y: -262}
+  m_AnchoredPosition: {x: -627, y: -316}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1510185578
@@ -5919,6 +5915,7 @@ MonoBehaviour:
   _camera: {fileID: 1819229494}
   _canvasHolder: {fileID: 2058730014}
   _dialogueManager: {fileID: 1127393781}
+  _gameStateManager: {fileID: 0}
 --- !u!33 &1661609535
 MeshFilter:
   m_ObjectHideFlags: 0
