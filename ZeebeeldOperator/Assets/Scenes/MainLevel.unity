@@ -4215,9 +4215,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1127393780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73e3469f6c32b284a9b8bee72245a98f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1915702ce19ac554989a4e339b4f8795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameoverUI: {fileID: 1954198212}
+  WinUI: {fileID: 1046396562}
+  playerCam: {fileID: 1819229495}
+  playerMovement: {fileID: 1661609539}
+  levelTimer: {fileID: 1127393784}
+  clipboard: {fileID: 2127174543}
 --- !u!114 &1127393784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8039,6 +8045,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2127174543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4693062838897395582, guid: c3e515983f8ba4c4fb672443c58e7738,
+    type: 3}
+  m_PrefabInstance: {fileID: 657856386}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4010ce1eba2cf3e498e7d5aa0d0e02de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2127618587
 GameObject:
   m_ObjectHideFlags: 0
