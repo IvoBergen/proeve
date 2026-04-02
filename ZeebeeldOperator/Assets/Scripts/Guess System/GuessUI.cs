@@ -1,5 +1,6 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 /// <summary>
 /// Handels guessing and checks if the ship is the enemyship 
 /// </summary>
@@ -8,10 +9,14 @@ public class GuessUI : MonoBehaviour
     [Header("Variables")]
     public bool Active;
 
+    [Header("Events")]
+    [SerializeField] private UnityEvent onGuessUIOpen;
+    [SerializeField] private UnityEvent onGuessUIClose;
+    [SerializeField] private UnityEvent onCorrectGuess;
+    [SerializeField] private UnityEvent onWrongGuess;
+    [SerializeField] private UnityEvent onCancelGuess;
     [Header("refrences")]
     [SerializeField] private GameObject _guessUI;
-    [SerializeField] private GameStateManager _gameStateManager;
-    [SerializeField] private GameUIManager _gameUIManager;
     [SerializeField] ShipInfo[] _shipInfo;
     private ShipInfo _selectedShip;
     [Header("UI")]
@@ -33,10 +38,8 @@ public class GuessUI : MonoBehaviour
     private void Update()
     {
         if (!Active) return;
-        _gameUIManager.GuessUIActive = true;
         _guessUI.SetActive(true);
-        _gameStateManager.InDialogue();
-        _gameStateManager.PauseTimer();
+        onGuessUIOpen?.Invoke();
         if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.A)))
         {
             _currentIndex = 0;
@@ -72,9 +75,12 @@ public class GuessUI : MonoBehaviour
 
         shipname.text = _selectedShip.currentShipName;
 
+        _guessUI.SetActive(true);
+
+        onGuessUIOpen?.Invoke();
+
         UpdatePointer();
     }
-
     private void UpdatePointer()
     {
         _yesTarget.SetActive(_currentIndex == 0);
@@ -86,26 +92,24 @@ public class GuessUI : MonoBehaviour
         {
             if (_selectedShip.isenemy)
             {
-                _gameStateManager.GameWin();
+                onCorrectGuess?.Invoke();
             }
             else
             {
-                _gameStateManager.Gameover();
+                onWrongGuess?.Invoke();
             }
+
+            CloseUI();
         }
         else
-        {
             CloseUI();
-            return;
-        }
-
-        CloseUI();
     }
     private void CloseUI()
     {
         _guessUI.SetActive(false);
-        _gameStateManager.exitDialouge();
+
+        onGuessUIClose?.Invoke();
+
         Active = false;
-        _gameStateManager.ResumeTimer();
     }
 }

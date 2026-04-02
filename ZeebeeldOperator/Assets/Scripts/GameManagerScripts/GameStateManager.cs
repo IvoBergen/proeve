@@ -9,6 +9,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] GameObject WinUI;
     [SerializeField] PlayerCam playerCam;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] GameUIManager gameUIManager;
     [SerializeField] LevelTimer levelTimer;
     [SerializeField] Clipboard clipboard;
     public bool IsClipboardOpen { get; private set; }
@@ -27,19 +28,26 @@ public class GameStateManager : MonoBehaviour
     {
         playerCam._movementDisabled = true;
         playerMovement.movementdisabled = true;
+        gameUIManager.GuessUIActive = true;
     }
     public void exitDialouge()
     {
         playerCam._movementDisabled = false;
         playerMovement.movementdisabled = false;
+        gameUIManager.GuessUIActive = false;
+        Debug.Log("called");
     }
     public void PauseTimer()
     {
+        playerCam._movementDisabled = true;
+        playerMovement.movementdisabled = true;
         levelTimer.PauseTimer();
     }
     public void ResumeTimer()
     {
         levelTimer.ResumeTimer();
+        playerCam._movementDisabled = false;
+        playerMovement.movementdisabled = false;
     }
 
     public void OpenClipboard()

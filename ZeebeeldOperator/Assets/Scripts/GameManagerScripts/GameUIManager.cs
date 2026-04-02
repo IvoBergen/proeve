@@ -1,17 +1,15 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// handels the ui of the game such as the pause and options menu.
+/// Handles the UI of the game such as the pause and options menu.
 /// </summary>
 public class GameUIManager : MonoBehaviour
 {
-
     [Header("Variables")]
     public bool GuessUIActive;
-    private bool _pausemenuActive;
 
     [Header("References")]
     [SerializeField] private GameStateManager _gameStateManager;
@@ -23,19 +21,23 @@ public class GameUIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GuessUIActive)
+                return;
+
+            if (_optionsMenuHolder.activeSelf)
             {
+                CloseOptions();
                 return;
             }
 
-            if (_pausemenuActive)
+            // Toggle pause menu
+            if (_PauseMenuHolder.activeSelf)
             {
                 Unpause();
-                _pausemenuActive = false;
-                return;
             }
-
-            Pause();
-            _pausemenuActive = true;
+            else
+            {
+                Pause();
+            }
         }
     }
 
@@ -46,35 +48,33 @@ public class GameUIManager : MonoBehaviour
 
     public void ExitGame()
     {
-
+#if UNITY_EDITOR
         EditorApplication.isPlaying = false;
-
+#else
         Application.Quit();
+#endif
     }
 
     public void Pause()
     {
         _PauseMenuHolder.SetActive(true);
 
-        // Unlock the cursor and make it visible
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         _gameStateManager.PauseTimer();
-        _gameStateManager.InDialogue();
     }
 
     public void Unpause()
     {
-        _pausemenuActive = false;
         _PauseMenuHolder.SetActive(false);
 
-        // Lock the cursor back to the center for gameplay
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         _gameStateManager.ResumeTimer();
         _gameStateManager.exitDialouge();
+
         _optionsMenuHolder.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
     }
