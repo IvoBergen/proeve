@@ -79,6 +79,11 @@ public class GameUIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
     }
 
+    public void ReturnToStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
     public void OpenOptions()
     {
         _optionsMenuHolder.SetActive(true);
