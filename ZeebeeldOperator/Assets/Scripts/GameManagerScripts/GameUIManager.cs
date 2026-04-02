@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -11,8 +12,11 @@ public class GameUIManager : MonoBehaviour
     [Header("Variables")]
     public bool GuessUIActive;
 
+    [Header("Events")]
+    [SerializeField] private UnityEvent onPause;
+    [SerializeField] private UnityEvent onUnpause;
+
     [Header("References")]
-    [SerializeField] private GameStateManager _gameStateManager;
     [SerializeField] private GameObject _PauseMenuHolder;
     [SerializeField] private GameObject _optionsMenuHolder;
 
@@ -29,7 +33,6 @@ public class GameUIManager : MonoBehaviour
                 return;
             }
 
-            // Toggle pause menu
             if (_PauseMenuHolder.activeSelf)
             {
                 Unpause();
@@ -62,7 +65,7 @@ public class GameUIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        _gameStateManager.PauseTimer();
+        onPause?.Invoke();
     }
 
     public void Unpause()
@@ -72,8 +75,7 @@ public class GameUIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        _gameStateManager.ResumeTimer();
-        _gameStateManager.exitDialouge();
+        onUnpause?.Invoke();
 
         _optionsMenuHolder.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
