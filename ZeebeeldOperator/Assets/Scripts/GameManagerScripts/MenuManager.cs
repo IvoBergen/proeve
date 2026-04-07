@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// handels the ui of the game such as the pause and options menu.
 /// </summary>
-public class GameUIManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
 
     [Header("Variables")]
@@ -15,8 +15,9 @@ public class GameUIManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameStateManager _gameStateManager;
-    [SerializeField] private GameObject _PauseMenuHolder;
+    [SerializeField] private GameObject _menuHolder;
     [SerializeField] private GameObject _optionsMenuHolder;
+    [SerializeField] private GameObject _controlsMenu;
 
     private void Update()
     {
@@ -39,6 +40,33 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// <c>StartGame</c> Switches the game 
+    /// </summary>
+    public void StartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("starting game");
+    }
+
+    /// <summary>
+    /// <c>ControlsMenuActivate</c> Opens the controls menu
+    /// </summary>
+    public void ControlsMenuActivate()
+    {
+        _controlsMenu.SetActive(true);
+        _menuHolder.SetActive(false);
+    }
+
+    /// <summary>
+    /// <c>ControlsMenuDeactivate</c> Closes the controls menu
+    /// </summary>
+    public void ControlsMenuDeactivate()
+    {
+        _controlsMenu.SetActive(false);
+        _menuHolder.SetActive(true);
+    }
+
     public void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -54,7 +82,7 @@ public class GameUIManager : MonoBehaviour
 
     public void Pause()
     {
-        _PauseMenuHolder.SetActive(true);
+        _menuHolder.SetActive(true);
 
         // Unlock the cursor and make it visible
         Cursor.lockState = CursorLockMode.None;
@@ -67,7 +95,7 @@ public class GameUIManager : MonoBehaviour
     public void Unpause()
     {
         _pausemenuActive = false;
-        _PauseMenuHolder.SetActive(false);
+        _menuHolder.SetActive(false);
 
         // Lock the cursor back to the center for gameplay
         Cursor.lockState = CursorLockMode.Locked;
@@ -87,12 +115,12 @@ public class GameUIManager : MonoBehaviour
     public void OpenOptions()
     {
         _optionsMenuHolder.SetActive(true);
-        _PauseMenuHolder.SetActive(false);
+        _menuHolder.SetActive(false);
     }
 
     public void CloseOptions()
     {
         _optionsMenuHolder.SetActive(false);
-        _PauseMenuHolder.SetActive(true);
+        _menuHolder.SetActive(true);
     }
 }
