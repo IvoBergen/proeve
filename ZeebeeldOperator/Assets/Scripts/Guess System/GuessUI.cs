@@ -11,7 +11,7 @@ public class GuessUI : MonoBehaviour
     [Header("refrences")]
     [SerializeField] private GameObject _guessUI;
     [SerializeField] private GameStateManager _gameStateManager;
-    [SerializeField] private GameUIManager _gameUIManager;
+    [SerializeField] private MenuManager _gameUIManager;
     [SerializeField] ShipInfo[] _shipInfo;
     private ShipInfo _selectedShip;
     [Header("UI")]

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// handels the ui of the game such as the pause and options menu.
 /// </summary>
-public class GameUIManager : MonoBehaviour
+public class MenuManager : MonoBehaviour
 {
 
     [Header("Variables")]
@@ -15,8 +15,28 @@ public class GameUIManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameStateManager _gameStateManager;
-    [SerializeField] private GameObject _PauseMenuHolder;
+    [SerializeField] private GameObject _mainMenuHolder;
+    [SerializeField] private GameObject _mainMenuSettings;
+    [SerializeField] private GameObject _menuHolder;
     [SerializeField] private GameObject _optionsMenuHolder;
+    [SerializeField] private GameObject _controlsMenu;
+
+    private void Start()
+    {
+        _mainMenuHolder.SetActive(true);
+        _menuHolder.SetActive(false);
+        _optionsMenuHolder.SetActive(false);
+        _controlsMenu.SetActive(false);
+
+        _pausemenuActive = false;
+
+        Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
+
+        _gameStateManager.PauseTimer();
+        _gameStateManager.InDialogue();
+    }
 
     private void Update()
     {
@@ -35,8 +55,36 @@ public class GameUIManager : MonoBehaviour
             }
 
             Pause();
+            _menuHolder.SetActive(true);
             _pausemenuActive = true;
         }
+    }
+
+    /// <summary>
+    /// <c>StartGame</c> Switches the game 
+    /// </summary>
+    public void StartGame()
+    {
+        _mainMenuHolder.SetActive(false);
+        Unpause();
+    }
+
+    /// <summary>
+    /// <c>ControlsMenuActivate</c> Opens the controls menu
+    /// </summary>
+    public void ControlsMenuActivate()
+    {
+        _controlsMenu.SetActive(true);
+        _mainMenuHolder.SetActive(false);
+    }
+
+    /// <summary>
+    /// <c>ControlsMenuDeactivate</c> Closes the controls menu
+    /// </summary>
+    public void ControlsMenuDeactivate()
+    {
+        _controlsMenu.SetActive(false);
+        _mainMenuHolder.SetActive(true);
     }
 
     public void ResetLevel()
@@ -54,7 +102,6 @@ public class GameUIManager : MonoBehaviour
 
     public void Pause()
     {
-        _PauseMenuHolder.SetActive(true);
 
         // Unlock the cursor and make it visible
         Cursor.lockState = CursorLockMode.None;
@@ -67,7 +114,7 @@ public class GameUIManager : MonoBehaviour
     public void Unpause()
     {
         _pausemenuActive = false;
-        _PauseMenuHolder.SetActive(false);
+        _menuHolder.SetActive(false);
 
         // Lock the cursor back to the center for gameplay
         Cursor.lockState = CursorLockMode.Locked;
@@ -79,15 +126,33 @@ public class GameUIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
     }
 
+    public void ReturnToStart()
+    {
+        _mainMenuHolder.SetActive(true);
+        Pause();
+    }
+
     public void OpenOptions()
     {
         _optionsMenuHolder.SetActive(true);
-        _PauseMenuHolder.SetActive(false);
+        _menuHolder.SetActive(false);
     }
 
     public void CloseOptions()
     {
         _optionsMenuHolder.SetActive(false);
-        _PauseMenuHolder.SetActive(true);
+        _menuHolder.SetActive(true);
+    }
+
+    public void MainMenuSettingsOpen()
+    {
+        _mainMenuSettings.SetActive(true);
+        _mainMenuHolder.SetActive(false);
+    }
+
+    public void MainMenuOptionsClose()
+    {
+        _mainMenuSettings.SetActive(false);
+        _mainMenuHolder.SetActive(true);
     }
 }
