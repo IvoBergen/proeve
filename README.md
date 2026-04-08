@@ -94,7 +94,7 @@ Met dit systeem kan de speler het vijandelijke schip raden
 **User story:**  
 > Als speler wil ik een schip kunnen kiezen en direct feedback krijgen op mijn guess, zodat ik weet of ik correct heb gehandeld en de druk van mijn keuzes voel. 
 
-![GuessSysteem gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GuessSysteem.gif)  
+![GuessSysteem gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction.gif)  
 
 Visualisatie:  
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Guess-System-BWP-VWO-Visualsheet.png)  
