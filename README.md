@@ -103,7 +103,7 @@ Script:
 ## Playtesting & Feedback  
 
 Usertests en feedback zijn te vinden in de wiki:  
-- `https://github.com/IvoBergen/proeve/wiki/UserTest`  
+👉 [Bekijk de usertests](https://github.com/IvoBergen/proeve/wiki/UserTest) 
 
 ---
 
