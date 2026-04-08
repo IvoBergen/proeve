@@ -58,7 +58,8 @@ Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.
 
 ## Game Mechanics  
 
-### Timer (door Owen Stas)  
+### Timer (door Owen Stas)
+
 Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de tijd op is, verliest de speler automatisch.  
 **User story:**  
 > Als speler wil ik een timer die visueel en auditief intensiever wordt naarmate de tijd afloopt, zodat ik de urgentie en stakes voel toenemen. 
@@ -73,7 +74,8 @@ Visualisatie van het timerscript:
 
 ---
 
-### Interaction Systeem (door Owen Stas)  
+### Interaction Systeem (door Owen Stas)
+
 Met dit systeem kan de speler interactie hebben met objecten en de spelwereld.  
 
 **User story:**  
@@ -87,7 +89,7 @@ Visualisatie:
 Script:  
 * [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
 ---
-### Guess Systeem (door Owen Stas)  
+### Guess Systeem (door Owen Stas)
 
 Met dit systeem kan de speler het vijandelijke schip raden
 
@@ -101,6 +103,42 @@ Visualisatie:
 
 Script:  
 * [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)
+
+### Dialogue System (door Ivo Bergen)
+
+Met dit systeem kan de speler praten met NPCs
+
+**User story:**
+> As a player I want to have a dialogue system so I can gather clues from other npc’s
+
+![Dialogue Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/DialogueSystem.png)  
+
+Script:
+* [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)
+
+### NPC Movement (door Ivo Bergen)
+
+Met dit systeem lopen de NPCs door de map rond.
+
+**User story:**
+> As a player I want to see NPC moving around to make the game feel more alive
+
+![NPCMovement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.png)  
+
+Script:
+* [NPC scripts](ZeebeeldOperator/Assets/Scripts/NPCSystems)
+
+### Main Menu (door Ivo Bergen & Owen Stas)
+
+Met dit systeem heeft de speler een main menu
+
+**User story:**
+> Als speler wil ik een menu hebben zodat ik het spel kan starten en of te verlaten
+
+![NPCMovement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Menu.png)  
+
+Script:
+* [Menu script(s)](ZeebeeldOperator/Assets/Scripts/GameManagerScripts/MenuManager.cs)
 
 ## Playtesting & Feedback  
 
