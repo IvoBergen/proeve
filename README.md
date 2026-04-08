@@ -62,6 +62,8 @@ Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.
 Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de tijd op is, verliest de speler automatisch.  
 **User story:**  
 > Als speler wil ik een timer die visueel en auditief intensiever wordt naarmate de tijd afloopt, zodat ik de urgentie en stakes voel toenemen. 
+
+
 ![Timer gif](https://github.com/IvoBergen/proeve/blob/documentation/readMEUpdate/ReadMEFiles/Timer.gif)  
 
 Visualisatie van het timerscript:  
