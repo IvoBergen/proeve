@@ -64,7 +64,7 @@ Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de
 > Als speler wil ik een timer die visueel en auditief intensiever wordt naarmate de tijd afloopt, zodat ik de urgentie en stakes voel toenemen. 
 
 
-![Timer gif](https://github.com/IvoBergen/proeve/blob/develop/Timer.gif)  
+![Timer gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer.gif)  
 
 Visualisatie van het timerscript:  
 ![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer-visualsheet.png)  
@@ -79,7 +79,7 @@ Met dit systeem kan de speler interactie hebben met objecten en de spelwereld.
 **User story:**  
 > Als speler wil ik kunnen interacteren met de wereld om informatie te verzamelen.  
 
-![Interaction gif](https://github.com/IvoBergen/proeve/blob/develop/Interaction.gif)  
+![Interaction gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction.gif)  
 
 Visualisatie:  
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)  
@@ -94,7 +94,7 @@ Met dit systeem kan de speler het vijandelijke schip raden
 **User story:**  
 > Als speler wil ik een schip kunnen kiezen en direct feedback krijgen op mijn guess, zodat ik weet of ik correct heb gehandeld en de druk van mijn keuzes voel. 
 
-![GuessSysteem gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction.gif)  
+![GuessSysteem gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GuessSysteem.gif)  
 
 Visualisatie:  
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Guess-System-BWP-VWO-Visualsheet.png)  
