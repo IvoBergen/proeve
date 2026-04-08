@@ -15,9 +15,28 @@ public class MenuManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private GameObject _mainMenuHolder;
+    [SerializeField] private GameObject _mainMenuSettings;
     [SerializeField] private GameObject _menuHolder;
     [SerializeField] private GameObject _optionsMenuHolder;
     [SerializeField] private GameObject _controlsMenu;
+
+    private void Start()
+    {
+        _mainMenuHolder.SetActive(true);
+        _menuHolder.SetActive(false);
+        _optionsMenuHolder.SetActive(false);
+        _controlsMenu.SetActive(false);
+
+        _pausemenuActive = false;
+
+        Cursor.lockState = CursorLockMode.None;
+
+        Cursor.visible = true;
+
+        _gameStateManager.PauseTimer();
+        _gameStateManager.InDialogue();
+    }
 
     private void Update()
     {
@@ -36,6 +55,7 @@ public class MenuManager : MonoBehaviour
             }
 
             Pause();
+            _menuHolder.SetActive(true);
             _pausemenuActive = true;
         }
     }
@@ -45,8 +65,8 @@ public class MenuManager : MonoBehaviour
     /// </summary>
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log("starting game");
+        _mainMenuHolder.SetActive(false);
+        Unpause();
     }
 
     /// <summary>
@@ -55,7 +75,7 @@ public class MenuManager : MonoBehaviour
     public void ControlsMenuActivate()
     {
         _controlsMenu.SetActive(true);
-        _menuHolder.SetActive(false);
+        _mainMenuHolder.SetActive(false);
     }
 
     /// <summary>
@@ -64,7 +84,7 @@ public class MenuManager : MonoBehaviour
     public void ControlsMenuDeactivate()
     {
         _controlsMenu.SetActive(false);
-        _menuHolder.SetActive(true);
+        _mainMenuHolder.SetActive(true);
     }
 
     public void ResetLevel()
@@ -82,7 +102,6 @@ public class MenuManager : MonoBehaviour
 
     public void Pause()
     {
-        _menuHolder.SetActive(true);
 
         // Unlock the cursor and make it visible
         Cursor.lockState = CursorLockMode.None;
@@ -109,7 +128,8 @@ public class MenuManager : MonoBehaviour
 
     public void ReturnToStart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        _mainMenuHolder.SetActive(true);
+        Pause();
     }
 
     public void OpenOptions()
@@ -122,5 +142,17 @@ public class MenuManager : MonoBehaviour
     {
         _optionsMenuHolder.SetActive(false);
         _menuHolder.SetActive(true);
+    }
+
+    public void MainMenuSettingsOpen()
+    {
+        _mainMenuSettings.SetActive(true);
+        _mainMenuHolder.SetActive(false);
+    }
+
+    public void MainMenuOptionsClose()
+    {
+        _mainMenuSettings.SetActive(false);
+        _mainMenuHolder.SetActive(true);
     }
 }
