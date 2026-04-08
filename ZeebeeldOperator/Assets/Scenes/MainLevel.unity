@@ -2734,7 +2734,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1819229498}
     m_Modifications:
     - target: {fileID: 1366585347219622218, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
@@ -2746,45 +2746,55 @@ PrefabInstance:
       propertyPath: _clueManager
       value: 
       objectReference: {fileID: 1127393787}
+    - target: {fileID: 4693062838897395582, guid: c3e515983f8ba4c4fb672443c58e7738,
+        type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 1127393781}
+    - target: {fileID: 4693062838897395582, guid: c3e515983f8ba4c4fb672443c58e7738,
+        type: 3}
+      propertyPath: _gameStateManager
+      value: 
+      objectReference: {fileID: 1127393783}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.32
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.71
+      value: 3.55
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.6
+      value: 1.44
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9815232
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.19134338
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -22.062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
@@ -5359,7 +5369,7 @@ MonoBehaviour:
   clue:
     clueName: 
     clueType: 2
-    clueText: 'Chef Willem had mij iets verteld: '
+    clueText: 
 --- !u!1 &1331530772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5521,7 +5531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1410308908
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6977,7 +6987,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2127174544}
   m_Father: {fileID: 1661609536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1819229499
@@ -8461,6 +8472,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4010ce1eba2cf3e498e7d5aa0d0e02de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2127174544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6362156643870660228, guid: c3e515983f8ba4c4fb672443c58e7738,
+    type: 3}
+  m_PrefabInstance: {fileID: 657856386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2127618587
 GameObject:
   m_ObjectHideFlags: 0
@@ -8686,7 +8703,6 @@ SceneRoots:
   - {fileID: 335885793}
   - {fileID: 1757752678}
   - {fileID: 2072805337}
-  - {fileID: 657856386}
   - {fileID: 224572748}
   - {fileID: 1367702728}
   - {fileID: 1196222385}

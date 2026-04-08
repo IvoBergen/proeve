@@ -77,16 +77,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2975768380357481189}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalRotation: {x: 0.08999255, y: -0.010910979, z: -0.0030995058, w: 0.99587786}
+  m_LocalPosition: {x: 0, y: 0, z: 32.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6151926638941915521}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.322, y: -1.298, z: -0.474}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21, y: -0}
+  m_AnchoredPosition: {x: 15.999993, y: 3.000021}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4577567998707007480
@@ -117,36 +117,33 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Clue 1
+  m_text: 'ajldgljadgladg
 
-    Clue 1 has a lot of text.
+    ajldgljadgladgajldgljadgladg
 
-    - Clue 2
+    ajldgljadgladgajldgljadgladgajldgljadgladg
 
-    Clue 1 has
-    a lot of text.
+    ajldgljadgladgajldgljadgladg
 
-    - Clue 3
+    ajldgljadgladgajldgljadgladg
 
-    Clue 1 has a lot of text.
+    ajldgljadgladg
 
-    - Clue 1
+    ajldgljadgladg
 
-    Clue
-    1 has a lot of text.
+    ajldgljadgladgajldgljadgladg
 
-    - Clue 2
+    ad
 
-    Clue 1 has a lot of text.
+    gad
 
-    - Clue
-    3
+    ga
 
-    Clue 1 has a lot of text.
+    dg
 
-    - Clue 1
+    adgaljdgbjlahgjleahjgjlaweg
 
-    Clue 1 has a lot of text.'
+    aeg'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e9d3f9eeb19657641a5f4413f087c33b, type: 2}
   m_sharedMaterial: {fileID: 4596628830983104171, guid: e9d3f9eeb19657641a5f4413f087c33b,
@@ -182,7 +179,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -380,7 +377,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5910863085838135471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.009996186, y: 0.0075719254, z: -0.018411284, w: -0.99975187}
   m_LocalPosition: {x: 0, y: 0, z: 37}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -632,7 +629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.1, y: -3.32}
+  m_AnchoredPosition: {x: 1.07, y: -3.32}
   m_SizeDelta: {x: 1032.4999, y: 581}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8438701943454339392
