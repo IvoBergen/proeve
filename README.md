@@ -82,7 +82,7 @@ Met dit systeem kan de speler interactie hebben met objecten en de spelwereld.
 ![Interaction gif](https://github.com/IvoBergen/proeve/blob/develop/Interaction.gif)  
 
 Visualisatie:  
-![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/Interaction-System-BWP-VWO-Visualsheet.png)  
+![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
 * [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
