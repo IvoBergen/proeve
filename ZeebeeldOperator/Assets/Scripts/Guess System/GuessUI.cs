@@ -107,5 +107,6 @@ public class GuessUI : MonoBehaviour
         _gameStateManager.exitDialouge();
         Active = false;
         _gameStateManager.ResumeTimer();
+        _gameUIManager.GuessUIActive = false;
     }
 }
