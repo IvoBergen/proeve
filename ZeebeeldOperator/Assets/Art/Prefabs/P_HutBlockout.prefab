@@ -11,37 +11,37 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.326
+      value: -3.863
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.053
+      value: 0.179
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.31
+      value: -13.469
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.70912546
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7050823
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -89.672
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
@@ -61,7 +61,17 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9dc93a8514660764392a3bc65b7f1b1c,
         type: 3}
       propertyPath: m_Name
-      value: SM_HutBlockout
+      value: P_HutBlockout
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9dc93a8514660764392a3bc65b7f1b1c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139177615324309081, guid: 9dc93a8514660764392a3bc65b7f1b1c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

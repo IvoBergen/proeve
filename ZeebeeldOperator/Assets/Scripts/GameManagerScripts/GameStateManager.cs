@@ -45,11 +45,9 @@ public class GameStateManager : MonoBehaviour
     public void OpenClipboard()
     {
         IsClipboardOpen = true;
-        playerCam._movementDisabled = true;
     }
     public void CloseClipboard()
     {
         IsClipboardOpen = false;
-        playerCam._movementDisabled = false;
     }
 }
