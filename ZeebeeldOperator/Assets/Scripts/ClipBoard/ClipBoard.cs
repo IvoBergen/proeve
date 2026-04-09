@@ -22,12 +22,17 @@ public class Clipboard : MonoBehaviour
     [SerializeField] private float _probeRadius = 0.08f;
     [SerializeField] private float _wallPadding = 0.02f;
     [SerializeField] private float _positionSmoothing = 18f;
+    [SerializeField] private float _hideIfCloserThan = 0.1f;
+    [SerializeField] private bool _debugWallHideTransitions = true;
     private GameObject _clipboardVisualRoot;
 
     private bool _isOpen;
     private Transform _selfTransform;
     private Collider[] _physicalColliders;
     private bool _hasCachedDefaultPose;
+    private bool _hiddenByWall;
+    private bool _blockedByWall;
+    private Collider _lastBlocker;
     private Vector3 _defaultLocalPosition;
     private Quaternion _defaultLocalRotation;
 
@@ -162,18 +167,9 @@ public class Clipboard : MonoBehaviour
         }
 
         _isOpen = open;
+        _hiddenByWall = false;
 
-        if (_clipboardVisualRoot != null && _clipboardVisualRoot != gameObject)
-        {
-            _clipboardVisualRoot.SetActive(open);
-        }
-        else
-        {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                transform.GetChild(i).gameObject.SetActive(open);
-            }
-        }
+        SetVisualsActive(open);
 
         if (_gameStateManager != null)
         {
@@ -225,6 +221,7 @@ public class Clipboard : MonoBehaviour
             QueryTriggerInteraction.Ignore);
 
         float nearestDistance = float.PositiveInfinity;
+        Collider nearestCollider = null;
         for (int i = 0; i < hits.Length; i++)
         {
             Collider hitCollider = hits[i].collider;
@@ -241,13 +238,25 @@ public class Clipboard : MonoBehaviour
             if (hits[i].distance < nearestDistance)
             {
                 nearestDistance = hits[i].distance;
+                nearestCollider = hitCollider;
             }
         }
 
-        if (!float.IsPositiveInfinity(nearestDistance))
+        bool hasBlockingHit = !float.IsPositiveInfinity(nearestDistance);
+        if (hasBlockingHit)
         {
             float safeDistance = Mathf.Max(nearestDistance - _wallPadding, 0f);
             resolvedPosition = origin + direction * safeDistance;
+        }
+
+        UpdateBlockingDebugState(hasBlockingHit, nearestCollider, nearestDistance);
+
+        bool hideByWall = hasBlockingHit
+            && (resolvedPosition - origin).sqrMagnitude <= _hideIfCloserThan * _hideIfCloserThan;
+        SetHiddenByWall(hideByWall, nearestCollider, nearestDistance, resolvedPosition, origin);
+        if (hideByWall)
+        {
+            return;
         }
 
         ApplyResolvedPose(resolvedPosition, desiredRotation);
@@ -340,5 +349,78 @@ public class Clipboard : MonoBehaviour
 
             col.enabled = false;
         }
+    }
+
+    private void SetHiddenByWall(bool hidden, Collider blocker, float hitDistance, Vector3 resolvedPosition, Vector3 cameraOrigin)
+    {
+        if (_hiddenByWall == hidden)
+        {
+            return;
+        }
+
+        _hiddenByWall = hidden;
+
+        if (_debugWallHideTransitions)
+        {
+            if (hidden)
+            {
+                string blockerName = blocker != null ? blocker.gameObject.name : "Unknown";
+                float resolvedDistance = Vector3.Distance(cameraOrigin, resolvedPosition);
+                Debug.Log($"[Clipboard] Hiding due to wall hit on '{blockerName}'. Hit distance: {hitDistance:F3}, resolved distance: {resolvedDistance:F3}.");
+            }
+            else
+            {
+                Debug.Log("[Clipboard] Visible again. No longer forced hidden by nearby wall.");
+            }
+        }
+
+        if (!_isOpen)
+        {
+            return;
+        }
+
+        SetVisualsActive(!hidden);
+    }
+
+    private void SetVisualsActive(bool active)
+    {
+        if (_clipboardVisualRoot != null && _clipboardVisualRoot != gameObject)
+        {
+            _clipboardVisualRoot.SetActive(active);
+            return;
+        }
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(active);
+        }
+    }
+
+    private void UpdateBlockingDebugState(bool blocked, Collider blocker, float hitDistance)
+    {
+        if (!_debugWallHideTransitions)
+        {
+            _blockedByWall = blocked;
+            _lastBlocker = blocked ? blocker : null;
+            return;
+        }
+
+        if (blocked)
+        {
+            bool startedBlocking = !_blockedByWall;
+            bool blockerChanged = _lastBlocker != blocker;
+            if (startedBlocking || blockerChanged)
+            {
+                string blockerName = blocker != null ? blocker.gameObject.name : "Unknown";
+                Debug.Log($"[Clipboard] Blocked by '{blockerName}'. Hit distance: {hitDistance:F3}.");
+            }
+        }
+        else if (_blockedByWall)
+        {
+            Debug.Log("[Clipboard] No longer blocked by wall.");
+        }
+
+        _blockedByWall = blocked;
+        _lastBlocker = blocked ? blocker : null;
     }
 }

@@ -5010,6 +5010,11 @@ PrefabInstance:
       objectReference: {fileID: 1127393783}
     - target: {fileID: 4693062838897395582, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
+      propertyPath: _debugWallHideTransitions
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4693062838897395582, guid: c3e515983f8ba4c4fb672443c58e7738,
+        type: 3}
       propertyPath: _clipboardCollisionMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -11335,7 +11340,12 @@ PrefabInstance:
     - target: {fileID: 540441272849935933, guid: c51df54be5670814da0e5f976476e6c8,
         type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3195354191771049670, guid: c51df54be5670814da0e5f976476e6c8,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4107394541875062977, guid: c51df54be5670814da0e5f976476e6c8,
         type: 3}
