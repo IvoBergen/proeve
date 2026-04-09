@@ -13,7 +13,8 @@ Je speelt als marinier op een marineschip in de rol van **radartopist**. Jouw ta
 
 Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.  
 
-### Kernpunten  
+### Kernpunten
+
 - Start je dag in je hut met een korte tutorial  
 - Observeer bemanningsleden en de omgeving  
 - Verzamel aanwijzingen (clues)  
@@ -25,7 +26,7 @@ Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.
 ## Gameplay  
 
 | Actie | Besturing |
-|------|----------|
+| ------ | ---------- |
 | Bewegen | WASD |
 | Rondkijken | Muis |
 | Interacteren | E |
@@ -52,7 +53,7 @@ Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.
 
 1. Clone de repository  
 
-4. Klik op **Play** in de Unity Editor  
+2. Klik op **Play** in de Unity Editor  
 
 ---
 
@@ -61,16 +62,18 @@ Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.
 ### Timer (door Owen Stas)
 
 Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de tijd op is, verliest de speler automatisch.  
-**User story:**  
-> Als speler wil ik een timer die visueel en auditief intensiever wordt naarmate de tijd afloopt, zodat ik de urgentie en stakes voel toenemen. 
 
+**User story:**  
+> Als speler wil ik een timer die visueel en auditief intensiever wordt naarmate de tijd afloopt, zodat ik de urgentie en stakes voel toenemen.
 
 ![Timer gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer.gif)  
 
 Visualisatie van het timerscript:  
-![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer-visualsheet.png)  
+![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer-visualsheet.png)
 
-* [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)
+Script:
+
+- [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)
 
 ---
 
@@ -87,14 +90,17 @@ Visualisatie:
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
-* [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
+
+- [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
+
 ---
+
 ### Guess Systeem (door Owen Stas)
 
 Met dit systeem kan de speler het vijandelijke schip raden
 
 **User story:**  
-> Als speler wil ik een schip kunnen kiezen en direct feedback krijgen op mijn guess, zodat ik weet of ik correct heb gehandeld en de druk van mijn keuzes voel. 
+> Als speler wil ik een schip kunnen kiezen en direct feedback krijgen op mijn guess, zodat ik weet of ik correct heb gehandeld en de druk van mijn keuzes voel.
 
 ![GuessSysteem gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GuessSysteem.gif)  
 
@@ -102,48 +108,59 @@ Visualisatie:
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Guess-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
-* [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)
+
+- [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)
 
 ### Dialogue System (door Ivo Bergen)
 
-Met dit systeem kan de speler praten met NPCs
+With this system the player can talk with NPCs
 
 **User story:**
 > As a player I want to have a dialogue system so I can gather clues from other npc’s
 
 ![Dialogue Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/DialogueSystem.png)  
 
+![Dialogue Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Dialogue.gif)
+
 Script:
-* [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)
+
+- [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)
 
 ### NPC Movement (door Ivo Bergen)
 
-Met dit systeem lopen de NPCs door de map rond.
+With this system NPCs can walk around the map
 
 **User story:**
 > As a player I want to see NPC moving around to make the game feel more alive
 
+![Npc Movement Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.gif)
+
 ![NPCMovement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.png)  
 
 Script:
-* [NPC scripts](ZeebeeldOperator/Assets/Scripts/NPCSystems)
+
+- [NPC scripts](ZeebeeldOperator/Assets/Scripts/NPCSystems)
 
 ### Main Menu (door Ivo Bergen & Owen Stas)
 
-Met dit systeem heeft de speler een main menu
+With this system the player has a menu to change settings and start the game
 
 **User story:**
-> Als speler wil ik een menu hebben zodat ik het spel kan starten en of te verlaten
+> As a player I want a menu so that I can start or exit the game
+
+![Main Menu Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/MainMenu.gif)
 
 ![NPCMovement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Menu.png)  
 
 Script:
-* [Menu script(s)](ZeebeeldOperator/Assets/Scripts/GameManagerScripts/MenuManager.cs)
+
+- [Menu script(s)](ZeebeeldOperator/Assets/Scripts/GameManagerScripts/MenuManager.cs)
 
 ## Playtesting & Feedback  
 
 Usertests en feedback zijn te vinden in de wiki:  
-* [Bekijk de hier usertests](https://github.com/IvoBergen/proeve/wiki/UserTest) 
+
+- [Bekijk de hier usertests](https://github.com/IvoBergen/proeve/wiki/UserTest)
 
 ---
 
@@ -160,7 +177,7 @@ Gebruik de volgende branch-structuur:
 ## Code Conventies  
 
 | Regel | Voorbeeld |
-|------|----------|
+| ------ | ---------- |
 | Private variabelen beginnen met `_` | `_slider`, `_text` |
 | Public variabelen zonder `_` | `sensX`, `sensY` |
 | Functies gebruiken PascalCase | `OnSliderChanged()` |
@@ -172,7 +189,7 @@ Gebruik de volgende branch-structuur:
 ## Credits  
 
 | Naam | Rol |
-|------|-----|
+| ----- | ------ |
 | Akari Le | Clipboard, Clues |
 | Owen Stas | Interaction, Timer, Guess System |
 | Ivo Bergen | Dialogue, NPC Movement |
