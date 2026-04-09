@@ -19,7 +19,7 @@ public class NPCRotation : MonoBehaviour
     {
         if (_npcMovement.State != NPCState.Rotating) return;
 
-        Vector3 direction = (_npcMovement.Target.position - transform.position);
+        Vector3 direction = (_npcMovement.target - transform.position);
         direction.y = 0f;
 
         if (direction.sqrMagnitude < 0.001f) return;
