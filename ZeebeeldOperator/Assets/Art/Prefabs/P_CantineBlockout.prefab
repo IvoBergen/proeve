@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.966433
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.4733715
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
@@ -51,12 +51,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7029948723529949830, guid: cb78f0a4c4bdcef449b476afe3987a66,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -5423777146454920629, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
@@ -116,7 +121,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
       propertyPath: m_Name
-      value: CantineBlockout
+      value: P_CantineBlockout
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cb78f0a4c4bdcef449b476afe3987a66,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1072794339170589405, guid: cb78f0a4c4bdcef449b476afe3987a66,
         type: 3}
@@ -134,7 +144,8 @@ PrefabInstance:
       value: 0.335
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7869873546869171050, guid: cb78f0a4c4bdcef449b476afe3987a66, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8416272007918961125, guid: cb78f0a4c4bdcef449b476afe3987a66,
