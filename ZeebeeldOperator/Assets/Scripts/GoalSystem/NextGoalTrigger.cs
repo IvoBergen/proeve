@@ -4,13 +4,14 @@ using UnityEngine.Events;
 public class NextGoalTrigger : MonoBehaviour, IInterface
 {
     [SerializeField] UnityEvent NextGoal;
-    private bool Hastriggerd;
+    private bool hasTriggered;
+
     public void Interact()
     {
-        if (Hastriggerd == false)
+        if (!hasTriggered)
         {
-            NextGoal.Invoke();
-            Hastriggerd = true;
+            NextGoal.Invoke(); // This will call GoalManager.NextGoal()
+            hasTriggered = true;
         }
     }
 }
