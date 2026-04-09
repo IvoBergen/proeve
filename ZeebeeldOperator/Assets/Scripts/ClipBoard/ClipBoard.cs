@@ -16,13 +16,32 @@ public class Clipboard : MonoBehaviour
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private KeyCode _toggleKey = KeyCode.Tab;
     [SerializeField] private bool _startOpen = false;
+    [Header("Wall Clipping")]
+    [SerializeField] private Transform _cameraTransform;
+    [SerializeField] private LayerMask _clipboardCollisionMask = ~0;
+    [SerializeField] private float _probeRadius = 0.08f;
+    [SerializeField] private float _wallPadding = 0.02f;
+    [SerializeField] private float _positionSmoothing = 18f;
     private GameObject _clipboardVisualRoot;
 
     private bool _isOpen;
+    private Transform _selfTransform;
+    private Collider[] _physicalColliders;
+    private bool _hasCachedDefaultPose;
+    private Vector3 _defaultLocalPosition;
+    private Quaternion _defaultLocalRotation;
+
+    private const float MinCastDistance = 0.0001f;
+    private const float MinSmoothing = 0.01f;
 
     private void Awake()
     {
         _clipboardVisualRoot = gameObject;
+        _selfTransform = transform;
+        _physicalColliders = GetComponentsInChildren<Collider>(true);
+
+        CacheDefaultLocalPose();
+        DisablePhysicalClipboardColliders();
 
         if (_clueManager == null)
         {
@@ -58,6 +77,16 @@ public class Clipboard : MonoBehaviour
     private void Start()
     {
         SetClipboardState(_startOpen, true);
+    }
+
+    private void LateUpdate()
+    {
+        if (!_isOpen)
+        {
+            return;
+        }
+
+        ResolveWallClipping();
     }
 
     private void Update()
@@ -156,6 +185,160 @@ public class Clipboard : MonoBehaviour
             {
                 _gameStateManager.CloseClipboard();
             }
+        }
+
+        if (!open)
+        {
+            RestoreDefaultLocalPose();
+        }
+    }
+
+    private void ResolveWallClipping()
+    {
+        Transform cameraTransform = GetCameraTransform();
+        if (cameraTransform == null)
+        {
+            return;
+        }
+
+        CacheDefaultLocalPose();
+        Quaternion desiredRotation = GetDesiredWorldRotation();
+        Vector3 desiredPosition = GetDesiredWorldPosition();
+        Vector3 origin = cameraTransform.position;
+        Vector3 toDesired = desiredPosition - origin;
+        float distance = toDesired.magnitude;
+
+        if (distance <= MinCastDistance)
+        {
+            ApplyResolvedPose(desiredPosition, desiredRotation);
+            return;
+        }
+
+        Vector3 direction = toDesired / distance;
+        Vector3 resolvedPosition = desiredPosition;
+        RaycastHit[] hits = Physics.SphereCastAll(
+            origin,
+            _probeRadius,
+            direction,
+            distance,
+            _clipboardCollisionMask,
+            QueryTriggerInteraction.Ignore);
+
+        float nearestDistance = float.PositiveInfinity;
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Collider hitCollider = hits[i].collider;
+            if (hitCollider == null)
+            {
+                continue;
+            }
+
+            if (IsSelfOrChildCollider(hitCollider))
+            {
+                continue;
+            }
+
+            if (hits[i].distance < nearestDistance)
+            {
+                nearestDistance = hits[i].distance;
+            }
+        }
+
+        if (!float.IsPositiveInfinity(nearestDistance))
+        {
+            float safeDistance = Mathf.Max(nearestDistance - _wallPadding, 0f);
+            resolvedPosition = origin + direction * safeDistance;
+        }
+
+        ApplyResolvedPose(resolvedPosition, desiredRotation);
+    }
+
+    private void ApplyResolvedPose(Vector3 resolvedPosition, Quaternion desiredRotation)
+    {
+        float smoothing = Mathf.Max(_positionSmoothing, MinSmoothing);
+        float t = 1f - Mathf.Exp(-smoothing * Time.deltaTime);
+
+        _selfTransform.position = Vector3.Lerp(_selfTransform.position, resolvedPosition, t);
+        _selfTransform.rotation = desiredRotation;
+    }
+
+    private bool IsSelfOrChildCollider(Collider hitCollider)
+    {
+        Transform hitTransform = hitCollider.transform;
+        return hitTransform == _selfTransform || hitTransform.IsChildOf(_selfTransform);
+    }
+
+    private Transform GetCameraTransform()
+    {
+        if (_cameraTransform != null)
+        {
+            return _cameraTransform;
+        }
+
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            _cameraTransform = mainCamera.transform;
+        }
+
+        return _cameraTransform;
+    }
+
+    private Vector3 GetDesiredWorldPosition()
+    {
+        if (_selfTransform.parent != null)
+        {
+            return _selfTransform.parent.TransformPoint(_defaultLocalPosition);
+        }
+
+        return _defaultLocalPosition;
+    }
+
+    private Quaternion GetDesiredWorldRotation()
+    {
+        if (_selfTransform.parent != null)
+        {
+            return _selfTransform.parent.rotation * _defaultLocalRotation;
+        }
+
+        return _defaultLocalRotation;
+    }
+
+    private void CacheDefaultLocalPose()
+    {
+        if (_hasCachedDefaultPose)
+        {
+            return;
+        }
+
+        _defaultLocalPosition = _selfTransform.localPosition;
+        _defaultLocalRotation = _selfTransform.localRotation;
+        _hasCachedDefaultPose = true;
+    }
+
+    private void RestoreDefaultLocalPose()
+    {
+        CacheDefaultLocalPose();
+        _selfTransform.localPosition = _defaultLocalPosition;
+        _selfTransform.localRotation = _defaultLocalRotation;
+    }
+
+    private void DisablePhysicalClipboardColliders()
+    {
+        if (_physicalColliders == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < _physicalColliders.Length; i++)
+        {
+            Collider col = _physicalColliders[i];
+            if (col == null)
+            {
+                continue;
+            }
+
+            col.enabled = false;
         }
     }
 }
