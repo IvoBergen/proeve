@@ -1,5 +1,3 @@
-// GoalManager.cs
-using bnyhtz;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -17,9 +15,6 @@ public class GoalManager : MonoBehaviour
     [Header("Fade Settings")]
     [SerializeField] float fadeDelay = 3f;
     [SerializeField] float fadeDuration = 1f;
-
-    [Header("Clue Settings")]
-    [SerializeField] string clueName = "CurrentGoal";
 
     private int currentIndex = 0;
     private Vector3 originalScale;
@@ -40,7 +35,7 @@ public class GoalManager : MonoBehaviour
 
     void Start()
     {
-        UpdateGoal(); // Sets initial goal and clue
+        UpdateGoal();
         TriggerFadeSequence();
     }
 
@@ -74,16 +69,6 @@ public class GoalManager : MonoBehaviour
         // Mirror to clipboard goal
         if (ClipBoardGoal != null)
             ClipBoardGoal.text = goalText;
-
-        // Update clue in ClueManager
-        if (ClueManager.Instance != null)
-        {
-            Clue existingClue = ClueManager.Instance.GetClueByName(clueName);
-            if (existingClue != null)
-                existingClue.clueText = goalText;
-            else
-                ClueManager.Instance.AddClue(new Clue { clueName = clueName, clueText = goalText });
-        }
     }
 
     private void TriggerFadeSequence()
