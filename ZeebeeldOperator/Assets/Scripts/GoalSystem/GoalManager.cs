@@ -1,12 +1,12 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-
+/// <summary>
+/// Handles goal display, animation, and fading.
+/// </summary>
 public class GoalManager : MonoBehaviour
 {
-    /// <summary>
-    /// Handles goal display, animation, and fading.
-    /// </summary>
+
 
     [SerializeField] private TMP_Text _currentGoalText;
     [SerializeField] private TMP_Text _clipboardGoalText;
