@@ -1,195 +1,212 @@
 # Zeebeeld Operator  
 
-> **Genre:** Detective / Simulatie  
+> **Genre:** Detective / Simulation  
 > **Platform:** PC  
-> **Status:** In ontwikkeling (Prototype)  
-> **Unity versie:** 2022.3.62f3  
+> **Status:** In development (Prototype)  
+> **Unity version:** 2022.3.62f3  
 
 ---
 
-## Over het spel  
+## About the Game  
 
-Je speelt als marinier op een marineschip in de rol van **radartopist**. Jouw taak is het identificeren van schepen in de omgeving. Met behulp van radar, een verrekijker en communicatie bepaal je of een schip vijandig of vriendelijk is.  
+You play as a marine on a naval ship in the role of a **radar operator**. Your task is to identify ships in the surrounding area. Using radar, binoculars, and communication, you determine whether a ship is hostile or friendly.  
 
-Het spel draait om **observatie, analyse en besluitvorming onder tijdsdruk**.  
+The game revolves around **observation, analysis, and decision-making under time pressure**.  
 
-### Kernpunten
+### Core Features  
 
-- Start je dag in je hut met een korte tutorial  
-- Observeer bemanningsleden en de omgeving  
-- Verzamel aanwijzingen (clues)  
-- Gebruik de clipboard om schepen te analyseren  
-- Identificeer het vijandelijke schip voordat de tijd om is  
+- Start your day in your cabin with a short tutorial  
+- Observe crew members and the environment  
+- Collect clues  
+- Use the clipboard to analyze ships  
+- Identify the hostile ship before time runs out  
 
 ---
 
 ## Gameplay  
 
-| Actie | Besturing |
-| ------ | ---------- |
-| Bewegen | WASD |
-| Rondkijken | Muis |
-| Interacteren | E |
-| Clipboard openen | TAB |
-| Schip selecteren | Pijltjestoetsen |
-| Bevestigen | Enter |
+| Action | Controls |
+|--------|----------|
+| Move | WASD |
+| Look around | Mouse |
+| Interact | E |
+| Open clipboard | TAB |
+| Select ship | Arrow keys |
+| Confirm | Enter |
 
-> Een spelronde duurt **5 minuten**  
-
----
-
-## Features / Systemen  
-
-- **Timer systeem** – bepaalt de speelduur en verliesconditie  
-- **Interaction systeem** – interactie met objecten en NPC’s  
-- **Guess systeem** – identificeren van schepen  
-- **Dialogue systeem** – communicatie met NPC’s  
-- **Movement systeem** – speler- en camerabesturing  
-- **Clipboard systeem** – verzamelen en analyseren van informatie  
+> A game round lasts **5 minutes**  
 
 ---
 
-## Installatie  
+## Features / Systems  
 
-1. Clone de repository  
+- **Timer System** – determines game duration and loss condition  
+- **Interaction System** – interaction with objects and NPCs  
+- **Guess System** – identifying ships  
+- **Dialogue System** – communication with NPCs  
+- **Movement System** – player and camera control  
+- **Clipboard System** – collecting and analyzing information  
 
-2. Klik op **Play** in de Unity Editor  
+---
+
+## Installation  
+
+1. Clone the repository  
+2. Press **Play** in the Unity Editor  
 
 ---
 
 ## Game Mechanics  
 
-### Timer (door Owen Stas)
+### Timer (by Owen Stas)  
 
-Dit systeem geeft de speler **5 minuten** om een beslissing te maken. Wanneer de tijd op is, verliest de speler automatisch.  
+This system gives the player **5 minutes** to make a decision. When the time runs out, the player automatically loses.  
 
 **User story:**  
-> Als speler wil ik een timer die visueel en auditief intensiever wordt naarmate de tijd afloopt, zodat ik de urgentie en stakes voel toenemen.
+> As a player, I want a timer that becomes visually and audibly more intense as time runs out, so that I feel the urgency and stakes increasing.  
 
 ![Timer gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer.gif)  
 
-Visualisatie van het timerscript:  
-![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer-visualsheet.png)
+Visualization of the timer script:  
+![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer-visualsheet.png)  
 
-Script:
-
-- [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)
+Script:  
+- [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)  
 
 ---
 
-### Interaction Systeem (door Owen Stas)
+### Interaction System (by Owen Stas)  
 
-Met dit systeem kan de speler interactie hebben met objecten en de spelwereld.  
+This system allows the player to interact with objects and the game world.  
 
 **User story:**  
-> Als speler wil ik kunnen interacteren met de wereld om informatie te verzamelen.  
+> As a player, I want to interact with the world to gather information.  
 
 ![Interaction gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction.gif)  
 
-Visualisatie:  
+Visualization:  
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
-
-- [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
+- [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)  
 
 ---
 
-### Guess Systeem (door Owen Stas)
+### Guess System (by Owen Stas)  
 
-Met dit systeem kan de speler het vijandelijke schip raden
+This system allows the player to guess the hostile ship.  
 
 **User story:**  
-> Als speler wil ik een schip kunnen kiezen en direct feedback krijgen op mijn guess, zodat ik weet of ik correct heb gehandeld en de druk van mijn keuzes voel.
+> As a player, I want to select a ship and receive immediate feedback on my guess, so that I know whether I acted correctly and feel the pressure of my decisions.  
 
-![GuessSysteem gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GuessSysteem.gif)  
+![Guess System gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GuessSysteem.gif)  
 
-Visualisatie:  
-![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Guess-System-BWP-VWO-Visualsheet.png)  
+Visualization:  
+![Guess system visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Guess-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
+- [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)  
 
-- [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)
+---
 
-### Dialogue System (door Ivo Bergen)
+### Dialogue System (by Ivo Bergen)  
 
-With this system the player can talk with NPCs
+This system allows the player to talk with NPCs.  
 
-**User story:**
-> As a player I want to have a dialogue system so I can gather clues from other npc’s
+**User story:**  
+> As a player, I want a dialogue system so I can gather clues from other NPCs.  
 
 ![Dialogue Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/DialogueSystem.png)  
 
-![Dialogue Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Dialogue.gif)
+![Dialogue Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Dialogue.gif)  
 
-Script:
+Script:  
+- [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)  
 
-- [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)
+---
 
-### NPC Movement (door Ivo Bergen)
+### NPC Movement (by Ivo Bergen)  
 
-With this system NPCs can walk around the map
+This system allows NPCs to walk around the map.  
 
-**User story:**
-> As a player I want to see NPC moving around to make the game feel more alive
+**User story:**  
+> As a player, I want to see NPCs moving around to make the game feel more alive.  
 
-![Npc Movement Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.gif)
+![NPC Movement Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.gif)  
 
-![NPCMovement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.png)  
+![NPC Movement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.png)  
 
-Script:
+Script:  
+- [NPC scripts](ZeebeeldOperator/Assets/Scripts/NPCSystems)  
 
-- [NPC scripts](ZeebeeldOperator/Assets/Scripts/NPCSystems)
+---
 
-### Main Menu (door Ivo Bergen & Owen Stas)
+### Main Menu (by Ivo Bergen & Owen Stas)  
 
-With this system the player has a menu to change settings and start the game
+This system provides the player with a menu to adjust settings and start the game.  
 
-**User story:**
-> As a player I want a menu so that I can start or exit the game
+**User story:**  
+> As a player, I want a menu so that I can start or exit the game.  
 
-![Main Menu Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/MainMenu.gif)
+![Main Menu Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/MainMenu.gif)  
 
-![NPCMovement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Menu.png)  
+![Menu Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Menu.png)  
 
-Script:
+Script:  
+- [Menu script(s)](ZeebeeldOperator/Assets/Scripts/GameManagerScripts/MenuManager.cs)  
 
-- [Menu script(s)](ZeebeeldOperator/Assets/Scripts/GameManagerScripts/MenuManager.cs)
+---
+
+### Goal System  
+
+This system gives the player a clear objective so they always know what to do.  
+
+**User story:**  
+> As a player, I want my goal to be clearly communicated so that I am never confused about what to do.  
+
+![Goal System Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GoalSystem.gif)  
+
+![Goal System Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GoalSystem-Visualsheet.png)  
+
+Script:  
+- [Goal script(s)](ZeebeeldOperator/Assets/Scripts/GoalSystem/GoalManager.cs)  
+
+---
 
 ## Playtesting & Feedback  
 
-Usertests en feedback zijn te vinden in de wiki:  
+User tests and feedback can be found in the wiki:  
 
-- [Bekijk de hier usertests](https://github.com/IvoBergen/proeve/wiki/UserTest)
-
----
-
-## Contributie  
-
-Gebruik de volgende branch-structuur:  
-
-- Schrijf duidelijke commit messages  
-- Pull requests moeten getest en goedgekeurd worden  
-- Verwijder je branch na een succesvolle merge  
+- [View user tests here](https://github.com/IvoBergen/proeve/wiki/UserTest)  
 
 ---
 
-## Code Conventies  
+## Contribution  
 
-| Regel | Voorbeeld |
-| ------ | ---------- |
-| Private variabelen beginnen met `_` | `_slider`, `_text` |
-| Public variabelen zonder `_` | `sensX`, `sensY` |
-| Functies gebruiken PascalCase | `OnSliderChanged()` |
-| Debug.Log verwijderen na testen | — |
-| Gebruik summaries | `/// <summary>` |
+Use the following branch structure:  
+
+- Write clear commit messages  
+- Pull requests must be tested and approved  
+- Delete your branch after a successful merge  
+
+---
+
+## Code Conventions  
+
+| Rule | Example |
+|------|--------|
+| Private variables start with `_` | `_slider`, `_text` |
+| Public variables without `_` | `sensX`, `sensY` |
+| Functions use PascalCase | `OnSliderChanged()` |
+| Remove Debug.Log after testing | — |
+| Use summaries | `/// <summary>` |
 
 ---
 
 ## Credits  
 
-| Naam | Rol |
-| ----- | ------ |
+| Name | Role |
+|------|------|
 | Akari Le | Clipboard, Clues |
 | Owen Stas | Interaction, Timer, Guess System |
 | Ivo Bergen | Dialogue, NPC Movement |
