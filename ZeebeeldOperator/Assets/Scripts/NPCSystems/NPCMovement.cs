@@ -9,13 +9,13 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _movementSpeed = 15f;
     [SerializeField] private float _waitTime = 2f;
-    public Transform[] points;
+    public Vector3[] points;
 
     public NPCState State { get; private set; } = NPCState.Rotating;
-    public Transform Target => _target;
+    public Vector3 target => _target;
 
     private int _point;
-    private Transform _target;
+    private Vector3 _target;
     private int _direction = 1;
     private float _waitTimer;
 
@@ -34,12 +34,12 @@ public class NPCMovement : MonoBehaviour
                 break;
 
             case NPCState.Moving:
-                Vector3 dir = (_target.position - transform.position).normalized;
+                Vector3 dir = (_target - transform.position).normalized;
                 _rb.MovePosition(transform.position + dir * (_movementSpeed * Time.deltaTime));
 
-                if (Vector3.Distance(_target.position, transform.position) <= 0.1f)
+                if (Vector3.Distance(_target, transform.position) <= 0.1f)
                 {
-                    transform.position = _target.position;
+                    transform.position = _target;
                     State = NPCState.Waiting;
                     _waitTimer = _waitTime;
                 }
