@@ -28,8 +28,6 @@ public class GoalManager : MonoBehaviour
     private void Awake()
     {
         _originalScale = _currentGoalText.transform.localScale;
-
-        // Ensure CanvasGroup exists
         _canvasGroup = _currentGoalText.GetComponent<CanvasGroup>();
         if (_canvasGroup == null)
             _canvasGroup = _currentGoalText.gameObject.AddComponent<CanvasGroup>();
@@ -49,8 +47,6 @@ public class GoalManager : MonoBehaviour
         {
             _currentGoalIndex++;
             UpdateGoal();
-
-            // Reset scale and alpha
             _currentGoalText.transform.localScale = _originalScale;
             _canvasGroup.alpha = 1f;
 
@@ -85,8 +81,6 @@ public class GoalManager : MonoBehaviour
     {
         Vector3 targetScale = _originalScale * _scaleMultiplier;
         float time = 0f;
-
-        // Scale up
         while (time < _animationDuration)
         {
             _currentGoalText.transform.localScale =
@@ -97,8 +91,6 @@ public class GoalManager : MonoBehaviour
         }
 
         _currentGoalText.transform.localScale = targetScale;
-
-        // Scale down
         time = 0f;
         while (time < _animationDuration)
         {
