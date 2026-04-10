@@ -1,17 +1,21 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// is used to trigger the goals and also is able to play a sound
+/// </summary>
+
 public class NextGoalTrigger : MonoBehaviour, IInterface
 {
-    [SerializeField] UnityEvent NextGoal;
-    private bool hasTriggered;
+    [SerializeField] public UnityEvent NextGoal;
+    private bool _hasTriggered;
 
     public void Interact()
     {
-        if (!hasTriggered)
+        if (!_hasTriggered)
         {
-            NextGoal.Invoke(); // This will call GoalManager.NextGoal()
-            hasTriggered = true;
+            NextGoal.Invoke();
+            _hasTriggered = true;
         }
     }
 }

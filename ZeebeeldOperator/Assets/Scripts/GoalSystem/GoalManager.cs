@@ -4,36 +4,40 @@ using UnityEngine;
 
 public class GoalManager : MonoBehaviour
 {
-    [SerializeField] TMP_Text currentGoal;
-    [SerializeField] TMP_Text ClipBoardGoal;
-    [SerializeField] string[] goals;
+    /// <summary>
+    /// Handles goal display, animation, and fading.
+    /// </summary>
+
+    [SerializeField] private TMP_Text _currentGoalText;
+    [SerializeField] private TMP_Text _clipboardGoalText;
+    [SerializeField] private string[] _goals;
 
     [Header("Animation Settings")]
-    [SerializeField] float scaleMultiplier = 2f;
-    [SerializeField] float animationDuration = 0.2f;
+    [SerializeField] private float _scaleMultiplier = 2f;
+    [SerializeField] private float _animationDuration = 0.2f;
 
     [Header("Fade Settings")]
-    [SerializeField] float fadeDelay = 3f;
-    [SerializeField] float fadeDuration = 1f;
+    [SerializeField] private float _fadeDelay = 3f;
+    [SerializeField] private float _fadeDuration = 1f;
 
-    private int currentIndex = 0;
-    private Vector3 originalScale;
-    private CanvasGroup canvasGroup;
-    private Coroutine fadeCoroutine;
+    private int _currentGoalIndex = 0;
+    private Vector3 _originalScale;
+    private CanvasGroup _canvasGroup;
+    private Coroutine _fadeCoroutine;
 
-    void Awake()
+    private void Awake()
     {
-        originalScale = currentGoal.transform.localScale;
+        _originalScale = _currentGoalText.transform.localScale;
 
         // Ensure CanvasGroup exists
-        canvasGroup = currentGoal.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-            canvasGroup = currentGoal.gameObject.AddComponent<CanvasGroup>();
+        _canvasGroup = _currentGoalText.GetComponent<CanvasGroup>();
+        if (_canvasGroup == null)
+            _canvasGroup = _currentGoalText.gameObject.AddComponent<CanvasGroup>();
 
-        canvasGroup.alpha = 1f;
+        _canvasGroup.alpha = 1f;
     }
 
-    void Start()
+    private void Start()
     {
         UpdateGoal();
         TriggerFadeSequence();
@@ -41,17 +45,17 @@ public class GoalManager : MonoBehaviour
 
     public void NextGoal()
     {
-        if (currentIndex < goals.Length - 1)
+        if (_currentGoalIndex < _goals.Length - 1)
         {
-            currentIndex++;
+            _currentGoalIndex++;
             UpdateGoal();
 
             // Reset scale and alpha
-            currentGoal.transform.localScale = originalScale;
-            canvasGroup.alpha = 1f;
+            _currentGoalText.transform.localScale = _originalScale;
+            _canvasGroup.alpha = 1f;
 
-            if (fadeCoroutine != null)
-                StopCoroutine(fadeCoroutine);
+            if (_fadeCoroutine != null)
+                StopCoroutine(_fadeCoroutine);
 
             StartCoroutine(PlayPopAnimation());
             TriggerFadeSequence();
@@ -60,64 +64,66 @@ public class GoalManager : MonoBehaviour
 
     private void UpdateGoal()
     {
-        string goalText = goals[currentIndex];
+        string goalText = _goals[_currentGoalIndex];
 
-        // Update main goal
-        if (currentGoal != null)
-            currentGoal.text = goalText;
+        if (_currentGoalText != null)
+            _currentGoalText.text = goalText;
 
-        // Mirror to clipboard goal
-        if (ClipBoardGoal != null)
-            ClipBoardGoal.text = goalText;
+        if (_clipboardGoalText != null)
+            _clipboardGoalText.text = goalText;
     }
 
     private void TriggerFadeSequence()
     {
-        if (fadeCoroutine != null)
-            StopCoroutine(fadeCoroutine);
+        if (_fadeCoroutine != null)
+            StopCoroutine(_fadeCoroutine);
 
-        fadeCoroutine = StartCoroutine(FadeAfterDelay());
+        _fadeCoroutine = StartCoroutine(FadeAfterDelay());
     }
 
-    IEnumerator PlayPopAnimation()
+    private IEnumerator PlayPopAnimation()
     {
-        Vector3 targetScale = originalScale * scaleMultiplier;
+        Vector3 targetScale = _originalScale * _scaleMultiplier;
         float time = 0f;
 
         // Scale up
-        while (time < animationDuration)
+        while (time < _animationDuration)
         {
-            currentGoal.transform.localScale = Vector3.Lerp(originalScale, targetScale, time / animationDuration);
+            _currentGoalText.transform.localScale =
+                Vector3.Lerp(_originalScale, targetScale, time / _animationDuration);
+
             time += Time.deltaTime;
             yield return null;
         }
 
-        currentGoal.transform.localScale = targetScale;
+        _currentGoalText.transform.localScale = targetScale;
 
         // Scale down
         time = 0f;
-        while (time < animationDuration)
+        while (time < _animationDuration)
         {
-            currentGoal.transform.localScale = Vector3.Lerp(targetScale, originalScale, time / animationDuration);
+            _currentGoalText.transform.localScale =
+                Vector3.Lerp(targetScale, _originalScale, time / _animationDuration);
+
             time += Time.deltaTime;
             yield return null;
         }
 
-        currentGoal.transform.localScale = originalScale;
+        _currentGoalText.transform.localScale = _originalScale;
     }
 
-    IEnumerator FadeAfterDelay()
+    private IEnumerator FadeAfterDelay()
     {
-        yield return new WaitForSeconds(fadeDelay);
+        yield return new WaitForSeconds(_fadeDelay);
 
         float time = 0f;
-        while (time < fadeDuration)
+        while (time < _fadeDuration)
         {
-            canvasGroup.alpha = Mathf.Lerp(1f, 0f, time / fadeDuration);
+            _canvasGroup.alpha = Mathf.Lerp(1f, 0f, time / _fadeDuration);
             time += Time.deltaTime;
             yield return null;
         }
 
-        canvasGroup.alpha = 0f;
+        _canvasGroup.alpha = 0f;
     }
 }
