@@ -38,8 +38,6 @@ public class GuessUI : MonoBehaviour
         _gameUIManager.GuessUIActive = true;
         _gameStateManager.InDialogue();
         _gameStateManager.PauseTimer();
-
-        // 🔼 UP
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             _currentIndex--;
@@ -48,8 +46,6 @@ public class GuessUI : MonoBehaviour
 
             UpdatePointer();
         }
-
-        // 🔽 DOWN
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             _currentIndex++;
@@ -59,13 +55,10 @@ public class GuessUI : MonoBehaviour
             UpdatePointer();
         }
 
-        // CONFIRM
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             Confirm();
         }
-
-        // CANCEL
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             StopGuess();
@@ -79,14 +72,12 @@ public class GuessUI : MonoBehaviour
 
         if (_shipInfo.Length < shipname.Length)
         {
-            Debug.LogWarning("Not enough ships for UI options!");
+
             return;
         }
 
         Active = true;
         _currentIndex = 0;
-
-        // Fill UI with ship names
         for (int i = 0; i < shipname.Length; i++)
         {
             shipname[i].text = _shipInfo[i].currentShipName;
