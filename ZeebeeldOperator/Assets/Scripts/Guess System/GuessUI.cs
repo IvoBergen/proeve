@@ -1,112 +1,116 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+
 /// <summary>
-/// Handels guessing and checks if the ship is the enemyship 
+/// Handles guessing with 3 selectable options (vertical navigation)
 /// </summary>
 public class GuessUI : MonoBehaviour
 {
-    [Header("Variables")]
+    [Header("State")]
     public bool Active;
 
-    [Header("refrences")]
-    [SerializeField] private GameObject _guessUI;
+    [Header("References")]
     [SerializeField] private GameStateManager _gameStateManager;
     [SerializeField] private MenuManager _gameUIManager;
-    [SerializeField] ShipInfo[] _shipInfo;
+    private ShipInfo[] _shipInfo;
     private ShipInfo _selectedShip;
+    [SerializeField] private UnityEvent StopGuessing;
+
     [Header("UI")]
-    [SerializeField] TMP_Text shipname;
-    [SerializeField] private GameObject _yesTarget;
-    [SerializeField] private GameObject _noTarget;
+    [SerializeField] private TMP_Text[] _shipname;
+
+    [Tooltip("Assign 3 pointer objects here (top, middle, bottom)")]
+    [SerializeField] private GameObject[] _pointers;
 
     private int _currentIndex = 0;
 
-    private void OnEnable()
-    {
-        UpdatePointer();
-    }
     private void Start()
     {
         _shipInfo = FindObjectsOfType<ShipInfo>();
+        UpdatePointer();
     }
 
     private void Update()
     {
         if (!Active) return;
+
         _gameUIManager.GuessUIActive = true;
-        _guessUI.SetActive(true);
         _gameStateManager.InDialogue();
         _gameStateManager.PauseTimer();
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetKeyDown(KeyCode.A)))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            _currentIndex = 0;
+            _currentIndex--;
+            if (_currentIndex < 0)
+                _currentIndex = _pointers.Length - 1;
+
             UpdatePointer();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetKeyDown(KeyCode.D)))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
-            _currentIndex = 1;
+            _currentIndex++;
+            if (_currentIndex >= _pointers.Length)
+                _currentIndex = 0;
+
             UpdatePointer();
         }
+
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             Confirm();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            CloseUI();
+            StopGuess();
+            StopGuessing.Invoke();
         }
     }
 
-    public void ActivateUI(int shipIndex)
+    public void StartGuess()
     {
-        if (shipIndex < 0 || shipIndex >= _shipInfo.Length)
+        _shipInfo = FindObjectsOfType<ShipInfo>();
+
+        if (_shipInfo.Length < _shipname.Length)
         {
-            Debug.LogWarning("Invalid ship index!");
+
             return;
         }
 
-        _selectedShip = _shipInfo[shipIndex];
-
         Active = true;
         _currentIndex = 0;
-
-        shipname.text = _selectedShip.currentShipName;
+        for (int i = 0; i < _shipname.Length; i++)
+        {
+            _shipname[i].text = _shipInfo[i].currentShipName;
+        }
 
         UpdatePointer();
+    }
+    public void StopGuess()
+    {
+        _gameStateManager.exitDialouge();
+        _gameStateManager.ResumeTimer();
+        _gameUIManager.GuessUIActive = false;
+
+        Active = false;
     }
 
     private void UpdatePointer()
     {
-        _yesTarget.SetActive(_currentIndex == 0);
-        _noTarget.SetActive(_currentIndex == 1);
+        for (int i = 0; i < _pointers.Length; i++)
+        {
+            _pointers[i].SetActive(i == _currentIndex);
+        }
     }
+
     private void Confirm()
     {
-        if (_currentIndex == 0)
-        {
-            if (_selectedShip.isenemy)
-            {
-                _gameStateManager.GameWin();
-            }
-            else
-            {
-                _gameStateManager.Gameover();
-            }
-        }
-        else
-        {
-            CloseUI();
-            return;
-        }
+        ShipInfo chosenShip = _shipInfo[_currentIndex];
 
-        CloseUI();
-    }
-    private void CloseUI()
-    {
-        _guessUI.SetActive(false);
-        _gameStateManager.exitDialouge();
-        Active = false;
-        _gameStateManager.ResumeTimer();
-        _gameUIManager.GuessUIActive = false;
+        if (chosenShip.isenemy)
+            _gameStateManager.GameWin();
+        else
+            _gameStateManager.Gameover();
+
+        StopGuess();
     }
 }

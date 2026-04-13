@@ -2,6 +2,7 @@ using bnyhtz;
 using System.Text;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Manages clipboard visibility and clue text rendering.
@@ -24,7 +25,11 @@ public class Clipboard : MonoBehaviour
     [SerializeField] private float _positionSmoothing = 18f;
     [SerializeField] private float _hideIfCloserThan = 0.1f;
     [SerializeField] private bool _debugWallHideTransitions = true;
-    private GameObject _clipboardVisualRoot;
+    [SerializeField] private GameObject _clipboardVisualRoot;
+    [SerializeField] private GameObject _clipboardVisual;
+    [SerializeField] private GameObject _differentClipboardUI;
+    public UnityEvent guessSystemActive;
+    public UnityEvent guessSystemDeactivated;
 
     private bool _isOpen;
     private Transform _selfTransform;
@@ -41,7 +46,6 @@ public class Clipboard : MonoBehaviour
 
     private void Awake()
     {
-        _clipboardVisualRoot = gameObject;
         _selfTransform = transform;
         _physicalColliders = GetComponentsInChildren<Collider>(true);
 
@@ -96,6 +100,19 @@ public class Clipboard : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            _clipboardVisual.SetActive(false);
+            guessSystemActive.Invoke();
+            _differentClipboardUI.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            _differentClipboardUI.SetActive(false);
+            guessSystemDeactivated.Invoke();
+            _clipboardVisual.SetActive(true);
+        }
         if (!Input.GetKeyDown(_toggleKey))
         {
             return;
@@ -108,6 +125,7 @@ public class Clipboard : MonoBehaviour
         }
 
         SetClipboardState(wantsToOpen, false);
+
     }
 
     private void OnDisable()
@@ -366,11 +384,10 @@ public class Clipboard : MonoBehaviour
             {
                 string blockerName = blocker != null ? blocker.gameObject.name : "Unknown";
                 float resolvedDistance = Vector3.Distance(cameraOrigin, resolvedPosition);
-                Debug.Log($"[Clipboard] Hiding due to wall hit on '{blockerName}'. Hit distance: {hitDistance:F3}, resolved distance: {resolvedDistance:F3}.");
             }
             else
             {
-                Debug.Log("[Clipboard] Visible again. No longer forced hidden by nearby wall.");
+
             }
         }
 
@@ -384,15 +401,9 @@ public class Clipboard : MonoBehaviour
 
     private void SetVisualsActive(bool active)
     {
-        if (_clipboardVisualRoot != null && _clipboardVisualRoot != gameObject)
+        if (_clipboardVisualRoot != null)
         {
             _clipboardVisualRoot.SetActive(active);
-            return;
-        }
-
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(active);
         }
     }
 
@@ -412,12 +423,10 @@ public class Clipboard : MonoBehaviour
             if (startedBlocking || blockerChanged)
             {
                 string blockerName = blocker != null ? blocker.gameObject.name : "Unknown";
-                Debug.Log($"[Clipboard] Blocked by '{blockerName}'. Hit distance: {hitDistance:F3}.");
             }
         }
         else if (_blockedByWall)
         {
-            Debug.Log("[Clipboard] No longer blocked by wall.");
         }
 
         _blockedByWall = blocked;
