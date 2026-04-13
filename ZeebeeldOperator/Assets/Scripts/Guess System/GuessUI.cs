@@ -18,7 +18,7 @@ public class GuessUI : MonoBehaviour
     [SerializeField] private UnityEvent StopGuessing;
 
     [Header("UI")]
-    [SerializeField] private TMP_Text[] shipname;
+    [SerializeField] private TMP_Text[] _shipname;
 
     [Tooltip("Assign 3 pointer objects here (top, middle, bottom)")]
     [SerializeField] private GameObject[] _pointers;
@@ -70,7 +70,7 @@ public class GuessUI : MonoBehaviour
     {
         _shipInfo = FindObjectsOfType<ShipInfo>();
 
-        if (_shipInfo.Length < shipname.Length)
+        if (_shipInfo.Length < _shipname.Length)
         {
 
             return;
@@ -78,9 +78,9 @@ public class GuessUI : MonoBehaviour
 
         Active = true;
         _currentIndex = 0;
-        for (int i = 0; i < shipname.Length; i++)
+        for (int i = 0; i < _shipname.Length; i++)
         {
-            shipname[i].text = _shipInfo[i].currentShipName;
+            _shipname[i].text = _shipInfo[i].currentShipName;
         }
 
         UpdatePointer();
