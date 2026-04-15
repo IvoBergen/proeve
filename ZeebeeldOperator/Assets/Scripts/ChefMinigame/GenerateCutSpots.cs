@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// <c>GenerateCutSpots</c> Generates the spots in the bar for the player to cut.
+/// </summary>
 public class GenerateCutSpots : MonoBehaviour
 {
     [SerializeField] private Transform _startPoint;

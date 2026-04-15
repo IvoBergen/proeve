@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
-
+/// <summary>
+/// <c>HitCounter</c> CHecks how many spots and vegetables have been cut.
+/// </summary>
 public class HitCounter : MonoBehaviour
 {
 

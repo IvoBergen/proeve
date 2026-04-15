@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
-
+/// <summary>
+/// <c>HitCutSpots</c> Responsible for making the player be able to cut the vegetable.
+/// </summary>
 public class HitCutSpots : MonoBehaviour
 {
 
@@ -38,7 +40,6 @@ public class HitCutSpots : MonoBehaviour
         {
             if (!canBePressed) return;
 
-            Debug.Log("Hit!");
             onHit?.Invoke();
             Destroy(gameObject);
         }
