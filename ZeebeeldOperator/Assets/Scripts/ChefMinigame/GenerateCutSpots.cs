@@ -1,0 +1,63 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GenerateCutSpots : MonoBehaviour
+{
+    [SerializeField] private Transform _startPoint;
+    [SerializeField] private Transform _endPoint;
+    [SerializeField] private GameObject _cubePrefab;
+    [SerializeField] private float _minSpacing = 1.5f;
+    public int cubeCount = 3;
+
+    private List<Vector3> _spawnedPositions = new List<Vector3>();
+
+    private void OnEnable() => HitCounter.onRequiredHits += SpawnNewCubes;
+    private void OnDisable() => HitCounter.onRequiredHits -= SpawnNewCubes;
+
+    private void Start()
+    {
+        SpawnCubes();
+    }
+
+    private void SpawnNewCubes()
+    {
+        SpawnCubes();
+    }
+
+    private void SpawnCubes()
+    {
+        for (int i = 0; i < cubeCount; i++)
+        {
+            Vector3 spawnPos;
+            int maxAttempts = 10;
+
+            do
+            {
+                float randomT = Random.Range(0f, 1f);
+                spawnPos = Vector3.Lerp(_startPoint.position, _endPoint.position, randomT) + Vector3.up;
+                maxAttempts--;
+            }
+            while (!IsPositionValid(spawnPos) && maxAttempts > 0);
+
+            if (maxAttempts > 0)
+            {
+                _spawnedPositions.Add(spawnPos);
+                Instantiate(_cubePrefab, spawnPos, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning($"Could not place cube {i + 1}, bar might be too full!");
+            }
+        }
+    }
+
+    private bool IsPositionValid(Vector3 pos)
+    {
+        foreach (Vector3 existing in _spawnedPositions)
+        {
+            if (Vector3.Distance(pos, existing) < _minSpacing)
+                return false;
+        }
+        return true;
+    }
+}
