@@ -1,4 +1,5 @@
 using UnityEngine;
+using bnyhtz;
 
 /// <summary>
 /// Detects nearby interactables, shows the interaction prompt,
@@ -17,6 +18,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private GameObject _canvasHolder;
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private KeycardScanner _keycardScanner;
 
     private IInterface[] _currentInteractables; // all IInterface components on the hit object
     private bool _hasInteracted = false;
@@ -32,6 +34,14 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         if (_dialogueManager.Active)
+        {
+            _currentInteractables = null;
+            _hasInteracted = false;
+            _canvasHolder.SetActive(false);
+            return;
+        }
+
+        if (_keycardScanner != null && _keycardScanner.IsInteractionActive)
         {
             _currentInteractables = null;
             _hasInteracted = false;
@@ -95,6 +105,11 @@ public class PlayerInteraction : MonoBehaviour
         if (_gameStateManager == null)
         {
             _gameStateManager = FindObjectOfType<GameStateManager>();
+        }
+
+        if (_keycardScanner == null)
+        {
+            _keycardScanner = FindObjectOfType<KeycardScanner>();
         }
     }
 }
