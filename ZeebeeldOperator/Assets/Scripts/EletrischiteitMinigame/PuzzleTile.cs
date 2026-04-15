@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Stores information of wich way the tile is facing 
+/// </summary>
 public class PuzzleTile : MonoBehaviour
 {
     [Header("Initial Connections (At 0 Rotation)")]

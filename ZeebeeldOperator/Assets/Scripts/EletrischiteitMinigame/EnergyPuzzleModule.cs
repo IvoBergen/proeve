@@ -2,9 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/// <summary>
+/// Creates the energy puzzle       
+/// </summary>
 public class EnergyPuzzleModule : MonoBehaviour
 {
-    public bool generateOnStart = true;
+    public bool generateOnStart;
     public int width = 5;
     public int height = 5;
     public float spacing = 1.0f;
@@ -119,7 +123,7 @@ public class EnergyPuzzleModule : MonoBehaviour
     {
         foreach (var t in grid)
         {
-            int r = Random.Range(0, 4);
+            int r = Random.Range(0, 12);
             for (int i = 0; i < r; i++) t.RotateTile();
         }
     }

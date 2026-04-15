@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// is used to show the puzzle is solved 
+/// </summary>
+
 public class EnergyPuzzleLightControler : MonoBehaviour
 {
     [SerializeField] private MeshRenderer lightRenderer;
@@ -10,9 +14,6 @@ public class EnergyPuzzleLightControler : MonoBehaviour
         {
             lightRenderer.material.color = Color.green;
         }
-        else
-        {
-            Debug.LogError("Light Renderer not assigned on " + gameObject.name);
-        }
+
     }
 }
