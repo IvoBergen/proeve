@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 
 /// <summary>
 /// Controls dialogue flow, UI, and global dialogue state.
@@ -10,8 +9,6 @@ using UnityEngine.Events;
 /// </summary>
 public class DialogueManager : MonoBehaviour
 {
-    public UnityEvent startdialogue;
-    public UnityEvent Enddialogue;
     [Header("Refrences")]
     [SerializeField] GameStateManager gameStateManager;
     [Header("variables")]
@@ -20,7 +17,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueUI;
     [SerializeField] private float _dialogueTextSpeed;
-
 
     private Queue<string> _sentences;
 
@@ -40,7 +36,7 @@ public class DialogueManager : MonoBehaviour
         Active = true;
         gameStateManager.InDialogue();
         IsDialogueActive = true;
-        startdialogue.Invoke();
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -91,6 +87,5 @@ public class DialogueManager : MonoBehaviour
         _dialogueUI.SetActive(false);
         gameStateManager.exitDialouge();
         Active = false;
-        Enddialogue.Invoke();
     }
 }
