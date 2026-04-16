@@ -88,6 +88,14 @@ public class PlayerInteraction : MonoBehaviour
             _radius
         );
     }
+    public void StopShowingInteraction()
+    {
+        _dialogueManager.Active = true;
+    }
+    public void StartShowingInteraction()
+    {
+        _dialogueManager.Active = false;
+    }
 
     private void Awake()
     {

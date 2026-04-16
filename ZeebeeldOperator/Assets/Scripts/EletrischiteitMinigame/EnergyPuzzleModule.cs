@@ -1,7 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/// <summary>
+/// is used to handle the logic of the energy puzzle
+/// </summary>
 public class EnergyPuzzleModule : MonoBehaviour
 {
     [Header("Setup")]
@@ -16,6 +21,7 @@ public class EnergyPuzzleModule : MonoBehaviour
     public int height = 10;
     [Range(0.5f, 1.5f)]
     public float spacingMultiplier = 1.0f;
+    [SerializeField] private float winDelay = 1f;
 
     [Header("Prefabs")]
     public GameObject straightPrefab;
@@ -27,6 +33,7 @@ public class EnergyPuzzleModule : MonoBehaviour
 
     private PuzzleTile[,] grid;
     private bool _isSolved = false;
+
     public void StartPuzzle()
     {
         if (puzzleVisualParent != null) puzzleVisualParent.SetActive(true);
@@ -35,15 +42,13 @@ public class EnergyPuzzleModule : MonoBehaviour
 
     public void GeneratePuzzle()
     {
-        if (bottomLeftAnchor == null || topRightAnchor == null)
-        {
-            Debug.LogError("Please assign the Bottom Left and Top Right Anchors in the Inspector!");
-            return;
-        }
+        if (bottomLeftAnchor == null || topRightAnchor == null) return;
+
         foreach (Transform child in transform) Destroy(child.gameObject);
 
         grid = new PuzzleTile[width, height];
         _isSolved = false;
+
         Vector3 diagonalVec = topRightAnchor.position - bottomLeftAnchor.position;
         float totalWidth = Vector3.Dot(diagonalVec, bottomLeftAnchor.right);
         float totalHeight = Vector3.Dot(diagonalVec, bottomLeftAnchor.up);
@@ -58,10 +63,12 @@ public class EnergyPuzzleModule : MonoBehaviour
             {
                 Vector2Int pos = new Vector2Int(x, y);
                 GameObject prefab;
+
                 if ((x == 0 && y == 0) || (x == width - 1 && y == height - 1))
                     prefab = crossPrefab;
                 else
                     prefab = path.Contains(pos) ? GetRequiredPiece(path, pos) : PickRandomPrefab();
+
                 Vector3 offset = (bottomLeftAnchor.right * x * stepX * spacingMultiplier) +
                                  (bottomLeftAnchor.up * y * stepY * spacingMultiplier);
 
@@ -72,12 +79,14 @@ public class EnergyPuzzleModule : MonoBehaviour
                 PuzzleTile tile = go.GetComponent<PuzzleTile>();
                 grid[x, y] = tile;
                 tile.Init(this);
+
                 if (x == width - 1 && y == height - 1) tile.SetColorManual(Color.red);
             }
         }
         ScrambleBoard();
         CheckConnection();
     }
+
     List<Vector2Int> GenerateAStarPath()
     {
         List<Vector2Int> p = new List<Vector2Int>();
@@ -109,19 +118,11 @@ public class EnergyPuzzleModule : MonoBehaviour
         return crossPrefab;
     }
 
-    // --- Logic & Win Condition ---
-
     public void CheckConnection()
     {
         if (_isSolved) return;
-
-        // Reset all visuals to "unpowered"
         foreach (var t in grid) if (t != null) t.SetPowerVisual(false);
-
-        // Ensure the end target is red unless connected
         if (grid != null && grid.Length > 0) grid[width - 1, height - 1].SetColorManual(Color.red);
-
-        // Start flow from [0,0]
         FlowPower(0, 0, new List<PuzzleTile>());
     }
 
@@ -134,32 +135,35 @@ public class EnergyPuzzleModule : MonoBehaviour
         visited.Add(curr);
         curr.SetPowerVisual(true);
 
-        // Victory Condition reached
         if (x == width - 1 && y == height - 1)
         {
             _isSolved = true;
             curr.SetColorManual(Color.green);
-            OnPuzzleSolved.Invoke();
+            StartCoroutine(HandleWinSequence());
             return;
         }
 
-        // Recursive flow check based on tile boolean directions
         if (curr.North && y + 1 < height && grid[x, y + 1].South) FlowPower(x, y + 1, visited);
         if (curr.South && y - 1 >= 0 && grid[x, y - 1].North) FlowPower(x, y - 1, visited);
         if (curr.East && x + 1 < width && grid[x + 1, y].West) FlowPower(x + 1, y, visited);
         if (curr.West && x - 1 >= 0 && grid[x - 1, y].East) FlowPower(x - 1, y, visited);
     }
 
+    private IEnumerator HandleWinSequence()
+    {
+        yield return new WaitForSeconds(winDelay);
+        OnPuzzleSolved.Invoke();
+    }
+
     void ScrambleBoard()
     {
         foreach (var t in grid)
         {
-            int r = Random.Range(1, 4); // Force at least one rotation
+            int r = Random.Range(1, 4);
             for (int i = 0; i < r; i++) t.RotateTile();
         }
     }
 
-    // Utility to hide board visually after completion
     public void OnVictory()
     {
         if (puzzleVisualParent != null) puzzleVisualParent.SetActive(false);
