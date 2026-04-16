@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class ArrowMover : MonoBehaviour
 {
-    [SerializeField] private Transform _sphere;
+    [SerializeField] private Transform _arrowPoint;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
     [SerializeField] private float _speed = 1f;
@@ -13,6 +13,10 @@ public class ArrowMover : MonoBehaviour
     private float _t = 0f;
     private int _direction = 1;
 
+    private void Awake()
+    {
+        this.enabled = false;
+    }
     void Update()
     {
 
@@ -29,6 +33,6 @@ public class ArrowMover : MonoBehaviour
         }
 
 
-        _sphere.position = Vector3.Lerp(_startPoint.position, _endPoint.position, _t);
+        _arrowPoint.position = Vector3.Lerp(_startPoint.position, _endPoint.position, _t);
     }
 }

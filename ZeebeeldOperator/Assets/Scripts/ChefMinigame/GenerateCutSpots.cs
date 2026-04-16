@@ -9,26 +9,38 @@ public class GenerateCutSpots : MonoBehaviour
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
     [SerializeField] private GameObject _cubePrefab;
+    [SerializeField] private ArrowMover _arrowMover;
     [SerializeField] private float _minSpacing = 1.5f;
-    public int cubeCount = 3;
 
+    private Vector3 _cubeHeight = new Vector3(0, 0.1f, 0);
     private List<Vector3> _spawnedPositions = new List<Vector3>();
+
+    public GameObject uiHolder;
+    public int cubeCount = 3;
 
     private void OnEnable() => HitCounter.onRequiredHits += SpawnNewCubes;
     private void OnDisable() => HitCounter.onRequiredHits -= SpawnNewCubes;
 
-    private void Start()
+    private void Awake()
     {
-        SpawnCubes();
+        _arrowMover = GetComponent<ArrowMover>();
+        uiHolder.SetActive(false);
     }
 
-    private void SpawnNewCubes()
+    [ContextMenu("spawnCUbes")]
+    public void SpawnNewCubes()
     {
+        if (!enabled) return;
+
+        _arrowMover.enabled = true;
+        uiHolder.SetActive(true);
+
         SpawnCubes();
     }
 
     private void SpawnCubes()
     {
+        _spawnedPositions.Clear();
         for (int i = 0; i < cubeCount; i++)
         {
             Vector3 spawnPos;
@@ -37,7 +49,7 @@ public class GenerateCutSpots : MonoBehaviour
             do
             {
                 float randomT = Random.Range(0f, 1f);
-                spawnPos = Vector3.Lerp(_startPoint.position, _endPoint.position, randomT) + Vector3.up;
+                spawnPos = Vector3.Lerp(_startPoint.position, _endPoint.position, randomT) + _cubeHeight;
                 maxAttempts--;
             }
             while (!IsPositionValid(spawnPos) && maxAttempts > 0);
