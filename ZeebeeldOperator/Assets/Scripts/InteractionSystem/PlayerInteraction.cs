@@ -18,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private GameStateManager _gameStateManager;
 
-    private IInterface[] _currentInteractables; // all IInterface components on the hit object
+    private IInterface[] _currentInteractables;
     private bool _hasInteracted = false;
 
     void Update()
@@ -47,7 +47,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             foreach (var interactable in _currentInteractables)
             {
-                interactable.Interact(); // call interact on all scripts implementing IInterface
+                interactable.Interact();
             }
             _hasInteracted = true;
         }
@@ -60,7 +60,6 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Physics.SphereCast(ray, _radius, out hit, _range, _interactableLayer))
         {
-            // grab all scripts on the hit object that implement IInterface
             IInterface[] interactables = hit.collider.GetComponents<IInterface>();
 
             if (interactables.Length > 0)
@@ -88,6 +87,14 @@ public class PlayerInteraction : MonoBehaviour
             _camera.transform.position + _camera.transform.forward * _range,
             _radius
         );
+    }
+    public void StopShowingInteraction()
+    {
+        _dialogueManager.Active = true;
+    }
+    public void StartShowingInteraction()
+    {
+        _dialogueManager.Active = false;
     }
 
     private void Awake()
