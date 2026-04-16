@@ -1,12 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
-/// <summary>
-/// is used to handle the logic of the energy puzzle
-/// </summary>
 public class EnergyPuzzleModule : MonoBehaviour
 {
     [Header("Setup")]
@@ -27,6 +23,12 @@ public class EnergyPuzzleModule : MonoBehaviour
     public GameObject straightPrefab;
     public GameObject crossPrefab;
     public GameObject cornerPrefab;
+
+    [Header("Material Assets")]
+    public Material activeMaterial;    // Drag M_WireGeel here
+    public Material inactiveMaterial;  // Drag M_WireWit here
+    public Material goalMaterial;      // Drag M_WireRood here
+    public Material winMaterial;       // Drag M_WireGroen here
 
     [Header("Events")]
     public UnityEvent OnPuzzleSolved;
@@ -80,7 +82,7 @@ public class EnergyPuzzleModule : MonoBehaviour
                 _grid[x, y] = tile;
                 tile.Init(this);
 
-                if (x == width - 1 && y == height - 1) tile.SetColorManual(Color.red);
+                if (x == width - 1 && y == height - 1) tile.SetMaterialManual(goalMaterial);
             }
         }
         ScrambleBoard();
@@ -121,8 +123,8 @@ public class EnergyPuzzleModule : MonoBehaviour
     public void CheckConnection()
     {
         if (_isSolved) return;
-        foreach (var t in _grid) if (t != null) t.SetPowerVisual(false);
-        if (_grid != null && _grid.Length > 0) _grid[width - 1, height - 1].SetColorManual(Color.red);
+        foreach (var t in _grid) if (t != null) t.SetPowerVisual(false, activeMaterial, inactiveMaterial);
+        if (_grid != null && _grid.Length > 0) _grid[width - 1, height - 1].SetMaterialManual(goalMaterial);
         FlowPower(0, 0, new List<PuzzleTile>());
     }
 
@@ -133,12 +135,12 @@ public class EnergyPuzzleModule : MonoBehaviour
         if (curr == null || visited.Contains(curr)) return;
 
         visited.Add(curr);
-        curr.SetPowerVisual(true);
+        curr.SetPowerVisual(true, activeMaterial, inactiveMaterial);
 
         if (x == width - 1 && y == height - 1)
         {
             _isSolved = true;
-            curr.SetColorManual(Color.green);
+            curr.SetMaterialManual(winMaterial);
             StartCoroutine(HandleWinSequence());
             return;
         }

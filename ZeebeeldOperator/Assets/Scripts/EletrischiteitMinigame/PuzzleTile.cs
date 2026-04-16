@@ -1,8 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-/// <summary>
-/// Stores information of wich way the tile is facing 
-/// </summary>
 public class PuzzleTile : MonoBehaviour
 {
     [Header("Initial Connections (At 0 Rotation)")]
@@ -11,7 +8,6 @@ public class PuzzleTile : MonoBehaviour
     public bool South;
     public bool West;
 
-    [Tooltip("Check this if the logic moves opposite to the visual spin")]
     public bool reverseRotationLogic = false;
 
     private EnergyPuzzleModule _module;
@@ -34,21 +30,15 @@ public class PuzzleTile : MonoBehaviour
     {
         _rotationStep = (_rotationStep + 1) % 4;
         ApplyRotation();
+
+        bool oldNorth = North;
         if (reverseRotationLogic)
         {
-            bool oldNorth = North;
-            North = East;
-            East = South;
-            South = West;
-            West = oldNorth;
+            North = East; East = South; South = West; West = oldNorth;
         }
         else
         {
-            bool oldNorth = North;
-            North = West;
-            West = South;
-            South = East;
-            East = oldNorth;
+            North = West; West = South; South = East; East = oldNorth;
         }
     }
 
@@ -57,14 +47,27 @@ public class PuzzleTile : MonoBehaviour
         transform.localEulerAngles = new Vector3(_rotationStep * 90f, -90f, -90f);
     }
 
-    public void SetPowerVisual(bool state)
+    public void SetPowerVisual(bool state, Material activeMat, Material inactiveMat)
     {
-        MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
-        if (mr != null) mr.material.color = state ? Color.yellow : Color.white;
+        ApplyToAllSlots(state ? activeMat : inactiveMat);
     }
-    public void SetColorManual(Color c)
+
+    public void SetMaterialManual(Material mat)
     {
-        MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
-        if (mr != null) mr.material.color = c;
+        ApplyToAllSlots(mat);
+    }
+
+    private void ApplyToAllSlots(Material mat)
+    {
+        Renderer r = GetComponentInChildren<Renderer>();
+        if (r == null || mat == null) return;
+
+        // Swapping the entire array to ensure all 4 elements from your screenshot change
+        Material[] newMats = new Material[r.sharedMaterials.Length];
+        for (int i = 0; i < newMats.Length; i++)
+        {
+            newMats[i] = mat;
+        }
+        r.sharedMaterials = newMats;
     }
 }

@@ -6822,6 +6822,86 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &862538913
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.812634
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.4596663
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.417194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757345412947213490, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7908168287194827269, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cede9a76c516c854c9cf6e28dc9d5ad7, type: 3}
+--- !u!114 &862538914 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 639876611903110808, guid: cede9a76c516c854c9cf6e28dc9d5ad7,
+    type: 3}
+  m_PrefabInstance: {fileID: 862538913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c927140951cef438f4f54845268d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &874272119 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
@@ -10483,6 +10563,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 862538914}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WireMiniGameStart
+          m_BoolArgument: 0
+        m_CallState: 2
   OnMinigameEnded:
     m_PersistentCalls:
       m_Calls:
@@ -10508,6 +10600,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 862538914}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WireMiniGameFinish
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!65 &1532854220
@@ -12955,7 +13059,7 @@ PrefabInstance:
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
       propertyPath: OnPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
@@ -12976,7 +13080,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 874272119}
+      objectReference: {fileID: 862538914}
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
       propertyPath: OnPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -13010,7 +13114,7 @@ PrefabInstance:
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
       propertyPath: OnPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: OnVictory
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
@@ -13030,7 +13134,12 @@ PrefabInstance:
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
       propertyPath: OnPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: EnergyPuzzleModule, Assembly-CSharp
+      value: SoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
+        type: 3}
+      propertyPath: OnPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
+      value: WireMiniGameStart
       objectReference: {fileID: 0}
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
@@ -15509,3 +15618,4 @@ SceneRoots:
   - {fileID: 658152057}
   - {fileID: 1471680831}
   - {fileID: 658617602}
+  - {fileID: 862538913}
