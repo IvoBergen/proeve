@@ -9940,9 +9940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4725cc61842a774094a7b2d66dbef58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 1819229493}
-  minigameCamera: {fileID: 1504278451}
-  closeDelay: 1
+  _playerCamera: {fileID: 1819229493}
+  _minigameCamera: {fileID: 1504278451}
+  _closeDelay: 3
   OnMinigameStarted:
     m_PersistentCalls:
       m_Calls:
@@ -12077,6 +12077,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795922062}
   m_CullTransparentMesh: 1
+--- !u!1 &1801916769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7334378651339609067, guid: a3a51cd62a2c0784cb1cc22b9dada156,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825724262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1813737962 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4986367424974303360, guid: fbe19a2750661d24fa54012ac7631789,
@@ -12407,6 +12413,11 @@ PrefabInstance:
       propertyPath: spacingMultiplier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
+        type: 3}
+      propertyPath: _puzzleVisualParent
+      value: 
+      objectReference: {fileID: 1801916769}
     - target: {fileID: 3366355085844249096, guid: a3a51cd62a2c0784cb1cc22b9dada156,
         type: 3}
       propertyPath: OnPuzzleSolved.m_PersistentCalls.m_Calls.Array.size
