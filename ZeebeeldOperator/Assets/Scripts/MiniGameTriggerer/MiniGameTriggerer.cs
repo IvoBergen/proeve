@@ -8,28 +8,28 @@ using UnityEngine.Events;
 public class MiniGameTriggerer : MonoBehaviour, IInterface
 {
     [Header("Cameras")]
-    [SerializeField] private GameObject playerCamera;
-    [SerializeField] private GameObject minigameCamera;
+    [SerializeField] private GameObject _playerCamera;
+    [SerializeField] private GameObject _minigameCamera;
 
     [Header("Settings")]
-    [SerializeField] private float closeDelay = 3f;
+    [SerializeField] private float _closeDelay = 3f;
 
     [Header("Events")]
     public UnityEvent OnMinigameStarted;
     public UnityEvent OnMinigameEnded;
     [Header("varibles")]
-    private bool iscompleted;
+    private bool _iscompleted;
 
     public void Interact()
     {
-        if (playerCamera == null || minigameCamera == null)
+        if (_playerCamera == null || _minigameCamera == null)
         {
             Debug.LogWarning("Cameras not assigned on " + gameObject.name);
             return;
         }
 
-        playerCamera.SetActive(false);
-        minigameCamera.SetActive(true);
+        _playerCamera.SetActive(false);
+        _minigameCamera.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -44,9 +44,9 @@ public class MiniGameTriggerer : MonoBehaviour, IInterface
 
     private IEnumerator CloseMinigameRoutine()
     {
-        yield return new WaitForSeconds(closeDelay);
-        playerCamera.SetActive(true);
-        minigameCamera.SetActive(false);
+        yield return new WaitForSeconds(_closeDelay);
+        _playerCamera.SetActive(true);
+        _minigameCamera.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         OnMinigameEnded.Invoke();
