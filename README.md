@@ -173,6 +173,20 @@ Script:
 
 ---
 
+### Wire puzzle Mini game
+
+This system makes a fun puzzle mini game that the player has to complete to access the radar.
+
+**User story** 
+> As a player, I want to be able to have a fun puzzle to turn on the radar
+
+![Puzzle gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Wire_Puzzle.gif)
+
+![Puzzle visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Wire-Puzzle-miniGame-visual-sheet.png)
+
+Script: 
+- [Puzzle Scripts](ZeebeeldOperator/Assets/Scripts/EletrischiteitMinigame/EnergyPuzzleModule.cs)
+
 ## Playtesting & Feedback  
 
 User tests and feedback can be found in the wiki:  
