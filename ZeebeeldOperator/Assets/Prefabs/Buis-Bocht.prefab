@@ -114,11 +114,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95214cf3fca14f4f9f2913ff29fae91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 5896914104845908592}
+  matWhite: {fileID: 2100000, guid: c1c74ea321608c247bf13bc85c9b8c35, type: 2}
+  matYellow: {fileID: 2100000, guid: 1a05b48388c5b9346bf9eb3d56acc896, type: 2}
+  matRed: {fileID: 2100000, guid: a607fdf2fd442874ea37298d61fd1909, type: 2}
+  matGreen: {fileID: 2100000, guid: 6ecf199a2655b3e46be31dddb3375866, type: 2}
+  rotationAxis: {x: 0, y: 0, z: 1}
   North: 1
-  East: 1
   South: 0
+  East: 1
   West: 0
-  reverseRotationLogic: 1
 --- !u!65 &8574756007292888740
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -140,3 +145,9 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0005786947, y: 0.00023276692, z: 0.00057869474}
   m_Center: {x: -0.00017116852, y: -0.00011638346, z: -0.00017116863}
+--- !u!23 &5896914104845908592 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 092bb26d970c73f4ea9cfc1a7b3c4bed,
+    type: 3}
+  m_PrefabInstance: {fileID: 5050674296263157492}
+  m_PrefabAsset: {fileID: 0}
