@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
+// is used to store the dialogue and repeat dialouge
 public class Dialogue
 {
     public string name;

@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// is used to trigger the npc dialogue
+/// </summary>
+
 public class DialogueTrigger : MonoBehaviour, IInterface
 {
     [Header("Dialogue Data")]
