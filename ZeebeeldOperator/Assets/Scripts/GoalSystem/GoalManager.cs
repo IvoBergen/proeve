@@ -1,13 +1,12 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+
 /// <summary>
 /// Handles goal display, animation, and fading.
 /// </summary>
 public class GoalManager : MonoBehaviour
 {
-
-
     [SerializeField] private TMP_Text _currentGoalText;
     [SerializeField] private TMP_Text _clipboardGoalText;
     [SerializeField] private string[] _goals;
@@ -20,7 +19,7 @@ public class GoalManager : MonoBehaviour
     [SerializeField] private float _fadeDelay = 3f;
     [SerializeField] private float _fadeDuration = 1f;
 
-    private int _currentGoalIndex = 0;
+    private int _currentGoalIndex = -1;
     private Vector3 _originalScale;
     private CanvasGroup _canvasGroup;
     private Coroutine _fadeCoroutine;
@@ -28,6 +27,7 @@ public class GoalManager : MonoBehaviour
     private void Awake()
     {
         _originalScale = _currentGoalText.transform.localScale;
+
         _canvasGroup = _currentGoalText.GetComponent<CanvasGroup>();
         if (_canvasGroup == null)
             _canvasGroup = _currentGoalText.gameObject.AddComponent<CanvasGroup>();
@@ -37,33 +37,35 @@ public class GoalManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateGoal();
-        TriggerFadeSequence();
+        SetGoal(0);
     }
 
-    public void NextGoal()
+    public void SetGoal(int index)
     {
-        if (_currentGoalIndex < _goals.Length - 1)
+        if (index < 0 || index >= _goals.Length)
         {
-            _currentGoalIndex++;
-            UpdateGoal();
-            _currentGoalText.transform.localScale = _originalScale;
-            _canvasGroup.alpha = 1f;
-
-            if (_fadeCoroutine != null)
-                StopCoroutine(_fadeCoroutine);
-
-            StartCoroutine(PlayPopAnimation());
-            TriggerFadeSequence();
+            Debug.LogWarning($"Goal index {index} is out of range.");
+            return;
         }
+
+        _currentGoalIndex = index;
+        UpdateGoal();
+
+        _currentGoalText.transform.localScale = _originalScale;
+        _canvasGroup.alpha = 1f;
+
+        if (_fadeCoroutine != null)
+            StopCoroutine(_fadeCoroutine);
+
+        StartCoroutine(PlayPopAnimation());
+        TriggerFadeSequence();
     }
 
     private void UpdateGoal()
     {
         string goalText = _goals[_currentGoalIndex];
 
-        if (_currentGoalText != null)
-            _currentGoalText.text = goalText;
+        _currentGoalText.text = goalText;
 
         if (_clipboardGoalText != null)
             _clipboardGoalText.text = goalText;
@@ -80,6 +82,7 @@ public class GoalManager : MonoBehaviour
     private IEnumerator PlayPopAnimation()
     {
         Vector3 targetScale = _originalScale * _scaleMultiplier;
+
         float time = 0f;
         while (time < _animationDuration)
         {
@@ -91,6 +94,7 @@ public class GoalManager : MonoBehaviour
         }
 
         _currentGoalText.transform.localScale = targetScale;
+
         time = 0f;
         while (time < _animationDuration)
         {

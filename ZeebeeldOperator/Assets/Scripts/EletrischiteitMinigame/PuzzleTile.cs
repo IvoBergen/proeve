@@ -92,9 +92,13 @@ public class PuzzleTile : MonoBehaviour
         }
 
         if (_isGoalTile)
+        {
             _meshRenderer.material = state ? _matGreen : _matRed;
+        }
         else
-            _meshRenderer.material = state ? _matGreen : _matRed;
+        {
+            _meshRenderer.material = state ? _matYellow : _matWhite;
+        }
     }
 
     public void SetMaterial(Material mat)

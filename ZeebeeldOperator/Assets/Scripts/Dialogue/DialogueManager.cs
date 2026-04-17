@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-/// <summary>
-/// Controls dialogue flow, UI, and global dialogue state.
-/// Does NOT store dialogue data.
-/// </summary>
 public class DialogueManager : MonoBehaviour
 {
-    [Header("Refrences")]
+    [Header("References")]
     [SerializeField] GameStateManager gameStateManager;
-    [Header("variables")]
-    [SerializeField] public bool Active;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueUI;
@@ -20,35 +14,40 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> _sentences;
 
-    public bool IsDialogueActive { get; private set; }
+    public bool Active;
 
     private void Awake()
     {
         _sentences = new Queue<string>();
-
         _dialogueUI.SetActive(false);
-        _nameText.text = "";
-        _dialogueText.text = "";
     }
 
-    public void BeginDialogue(Dialogue dialogue)
+    public void BeginDialogue(Dialogue dialogue, bool firstTime = true)
     {
-        Active = true;
+        if (dialogue == null) return;
+
+        string[] sentencesToUse = firstTime
+            ? dialogue.firstTimeSentences
+            : dialogue.repeatSentences;
+
+        BeginDialogue(dialogue.name, sentencesToUse);
+    }
+
+    public void BeginDialogue(string name, string[] sentences)
+    {
         gameStateManager.InDialogue();
-        IsDialogueActive = true;
+
+        Active = true;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
         _dialogueUI.SetActive(true);
-
-        _nameText.text = dialogue.name;
+        _nameText.text = name;
 
         _sentences.Clear();
-        foreach (string sentence in dialogue.sentences)
-        {
-            _sentences.Enqueue(sentence);
-        }
+        foreach (string s in sentences)
+            _sentences.Enqueue(s);
 
         ShowNextLine();
     }
@@ -71,21 +70,20 @@ public class DialogueManager : MonoBehaviour
 
         foreach (char letter in sentence)
         {
-            yield return new WaitForSeconds(_dialogueTextSpeed);
             _dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(_dialogueTextSpeed);
         }
     }
 
     private void EndDialogue()
     {
-        IsDialogueActive = false;
+        Active = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
         _dialogueUI.SetActive(false);
+
         gameStateManager.exitDialouge();
-        Active = false;
     }
 }
