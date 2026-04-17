@@ -1,18 +1,21 @@
 using UnityEngine;
-using UnityEngine.Events; // Required for UnityEvent
+using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour, IInterface
 {
     [Header("Dialogue Data")]
     public Dialogue dialogue;
 
+    [SerializeField] private bool _hasTalked = false;
+
     [Header("Events")]
-    public UnityEvent onDialogueEnded; // Drag your NPC-specific functions here in the Inspector
+    public UnityEvent onFirstDialogueEnded;
 
     private DialogueManager _dialogueManager;
     private GameStateManager _gameStateManager;
 
     private bool _isOwner = false;
+    private bool _waitingForFirstEnd = false;
 
     private void Awake()
     {
@@ -26,14 +29,24 @@ public class DialogueTrigger : MonoBehaviour, IInterface
         if (_gameStateManager != null && _gameStateManager.IsClipboardOpen) return;
 
         _isOwner = true;
-        _dialogueManager.BeginDialogue(dialogue);
+
+        if (!_hasTalked)
+        {
+            _dialogueManager.BeginDialogue(dialogue, true);
+            _waitingForFirstEnd = true;
+            _hasTalked = true;
+        }
+        else
+        {
+            _dialogueManager.BeginDialogue(dialogue, false);
+        }
     }
 
     private void Update()
     {
         if (!_isOwner || _dialogueManager == null) return;
 
-        if (_dialogueManager.IsDialogueActive)
+        if (_dialogueManager.Active)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
@@ -42,11 +55,13 @@ public class DialogueTrigger : MonoBehaviour, IInterface
         }
         else
         {
-            // --- The dialogue just ended ---
             _isOwner = false;
 
-            // Trigger the NPC-specific event
-            onDialogueEnded?.Invoke();
+            if (_waitingForFirstEnd)
+            {
+                onFirstDialogueEnded?.Invoke();
+                _waitingForFirstEnd = false;
+            }
         }
     }
 }
