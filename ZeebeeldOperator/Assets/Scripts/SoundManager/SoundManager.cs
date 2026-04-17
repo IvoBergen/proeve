@@ -17,42 +17,42 @@ public class SoundManager : MonoBehaviour
     }
 
     public List<SoundEffect> soundList;
-    private Dictionary<string, AudioClip> soundDictionary;
-    private Dictionary<string, AudioSource> loopingSources;
-    private AudioSource globalSource;
+    private Dictionary<string, AudioClip> _soundDictionary;
+    private Dictionary<string, AudioSource> _loopingSources;
+    private AudioSource _globalSource;
 
     private void Awake()
     {
         if (Instance == null) { Instance = this; DontDestroyOnLoad(gameObject); }
         else { Destroy(gameObject); return; }
 
-        globalSource = gameObject.AddComponent<AudioSource>();
-        globalSource.playOnAwake = false;
-        globalSource.spatialBlend = 0;
+        _globalSource = gameObject.AddComponent<AudioSource>();
+        _globalSource.playOnAwake = false;
+        _globalSource.spatialBlend = 0;
 
-        soundDictionary = new Dictionary<string, AudioClip>();
-        loopingSources = new Dictionary<string, AudioSource>();
+        _soundDictionary = new Dictionary<string, AudioClip>();
+        _loopingSources = new Dictionary<string, AudioSource>();
 
         foreach (var sound in soundList)
         {
-            if (!string.IsNullOrEmpty(sound.name) && !soundDictionary.ContainsKey(sound.name))
-                soundDictionary.Add(sound.name, sound.clip);
+            if (!string.IsNullOrEmpty(sound.name) && !_soundDictionary.ContainsKey(sound.name))
+                _soundDictionary.Add(sound.name, sound.clip);
         }
     }
     // use this function in your event
     public void Play(string soundName)
     {
-        if (soundDictionary.TryGetValue(soundName, out AudioClip clip))
+        if (_soundDictionary.TryGetValue(soundName, out AudioClip clip))
         {
-            globalSource.PlayOneShot(clip, 1.0f);
+            _globalSource.PlayOneShot(clip, 1.0f);
         }
     }
     // use this function the trigger sound that loops
     public void PlayLoop(string soundName)
     {
-        if (loopingSources.ContainsKey(soundName)) return;
+        if (_loopingSources.ContainsKey(soundName)) return;
 
-        if (soundDictionary.TryGetValue(soundName, out AudioClip clip))
+        if (_soundDictionary.TryGetValue(soundName, out AudioClip clip))
         {
             AudioSource newSource = gameObject.AddComponent<AudioSource>();
             newSource.clip = clip;
@@ -60,26 +60,26 @@ public class SoundManager : MonoBehaviour
             newSource.playOnAwake = false;
             newSource.Play();
 
-            loopingSources.Add(soundName, newSource);
+            _loopingSources.Add(soundName, newSource);
         }
     }
     // use this to end looping
     public void StopLoop(string soundName)
     {
-        if (loopingSources.TryGetValue(soundName, out AudioSource source))
+        if (_loopingSources.TryGetValue(soundName, out AudioSource source))
         {
             source.Stop();
             Destroy(source);
-            loopingSources.Remove(soundName);
+            _loopingSources.Remove(soundName);
         }
     }
 
     // use this function to trigger inside of a other script
     public void PlayWithVolume(string soundName, float volume)
     {
-        if (soundDictionary.TryGetValue(soundName, out AudioClip clip))
+        if (_soundDictionary.TryGetValue(soundName, out AudioClip clip))
         {
-            globalSource.PlayOneShot(clip, volume);
+            _globalSource.PlayOneShot(clip, volume);
         }
     }
 }

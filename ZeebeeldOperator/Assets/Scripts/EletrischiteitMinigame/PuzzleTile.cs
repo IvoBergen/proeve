@@ -7,10 +7,10 @@ public class PuzzleTile : MonoBehaviour
 {
     [Header("Visuals")]
     [SerializeField] private MeshRenderer _meshRenderer;
-    [SerializeField] private Material matWhite;
-    [SerializeField] private Material matYellow;
-    [SerializeField] private Material matRed;
-    [SerializeField] private Material matGreen;
+    [SerializeField] private Material _matWhite;
+    [SerializeField] private Material _matYellow;
+    [SerializeField] private Material _matRed;
+    [SerializeField] private Material _matGreen;
 
     [Header("Initial Connections (At 0 Rotation)")]
     public bool North;
@@ -24,6 +24,10 @@ public class PuzzleTile : MonoBehaviour
     private EnergyPuzzleModule _module;
     private int _rotationStep = 0;
     private bool _isGoalTile = false;
+    void Awake()
+    {
+        _meshRenderer = GetComponentInChildren<MeshRenderer>();
+    }
 
     public void Init(EnergyPuzzleModule module, bool isGoal = false)
     {
@@ -82,19 +86,17 @@ public class PuzzleTile : MonoBehaviour
     public void SetPowerVisual(bool state)
     {
         if (_meshRenderer == null)
-            _meshRenderer = GetComponentInChildren<MeshRenderer>();
-
-        if (_meshRenderer == null)
         {
             Debug.LogWarning("No MeshRenderer found on " + gameObject.name);
             return;
         }
 
         if (_isGoalTile)
-            _meshRenderer.material = state ? matGreen : matRed;
+            _meshRenderer.material = state ? _matGreen : _matRed;
         else
-            _meshRenderer.material = state ? matYellow : matWhite;
+            _meshRenderer.material = state ? _matGreen : _matRed;
     }
+
     public void SetMaterial(Material mat)
     {
         if (_meshRenderer == null)
