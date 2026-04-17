@@ -122,6 +122,70 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5800877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5800878}
+  - component: {fileID: 5800879}
+  - component: {fileID: 5800880}
+  m_Layer: 0
+  m_Name: Goal3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5800878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1147611061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5800879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901e903dfd6f7a74289c2379d56adff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goalIndex: 3
+  _hasTriggered: 0
+--- !u!114 &5800880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21028d68ff90634d91b647913c4264d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goalManager: {fileID: 1127393791}
+  _goalIndex: 3
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &29911805 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5619951619533903589, guid: fbe19a2750661d24fa54012ac7631789,
@@ -1057,6 +1121,55 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3329902420748629119, guid: 58fd00857ec61af49a790cb9a0e3f23a, type: 3}
+--- !u!1 &150820813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150820814}
+  - component: {fileID: 150820816}
+  m_Layer: 0
+  m_Name: Goal2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &150820814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150820813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1147611061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &150820816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150820813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21028d68ff90634d91b647913c4264d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goalManager: {fileID: 1127393791}
+  _goalIndex: 2
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &165203616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4784529261809524920, guid: fbe19a2750661d24fa54012ac7631789,
@@ -4202,9 +4315,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1127393791}
-        m_TargetAssemblyTypeName: GoalManager, Assembly-CSharp
-        m_MethodName: NextGoal
+      - m_Target: {fileID: 1517438346}
+        m_TargetAssemblyTypeName: GoalTrigger, Assembly-CSharp
+        m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4214,9 +4327,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1127393792}
-        m_TargetAssemblyTypeName: GoalManager, Assembly-CSharp
-        m_MethodName: NextGoal
+      - m_Target: {fileID: 2035645603}
+        m_TargetAssemblyTypeName: GoalTrigger, Assembly-CSharp
+        m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4530,6 +4643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 532909633}
+  - component: {fileID: 532909634}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -4545,13 +4659,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532909632}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.51362, y: -3.5741868, z: -2.5907247}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1600886333}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532909634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532909632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c927140951cef438f4f54845268d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundList: []
 --- !u!1 &559715284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,7 +5890,6 @@ GameObject:
   - component: {fileID: 658152055}
   - component: {fileID: 658152054}
   - component: {fileID: 658152053}
-  - component: {fileID: 658152058}
   m_Layer: 6
   m_Name: ChefMiniGameTriggerer
   m_TagString: Untagged
@@ -5852,7 +5978,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 658152058}
+      - m_Target: {fileID: 150820816}
         m_TargetAssemblyTypeName: GoalTrigger, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
@@ -5950,21 +6076,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1360130021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &658152058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 658152052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e21028d68ff90634d91b647913c4264d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NextGoal:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &658617602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6275,7 +6386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677408222}
   m_Layer: 0
-  m_Name: GoalUI (1)
+  m_Name: POPUP GoalUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8142,6 +8253,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006702591}
   m_CullTransparentMesh: 1
+--- !u!1 &1022661952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022661953}
+  - component: {fileID: 1022661954}
+  m_Layer: 0
+  m_Name: Goal5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1022661953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022661952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1147611061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1022661954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022661952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21028d68ff90634d91b647913c4264d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goalManager: {fileID: 1127393791}
+  _goalIndex: 5
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1023450116
 GameObject:
   m_ObjectHideFlags: 0
@@ -8781,11 +8941,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStateManager: {fileID: 1127393783}
-  Active: 0
   _nameText: {fileID: 181347579}
   _dialogueText: {fileID: 1898248263}
   _dialogueUI: {fileID: 1862435402}
   _dialogueTextSpeed: 0
+  Active: 0
 --- !u!4 &1127393782
 Transform:
   m_ObjectHideFlags: 0
@@ -8973,6 +9133,7 @@ MonoBehaviour:
   - Verzamel meer hints in de brug
   - Druk op tab op naar je klembord te gaan
   - Maak je gok door middel van je clipboard
+  - Kijk op de radar
   _scaleMultiplier: 2
   _animationDuration: 0.2
   _fadeDelay: 3
@@ -8999,6 +9160,91 @@ MonoBehaviour:
   _animationDuration: 0.2
   _fadeDelay: 5
   _fadeDuration: 0.5
+--- !u!1 &1147611060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1147611061}
+  m_Layer: 0
+  m_Name: MainGoals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1147611061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147611060}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -38.183247, y: -0.88297606, z: -18.949648}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1517438344}
+  - {fileID: 150820814}
+  - {fileID: 5800878}
+  - {fileID: 1180371472}
+  - {fileID: 1022661953}
+  m_Father: {fileID: 1600886333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1180371471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180371472}
+  - component: {fileID: 1180371473}
+  m_Layer: 0
+  m_Name: Goal4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1180371472
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180371471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1147611061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1180371473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180371471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21028d68ff90634d91b647913c4264d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goalManager: {fileID: 1127393791}
+  _goalIndex: 4
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1186182579 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
@@ -9851,6 +10097,61 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1324501385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324501387}
+  - component: {fileID: 1324501386}
+  m_Layer: 0
+  m_Name: PopupGoals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1324501386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324501385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa2beee3a09b5949b8b01906a368acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentGoalText: {fileID: 1023450118}
+  _clipboardGoalText: {fileID: 0}
+  _goals:
+  - 
+  - Druk op tab om je klembord te openen
+  - 
+  _scaleMultiplier: 2
+  _animationDuration: 0.2
+  _fadeDelay: 3
+  _fadeDuration: 1
+--- !u!4 &1324501387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324501385}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2035645604}
+  m_Father: {fileID: 1600886333}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325105391
 GameObject:
   m_ObjectHideFlags: 0
@@ -9887,13 +10188,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Chef Willem
-    sentences:
-    - hoi
-    - 'Ik zag een vijandelijk schip '
-    - volgens mij had deze een rode vlag
-    - 'het schip heete volgens mij '
-    - SS Jimmy
-  onDialogueEnded:
+    firstTimeSentences: []
+    repeatSentences: []
+  _hasTalked: 0
+  onFirstDialogueEnded:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &1325105393
@@ -10007,7 +10305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9f8fd80fbfea44bbad015651d39dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clue:
+  _clue:
     clueName: 
     clueType: 0
     clueText: 
@@ -10625,16 +10923,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Chef Willem
-    sentences:
-    - hoi
-    - Zou je mij kunnen helpen met het snijden van groenten?
-    - Klik op de groene knop om de minigame te beginnen
-    - 'Ik zag een vijandelijk schip '
-    - Deze was rood? ik weet het niet meer zeker
-    - en volgens mij begon de naam van het schip met de J
-  onDialogueEnded:
+    firstTimeSentences:
+    - 'Hi, jij bent de gene die het vijandelijk schip moest vinden toch? '
+    - ik weet toevallig dat het schipt begint met de letter J verder weet ik niet
+      zo veel
+    - Ik zag het schip toen ik even buiten pauze had. Maar ik Kon de letters niet
+      zo goed lezen.
+    - maar ik heb wel je hulp nodig met groente snijden.
+    - Veel succes!
+    repeatSentences:
+    - dankjewel voor het helpen met snijden
+  _hasTalked: 0
+  onFirstDialogueEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 658152053}
+        m_TargetAssemblyTypeName: MiniGameTriggerer, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1502651356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
@@ -10653,10 +10967,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9f8fd80fbfea44bbad015651d39dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clue:
+  _clue:
     clueName: 
     clueType: 0
-    clueText: 
+    clueText: schip begint met de letter j
 --- !u!1 &1504278451
 GameObject:
   m_ObjectHideFlags: 0
@@ -11002,6 +11316,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510185576}
   m_CullTransparentMesh: 1
+--- !u!1 &1517438343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1517438344}
+  - component: {fileID: 1517438346}
+  m_Layer: 0
+  m_Name: Goal1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1517438344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517438343}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1147611061}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1517438346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517438343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21028d68ff90634d91b647913c4264d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goalManager: {fileID: 1127393791}
+  _goalIndex: 1
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1530091928
 GameObject:
   m_ObjectHideFlags: 0
@@ -11249,6 +11612,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1661609532}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: StartShowingInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1022661954}
+        m_TargetAssemblyTypeName: GoalTrigger, Assembly-CSharp
+        m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12014,6 +12389,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1127393782}
+  - {fileID: 532909633}
+  - {fileID: 1324501387}
+  - {fileID: 1147611061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611602563
@@ -14053,7 +14431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1862435403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14849,11 +15227,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Elektricien Paulien
-    sentences:
-    - Mhm kan je mij helpen met de Stroom weer werkend te krijgen?
-  onDialogueEnded:
+    firstTimeSentences:
+    - Ik heb je hulp nodig met de stroom herstellen in de radar
+    - Als je klikt op een draadje draaidt het
+    - Zorg er voor dat de stroom vloeit van links onder naar rechts boven
+    repeatSentences:
+    - Dankjewel voor de hulp! vergeet niet om op de radar te kijken.
+  _hasTalked: 0
+  onFirstDialogueEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532854219}
+        m_TargetAssemblyTypeName: MiniGameTriggerer, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1934419950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b43e9338f0531aa4bbea1630d11131ef,
@@ -14893,10 +15288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9f8fd80fbfea44bbad015651d39dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clue:
+  _clue:
     clueName: 
     clueType: 0
-    clueText: 
+    clueText: ik moet op de radar kijken
 --- !u!1 &1937107473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2064047555202366563, guid: fbe19a2750661d24fa54012ac7631789,
@@ -15113,6 +15508,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a9ef40d7203974bbc80e71bf6755d6, type: 3}
+--- !u!1 &2035645602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2035645604}
+  - component: {fileID: 2035645603}
+  m_Layer: 0
+  m_Name: Goal1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2035645603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035645602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e21028d68ff90634d91b647913c4264d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _goalManager: {fileID: 1324501386}
+  _goalIndex: 1
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &2035645604
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035645602}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1324501387}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2052382376
 GameObject:
   m_ObjectHideFlags: 0
@@ -16175,4 +16619,3 @@ SceneRoots:
   - {fileID: 1046452130}
   - {fileID: 1546620658}
   - {fileID: 1600886333}
-  - {fileID: 532909633}
