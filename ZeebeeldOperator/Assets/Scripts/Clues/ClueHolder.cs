@@ -28,8 +28,6 @@ namespace bnyhtz
                 if (ClueManager.Instance != null)
                 {
                     ClueManager.Instance.AddClue(_clue);
-                    Debug.Log($"Added clue: {_clue.clueName}");
-                    // Destroy(this.gameObject);
                 }
             }
         }
