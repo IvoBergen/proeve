@@ -26,8 +26,6 @@ public class GenerateCutSpots : MonoBehaviour
         _arrowMover = GetComponent<ArrowMover>();
         uiHolder.SetActive(false);
     }
-
-    [ContextMenu("spawnCUbes")]
     public void SpawnNewCubes()
     {
         if (!enabled) return;
