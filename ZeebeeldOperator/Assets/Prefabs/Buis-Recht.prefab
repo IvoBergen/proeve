@@ -96,6 +96,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5697487270818885199}
   m_SourcePrefab: {fileID: 100100000, guid: e9688c9ad35755249b9535c0a0a3ae84, type: 3}
+--- !u!23 &7949967471948306007 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: e9688c9ad35755249b9535c0a0a3ae84,
+    type: 3}
+  m_PrefabInstance: {fileID: 8760170784799918803}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8454111077528778626 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e9688c9ad35755249b9535c0a0a3ae84,
@@ -114,11 +120,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95214cf3fca14f4f9f2913ff29fae91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 7949967471948306007}
+  matWhite: {fileID: 2100000, guid: c1c74ea321608c247bf13bc85c9b8c35, type: 2}
+  matYellow: {fileID: 2100000, guid: 1a05b48388c5b9346bf9eb3d56acc896, type: 2}
+  matRed: {fileID: 2100000, guid: a607fdf2fd442874ea37298d61fd1909, type: 2}
+  matGreen: {fileID: 2100000, guid: 6ecf199a2655b3e46be31dddb3375866, type: 2}
+  rotationAxis: {x: 0, y: 0, z: 1}
   North: 0
-  East: 1
   South: 0
+  East: 1
   West: 1
-  reverseRotationLogic: 0
 --- !u!65 &5697487270818885199
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,10 +1,17 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Stores information of wich way the tile is facing 
+/// Stores information of which way the tile is facing 
 /// </summary>
 public class PuzzleTile : MonoBehaviour
 {
+    [Header("Visuals")]
+    [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private Material matWhite;
+    [SerializeField] private Material matYellow;
+    [SerializeField] private Material matRed;
+    [SerializeField] private Material matGreen;
+
     [Header("Initial Connections (At 0 Rotation)")]
     public bool North;
     public bool East;
@@ -16,27 +23,43 @@ public class PuzzleTile : MonoBehaviour
 
     private EnergyPuzzleModule _module;
     private int _rotationStep = 0;
+    private bool _isGoalTile = false;
 
-    public void Init(EnergyPuzzleModule module)
+    public void Init(EnergyPuzzleModule module, bool isGoal = false)
     {
         _module = module;
+        _isGoalTile = isGoal;
+        if (_meshRenderer == null)
+            _meshRenderer = GetComponentInChildren<MeshRenderer>();
+
         _rotationStep = Mathf.RoundToInt(transform.localEulerAngles.x / 90f) % 4;
+
         ApplyRotation();
+        SetPowerVisual(false);
     }
 
     private void OnMouseDown()
     {
         RotateTile();
-        if (_module != null) _module.CheckConnection();
+
+        if (_module != null)
+            _module.CheckConnection();
     }
 
     public void RotateTile()
     {
         _rotationStep = (_rotationStep + 1) % 4;
+
         ApplyRotation();
+        RotateConnections();
+    }
+
+    private void RotateConnections()
+    {
+        bool oldNorth = North;
+
         if (reverseRotationLogic)
         {
-            bool oldNorth = North;
             North = East;
             East = South;
             South = West;
@@ -44,7 +67,6 @@ public class PuzzleTile : MonoBehaviour
         }
         else
         {
-            bool oldNorth = North;
             North = West;
             West = South;
             South = East;
@@ -59,12 +81,26 @@ public class PuzzleTile : MonoBehaviour
 
     public void SetPowerVisual(bool state)
     {
-        MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
-        if (mr != null) mr.material.color = state ? Color.yellow : Color.white;
+        if (_meshRenderer == null)
+            _meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        if (_meshRenderer == null)
+        {
+            Debug.LogWarning("No MeshRenderer found on " + gameObject.name);
+            return;
+        }
+
+        if (_isGoalTile)
+            _meshRenderer.material = state ? matGreen : matRed;
+        else
+            _meshRenderer.material = state ? matYellow : matWhite;
     }
-    public void SetColorManual(Color c)
+    public void SetMaterial(Material mat)
     {
-        MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
-        if (mr != null) mr.material.color = c;
+        if (_meshRenderer == null)
+            _meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        if (_meshRenderer != null)
+            _meshRenderer.material = mat;
     }
 }
