@@ -902,4 +902,5 @@ MonoBehaviour:
   _statusLightRenderer: {fileID: 1674172872334735143}
   _redMaterial: {fileID: 2100000, guid: 80a0e286c23b7b9459685427e1ba09d6, type: 2}
   _greenMaterial: {fileID: 2100000, guid: 7e6be6a479bfc55418ea4ba5d0df271e, type: 2}
-  _interactionZone: {fileID: 0}
+  _interactionZone: {fileID: 7666693774468458351}
+  _cardMeshRenderer: {fileID: 0}

@@ -12,6 +12,7 @@ namespace bnyhtz
         [SerializeField] private Material _redMaterial;
         [SerializeField] private Material _greenMaterial;
         [SerializeField] private BoxCollider _interactionZone;
+        [SerializeField] public MeshRenderer _cardMeshRenderer;
 
         private bool _startZoneVisited;
 
@@ -22,6 +23,8 @@ namespace bnyhtz
         {
             SetStatusLightCompleted(false);
             _interactionZone.enabled = true;
+            _cardMeshRenderer.enabled = false;       
+
         }
 
         public void Interact()
@@ -33,6 +36,7 @@ namespace bnyhtz
 
             _startZoneVisited = false;
             _interactionActive = true;
+            _cardMeshRenderer.enabled = true;
             SetStatusLightCompleted(false);
             _interactionZone.enabled = false;
             Debug.Log("Keycard minigame started.");

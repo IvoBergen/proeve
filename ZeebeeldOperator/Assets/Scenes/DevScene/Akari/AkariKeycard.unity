@@ -4521,6 +4521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248108063031091865, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
+      propertyPath: _cardMeshRenderer
+      value: 
+      objectReference: {fileID: 688015416}
+    - target: {fileID: 3248108063031091865, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
+        type: 3}
       propertyPath: _scrollSensitivity
       value: 0.075
       objectReference: {fileID: 0}
@@ -4533,6 +4538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _scrollDepthSensitivity
       value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248108063031091865, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
+        type: 3}
+      propertyPath: _cardCollisionMask.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4961995036325100539, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
@@ -5778,6 +5788,12 @@ Transform:
 --- !u!65 &688015415 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 1437125566069473722, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
+    type: 3}
+  m_PrefabInstance: {fileID: 571143221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &688015416 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4961995036325100539, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
     type: 3}
   m_PrefabInstance: {fileID: 571143221}
   m_PrefabAsset: {fileID: 0}
@@ -14078,6 +14094,11 @@ PrefabInstance:
       propertyPath: _interactionZone
       value: 
       objectReference: {fileID: 2050139613}
+    - target: {fileID: 4955361090667870122, guid: 2c7bfecebc760b4498eb8ff2a9434270,
+        type: 3}
+      propertyPath: _cardMeshRenderer
+      value: 
+      objectReference: {fileID: 688015416}
     - target: {fileID: 5407447443502924761, guid: 2c7bfecebc760b4498eb8ff2a9434270,
         type: 3}
       propertyPath: m_LocalPosition.x

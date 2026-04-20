@@ -1,6 +1,7 @@
 using UnityEngine;
-using bnyhtz;
 
+namespace bnyhtz
+{
 public class KeycardDrag : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
@@ -14,7 +15,6 @@ public class KeycardDrag : MonoBehaviour
         [SerializeField] private LayerMask _cardCollisionMask = ~0;
         [SerializeField] private float _cardProbeRadius = 0.05f;
         [SerializeField] private float _wallPadding = 0.02f;
-
         private bool _held;
         private Plane _dragPlane;
         private Vector3 _dragPlaneNormal;
@@ -262,3 +262,4 @@ public class KeycardDrag : MonoBehaviour
             transform.position = resolvedPosition;
         }
     }
+}

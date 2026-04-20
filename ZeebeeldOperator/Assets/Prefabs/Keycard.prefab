@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4eca0ab9156f9d94b80b177f0318384a, type: 2}
+  - {fileID: 2100000, guid: b094bbc15073cb54998123017d43f201, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,7 +156,14 @@ MonoBehaviour:
   _cardCollider: {fileID: 1437125566069473722}
   _dragPlaneReference: {fileID: 0}
   _planeForwardOffset: 0.05
-  _scrollSensitivity: 0.05
+  _scrollSensitivity: 0.075
+  _minHoldDistance: 0.15
+  _maxHoldDistance: 2.5
+  _cardCollisionMask:
+    serializedVersion: 2
+    m_Bits: 8
+  _cardProbeRadius: 0.05
+  _wallPadding: 0.02
 --- !u!54 &585309459340124262
 Rigidbody:
   m_ObjectHideFlags: 0
