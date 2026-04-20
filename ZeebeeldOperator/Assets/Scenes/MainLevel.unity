@@ -167,8 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901e903dfd6f7a74289c2379d56adff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _goalIndex: 3
-  _hasTriggered: 0
 --- !u!114 &5800880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10134,7 +10132,7 @@ MonoBehaviour:
   - 
   _scaleMultiplier: 2
   _animationDuration: 0.2
-  _fadeDelay: 3
+  _fadeDelay: 1
   _fadeDuration: 1
 --- !u!4 &1324501387
 Transform:
