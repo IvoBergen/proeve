@@ -1,86 +1,125 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class NoteUI : MonoBehaviour
 {
+    [Header("Events")]
+    public UnityEvent Finished;
+
     [Header("UI Elements")]
-    public GameObject counterParent;
-    public TextMeshProUGUI counterText;
+    [SerializeField] private GameObject _counterParent;
+    [SerializeField] private TextMeshProUGUI _counterText;
+
+    [Header("Photo Preview")]
+    [SerializeField] private GameObject _previewPanel;
+    [SerializeField] private Image _previewDisplay;
 
     [Header("Settings")]
     [SerializeField] private int _totalPapers = 4;
 
     private int _papersFound = 0;
-    public bool IsQuestActive { get; private set; }
-    private bool _readingNote = false;
+    private bool _isQuestActive = false;
+    private bool _isViewingPhoto = false;
 
-    void Start()
+    /// <summary>
+    /// Gets the current status of the quest.
+    /// </summary>
+    public bool IsQuestActive => _isQuestActive;
+
+    private void Start()
     {
-        if (counterParent != null) counterParent.SetActive(false);
+        // Remove debug logs after testing
+        if (_counterParent != null) _counterParent.SetActive(false);
+        if (_previewPanel != null) _previewPanel.SetActive(false);
     }
 
+    /// <summary>
+    /// Activates the quest and shows the initial UI counter.
+    /// </summary>
     public void StartQuest()
     {
-        IsQuestActive = true;
-        if (counterParent != null) counterParent.SetActive(true);
+        _isQuestActive = true;
+        if (_counterParent != null) _counterParent.SetActive(true);
         UpdateCounterUI();
     }
 
-    void Update()
+    private void Update()
     {
-        // Laat de speler door de tekst klikken, ook al is het briefje al Destroyed
-        if (_readingNote)
+        // Close the image with Space, Click, or E
+        if (_isViewingPhoto)
         {
-            DialogueManager dm = FindObjectOfType<DialogueManager>();
-            // We gebruiken 'Active' zoals gedefinieerd in jouw DialogueManager
-            if (dm != null && dm.Active)
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
             {
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
-                {
-                    dm.ShowNextLine();
-                }
-            }
-            else
-            {
-                _readingNote = false;
+                ClosePhoto();
             }
         }
     }
 
+    /// <summary>
+    /// Handles the logic when a paper is collected, including updating UI and showing the image.
+    /// </summary>
+    /// <param name="note">The collected Note object containing images.</param>
     public void OnPaperCollected(Notes note)
     {
         _papersFound++;
         UpdateCounterUI();
 
-        DialogueManager dm = FindObjectOfType<DialogueManager>();
-        if (dm == null) return;
+        // Choose the correct image based on the counter
+        Sprite spriteToShow = (_papersFound >= _totalPapers) ? note.clueImage : note.normalImage;
 
-        // LOGICA: Als dit het laatste briefje is, pak de clue. Anders de normale tekst.
-        string[] sentencesToDisplay = (_papersFound >= _totalPapers)
-            ? note.clueSentences
-            : note.normalSentences;
+        OpenPhoto(spriteToShow);
 
-        _readingNote = true;
-        // We roepen de BeginDialogue aan met de naam en de gekozen zinnen
-        dm.BeginDialogue(note.noteName, sentencesToDisplay);
-
-        // Als alles gevonden is, verbergen we de UI na een korte vertraging
         if (_papersFound >= _totalPapers)
         {
-            Invoke("HideUI", 3f);
+            // Use appropriate functionalities: delay hiding the UI
+            Invoke("HideCounter", 2f);
+            Finished?.Invoke();
         }
 
         Destroy(note.gameObject);
     }
 
-    private void UpdateCounterUI()
+    private void OpenPhoto(Sprite photo)
     {
-        if (counterText != null)
-            counterText.text = "Papiertjes: " + _papersFound + " / " + _totalPapers;
+        if (_previewDisplay != null && photo != null)
+        {
+            _previewDisplay.sprite = photo;
+            _previewPanel.SetActive(true);
+            _isViewingPhoto = true;
+
+            // Pause the game so the player can look at the photo
+            Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
-    private void HideUI()
+    private void ClosePhoto()
     {
-        if (counterParent != null) counterParent.SetActive(false);
+        _previewPanel.SetActive(false);
+        _isViewingPhoto = false;
+
+        // Resume game
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void UpdateCounterUI()
+    {
+        if (_counterText != null)
+        {
+            _counterText.text = "Papiertjes: " + _papersFound + " / " + _totalPapers;
+        }
+    }
+
+    private void HideCounter()
+    {
+        if (_counterParent != null)
+        {
+            _counterParent.SetActive(false);
+        }
     }
 }
