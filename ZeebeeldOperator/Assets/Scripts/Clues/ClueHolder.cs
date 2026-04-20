@@ -7,12 +7,12 @@ namespace bnyhtz
     /// </summary>
     public class ClueHolder : MonoBehaviour, IInterface
     {
-
-        [SerializeField] private Clue clue;
+        private bool _collected = false;
+        [SerializeField] private Clue _clue;
 
         public Clue GetClue()
         {
-            return clue;
+            return _clue;
         }
         public void Interact()
         {
@@ -20,11 +20,15 @@ namespace bnyhtz
         }
         public void AddClueToManager()
         {
-            if (ClueManager.Instance != null)
+            if (_collected == false)
             {
-                ClueManager.Instance.AddClue(clue);
-                Debug.Log($"Added clue: {clue.clueName}");
-                // Destroy(this.gameObject);
+                _collected = true;
+
+
+                if (ClueManager.Instance != null)
+                {
+                    ClueManager.Instance.AddClue(_clue);
+                }
             }
         }
     }
