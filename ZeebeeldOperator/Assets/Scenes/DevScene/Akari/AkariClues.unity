@@ -2162,7 +2162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _orientation: {fileID: 1661609536}
-  _sensX: 100
+  _sensX: 200
   _sensY: 100
 --- !u!114 &1819229496
 MonoBehaviour:
