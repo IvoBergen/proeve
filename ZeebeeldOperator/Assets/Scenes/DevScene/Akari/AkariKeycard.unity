@@ -4522,7 +4522,7 @@ PrefabInstance:
     - target: {fileID: 3248108063031091865, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
       propertyPath: _scrollSensitivity
-      value: 0.1
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 3248108063031091865, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
@@ -4534,6 +4534,11 @@ PrefabInstance:
       propertyPath: _scrollDepthSensitivity
       value: 0.025
       objectReference: {fileID: 0}
+    - target: {fileID: 4961995036325100539, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b094bbc15073cb54998123017d43f201, type: 2}
     - target: {fileID: 7955023090475193520, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
       propertyPath: m_Name
@@ -4542,17 +4547,17 @@ PrefabInstance:
     - target: {fileID: 9215842054913131163, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.860572
+      value: -10.8792
       objectReference: {fileID: 0}
     - target: {fileID: 9215842054913131163, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.527
+      value: 2.724
       objectReference: {fileID: 0}
     - target: {fileID: 9215842054913131163, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.9723
+      value: -19.699
       objectReference: {fileID: 0}
     - target: {fileID: 9215842054913131163, guid: c88f9ac11ad97aa4f97d0d3a7269764c,
         type: 3}
@@ -14068,6 +14073,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4955361090667870122, guid: 2c7bfecebc760b4498eb8ff2a9434270,
+        type: 3}
+      propertyPath: _interactionZone
+      value: 
+      objectReference: {fileID: 2050139613}
     - target: {fileID: 5407447443502924761, guid: 2c7bfecebc760b4498eb8ff2a9434270,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14118,10 +14128,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5419997058255081233, guid: 2c7bfecebc760b4498eb8ff2a9434270,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6655229787650327497, guid: 2c7bfecebc760b4498eb8ff2a9434270,
         type: 3}
       propertyPath: m_Name
       value: KeycardScanner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335609995761648636, guid: 2c7bfecebc760b4498eb8ff2a9434270,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666693774468458351, guid: 2c7bfecebc760b4498eb8ff2a9434270,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14140,6 +14165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71763e96f9f6f54193e283abbca2f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2050139613 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 7666693774468458351, guid: 2c7bfecebc760b4498eb8ff2a9434270,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050139611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2052382376
 GameObject:
   m_ObjectHideFlags: 0

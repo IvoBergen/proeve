@@ -9,6 +9,8 @@ public class KeycardDrag : MonoBehaviour
         [SerializeField] private Transform _dragPlaneReference;
         [SerializeField] private float _planeForwardOffset = 0.05f;
         [SerializeField] private float _scrollSensitivity = 0.35f;
+        [SerializeField] private float _minHoldDistance = 0.15f;
+        [SerializeField] private float _maxHoldDistance = 2.5f;
         [SerializeField] private LayerMask _cardCollisionMask = ~0;
         [SerializeField] private float _cardProbeRadius = 0.05f;
         [SerializeField] private float _wallPadding = 0.02f;
@@ -16,8 +18,7 @@ public class KeycardDrag : MonoBehaviour
         private bool _held;
         private Plane _dragPlane;
         private Vector3 _dragPlaneNormal;
-        private Vector3 _planarGrabOffset;
-        private float _normalOffset;
+        private float _holdDistance = 0.5f;
         private const float MinMoveDistance = 0.0001f;
 
         private void Awake()
@@ -73,12 +74,7 @@ public class KeycardDrag : MonoBehaviour
 
             if (_held)
             {
-                // Project look-direction scroll onto plane normal so held dragging stays stable.
-                float lookAlignment = Vector3.Dot(lookDirection, _dragPlaneNormal);
-                if (Mathf.Abs(lookAlignment) > 0.001f)
-                {
-                    _normalOffset += scrollDelta * lookAlignment;
-                }
+                _holdDistance = Mathf.Clamp(_holdDistance + scrollDelta, _minHoldDistance, _maxHoldDistance);
                 return;
             }
 
@@ -131,14 +127,8 @@ public class KeycardDrag : MonoBehaviour
                 return;
             }
 
-            if (!TryGetPointOnDragPlane(ray, out Vector3 planePoint))
-            {
-                return;
-            }
-
             _held = true;
-            _planarGrabOffset = Vector3.zero;
-            _normalOffset = 0f;
+            _holdDistance = Mathf.Clamp(closestCardHitDistance, _minHoldDistance, _maxHoldDistance);
         }
 
         private void UpdateDraggedPosition()
@@ -149,12 +139,7 @@ public class KeycardDrag : MonoBehaviour
             }
 
             Ray ray = _camera.ScreenPointToRay(GetPointerScreenPosition());
-            if (!TryGetPointOnDragPlane(ray, out Vector3 planePoint))
-            {
-                return;
-            }
-
-            MoveCardTo(planePoint + _planarGrabOffset + (_dragPlaneNormal * _normalOffset));
+            MoveCardTo(ray.origin + (ray.direction * _holdDistance));
         }
 
         private void UpdateDragPlane()
@@ -225,6 +210,7 @@ public class KeycardDrag : MonoBehaviour
             if (hits.Length > 0)
             {
                 float closestDistance = float.MaxValue;
+                const float MinBlockingSurfaceDot = 0.05f;
 
                 for (int i = 0; i < hits.Length; i++)
                 {
@@ -235,6 +221,27 @@ public class KeycardDrag : MonoBehaviour
                     }
 
                     if (hitCollider == _cardCollider || hitCollider.transform.IsChildOf(transform))
+                    {
+                        continue;
+                    }
+                    
+                    // checks if the collider hit belongs to the scanner and ignores it if so, allowing the card to be dragged into the scanner without interference
+                    if (_scanner != null &&
+                        (hitCollider.transform == _scanner.transform ||
+                         hitCollider.transform.IsChildOf(_scanner.transform)))
+                    {
+                        continue;
+                    }
+
+                    // Ignore near-zero casts (already touching) so the card can unstick and continue moving.
+                    if (hits[i].distance <= _wallPadding)
+                    {
+                        continue;
+                    }
+
+                    // Ignore glancing/tangential hits to reduce sticky behavior when sliding past walls.
+                    float facing = Vector3.Dot(direction, -hits[i].normal);
+                    if (facing <= MinBlockingSurfaceDot)
                     {
                         continue;
                     }

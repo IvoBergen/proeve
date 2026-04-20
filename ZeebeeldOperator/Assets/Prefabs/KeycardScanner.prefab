@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312199267339896930}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 1833256333024188271}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -0.020000458}
+  m_LocalPosition: {x: 0, y: 0, z: -0.025}
   m_LocalScale: {x: -0.01, y: 0.03, z: 0.21567003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -271,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 1953057218319154161}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0923, z: 0.02859974}
+  m_LocalPosition: {x: 0, y: 0.0923, z: 0.0331}
   m_LocalScale: {x: 0.012378344, y: 0.016700862, z: 0.0014082779}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -344,7 +344,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -376,7 +376,7 @@ Transform:
   m_GameObject: {fileID: 4742980426675015294}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.020000458}
+  m_LocalPosition: {x: 0, y: 0, z: 0.025}
   m_LocalScale: {x: -0.01, y: 0.03, z: 0.21567003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -609,7 +609,7 @@ Transform:
   m_GameObject: {fileID: 5919876282728940523}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004699707, y: 0.091800004, z: 0.017299652}
+  m_LocalPosition: {x: 0.004699707, y: 0.091800004, z: 0.02}
   m_LocalScale: {x: 0.012036577, y: 0.012036577, z: 0.012036577}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -735,7 +735,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6297198919953464006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -902,3 +902,4 @@ MonoBehaviour:
   _statusLightRenderer: {fileID: 1674172872334735143}
   _redMaterial: {fileID: 2100000, guid: 80a0e286c23b7b9459685427e1ba09d6, type: 2}
   _greenMaterial: {fileID: 2100000, guid: 7e6be6a479bfc55418ea4ba5d0df271e, type: 2}
+  _interactionZone: {fileID: 0}
