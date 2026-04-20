@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
+/// <summary>
+/// Manages the User Interface for the note collection quest, including 
+/// progress tracking, displaying collected images, and handling game pause states.
+/// </summary>
 public class NoteUI : MonoBehaviour
 {
     [Header("Events")]
@@ -30,7 +34,6 @@ public class NoteUI : MonoBehaviour
 
     private void Start()
     {
-        // Remove debug logs after testing
         if (_counterParent != null) _counterParent.SetActive(false);
         if (_previewPanel != null) _previewPanel.SetActive(false);
     }
@@ -47,7 +50,6 @@ public class NoteUI : MonoBehaviour
 
     private void Update()
     {
-        // Close the image with Space, Click, or E
         if (_isViewingPhoto)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
@@ -66,14 +68,12 @@ public class NoteUI : MonoBehaviour
         _papersFound++;
         UpdateCounterUI();
 
-        // Choose the correct image based on the counter
         Sprite spriteToShow = (_papersFound >= _totalPapers) ? note.clueImage : note.normalImage;
 
         OpenPhoto(spriteToShow);
 
         if (_papersFound >= _totalPapers)
         {
-            // Use appropriate functionalities: delay hiding the UI
             Invoke("HideCounter", 2f);
             Finished?.Invoke();
         }
@@ -89,7 +89,6 @@ public class NoteUI : MonoBehaviour
             _previewPanel.SetActive(true);
             _isViewingPhoto = true;
 
-            // Pause the game so the player can look at the photo
             Time.timeScale = 0f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -101,7 +100,7 @@ public class NoteUI : MonoBehaviour
         _previewPanel.SetActive(false);
         _isViewingPhoto = false;
 
-        // Resume game
+
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

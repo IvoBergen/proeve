@@ -14,7 +14,6 @@ public class Notes : MonoBehaviour, IInterface
     {
         NoteUI ui = FindObjectOfType<NoteUI>();
 
-        // Only pick up if the quest is active
         if (ui != null && ui.IsQuestActive)
         {
             ui.OnPaperCollected(this);
