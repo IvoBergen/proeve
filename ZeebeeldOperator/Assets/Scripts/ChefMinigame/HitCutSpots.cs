@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 /// <summary>
 /// <c>HitCutSpots</c> Responsible for making the player be able to cut the vegetable.
 /// </summary>
 public class HitCutSpots : MonoBehaviour
 {
-
+    [SerializeField] private UnityEvent _chopEvent;
     [SerializeField] private int _requiredCutFood = 2;
     [SerializeField] private int _requiredHits;
 
@@ -36,11 +37,15 @@ public class HitCutSpots : MonoBehaviour
 
     private void HitCutSpot()
     {
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             if (!canBePressed) return;
 
+
             onHit?.Invoke();
+
             Destroy(gameObject);
         }
     }
