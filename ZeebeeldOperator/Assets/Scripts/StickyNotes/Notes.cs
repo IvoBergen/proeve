@@ -3,20 +3,23 @@ using UnityEngine;
 
 public class Notes : MonoBehaviour, IInterface
 {
-    [Header("Note Content")]
+    [Header("Note Data")]
+    public string noteName = "Old Note";
+
     [TextArea(3, 10)]
-    public string noteContent; // De tekst van de clue
-    public bool isTheHint;
+    public string[] normalSentences; // De tekst voor de eerste 3 briefjes
+
+    [TextArea(3, 10)]
+    public string[] clueSentences;   // De tekst voor het allerlaatste briefje
 
     public void Interact()
     {
         NoteUI ui = FindObjectOfType<NoteUI>();
 
-        if (ui != null)
+        // Alleen oppakken als de kapitein de quest heeft gestart
+        if (ui != null && ui.IsQuestActive)
         {
-            // We geven door of dit de hint was en wat de tekst is
-            ui.OnPaperCollected(isTheHint, noteContent);
-            Destroy(gameObject);
+            ui.OnPaperCollected(this);
         }
     }
 }

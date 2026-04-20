@@ -39,7 +39,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Brightness: 2.5
-    - _colorresolution: 10
+    - _colorresolution: 10.6
     - _ditherspread: 0.1
     m_Colors: []
   m_BuildTextureStacks: []
