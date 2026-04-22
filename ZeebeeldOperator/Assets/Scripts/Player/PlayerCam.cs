@@ -37,6 +37,10 @@ public class PlayerCam : MonoBehaviour
         if (_orientation == null && transform.parent != null)
             _orientation = transform.parent;
 
+        Vector3 euler = transform.rotation.eulerAngles;
+        _xRotation = euler.x;
+        _yRotation = euler.y;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

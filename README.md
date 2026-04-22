@@ -26,7 +26,7 @@ The game revolves around **observation, analysis, and decision-making under time
 ## Gameplay  
 
 | Action | Controls |
-|--------|----------|
+| -------- | ---------- |
 | Move | WASD |
 | Look around | Mouse |
 | Interact | E |
@@ -46,6 +46,11 @@ The game revolves around **observation, analysis, and decision-making under time
 - **Dialogue System** – communication with NPCs  
 - **Movement System** – player and camera control  
 - **Clipboard System** – collecting and analyzing information  
+- **Wire Mini game** - Puzzle mini game
+- **Chef mini game** - Timing mini game
+- **Goal System** - Give the current objective to the player
+- **NPC Movement** - Moving the NPCs to different spots
+- **Menu's** - Main/Pause menu for quality of life
 
 ---
 
@@ -71,7 +76,8 @@ Visualization of the timer script:
 ![Timer visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Timer-visualsheet.png)  
 
 Script:  
-- [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)  
+
+- [TimerScript](ZeebeeldOperator/Assets/Scripts/Timer/LevelTimer.cs)
 
 ---
 
@@ -88,7 +94,8 @@ Visualization:
 ![Interaction visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Interaction-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
-- [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)  
+
+- [Interaction script](ZeebeeldOperator/Assets/Scripts/InteractionSystem/PlayerInteraction.cs)
 
 ---
 
@@ -105,7 +112,8 @@ Visualization:
 ![Guess system visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Guess-System-BWP-VWO-Visualsheet.png)  
 
 Script:  
-- [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)  
+
+- [Guess scripts](ZeebeeldOperator/Assets/Scripts/Guess%20System)
 
 ---
 
@@ -121,7 +129,8 @@ This system allows the player to talk with NPCs.
 ![Dialogue Gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Dialogue.gif)  
 
 Script:  
-- [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)  
+
+- [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)
 
 ---
 
@@ -137,7 +146,8 @@ This system allows NPCs to walk around the map.
 ![NPC Movement Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/NPCMovement.png)  
 
 Script:  
-- [NPC scripts](ZeebeeldOperator/Assets/Scripts/NPCSystems)  
+
+- [NPC scripts](ZeebeeldOperator/Assets/Scripts/NPCSystems)
 
 ---
 
@@ -152,7 +162,8 @@ This system provides the player with a menu to adjust settings and start the gam
 
 ![Menu Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Menu.png)  
 
-Script:  
+Script:
+
 - [Menu script(s)](ZeebeeldOperator/Assets/Scripts/GameManagerScripts/MenuManager.cs)  
 
 ---
@@ -169,7 +180,8 @@ This system gives the player a clear objective so they always know what to do.
 ![Goal System Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/GoalSystem-Visualsheet.png)  
 
 Script:  
-- [Goal script(s)](ZeebeeldOperator/Assets/Scripts/GoalSystem/GoalManager.cs)  
+
+- [Goal script(s)](ZeebeeldOperator/Assets/Scripts/GoalSystem/GoalManager.cs)
 
 ---
 
@@ -177,15 +189,33 @@ Script:
 
 This system makes a fun puzzle mini game that the player has to complete to access the radar.
 
-**User story** 
+**User story:**
 > As a player, I want to be able to have a fun puzzle to turn on the radar
 
 ![Puzzle gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Wire_Puzzle.gif)
 
 ![Puzzle visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/Wire-Puzzle-miniGame-visual-sheet.png)
 
-Script: 
+Script:
+
 - [Puzzle Scripts](ZeebeeldOperator/Assets/Scripts/EletrischiteitMinigame/EnergyPuzzleModule.cs)
+
+### Chef Mini game
+
+This system makes a fun mingame that challenges the player with timing to cut some vegetables.
+
+**User story:**
+> As a player, i want to help the chef in a simple minigame to get a reward
+
+![Chef Mini game gif](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/ChefMinigame.gif)
+
+![Chef Minigame visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/ChefMinigame.png)
+
+Scripts:
+
+- [Chef Minigame](ZeebeeldOperator/Assets/Scripts/ChefMinigame)
+
+---
 
 ## Playtesting & Feedback  
 
@@ -208,7 +238,7 @@ Use the following branch structure:
 ## Code Conventions  
 
 | Rule | Example |
-|------|--------|
+| ------ | -------- |
 | Private variables start with `_` | `_slider`, `_text` |
 | Public variables without `_` | `sensX`, `sensY` |
 | Functions use PascalCase | `OnSliderChanged()` |
@@ -220,7 +250,7 @@ Use the following branch structure:
 ## Credits  
 
 | Name | Role |
-|------|------|
+| ------ | ------ |
 | Akari Le | Clipboard, Clues |
 | Owen Stas | Interaction, Timer, Guess System |
 | Ivo Bergen | Dialogue, NPC Movement |

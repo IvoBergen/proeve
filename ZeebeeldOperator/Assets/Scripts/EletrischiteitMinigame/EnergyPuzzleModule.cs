@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 /// <summary>
-/// is used to handle the logic of the energy puzzle
+/// Handles the logic of the energy puzzle
 /// </summary>
 public class EnergyPuzzleModule : MonoBehaviour
 {
@@ -36,7 +35,9 @@ public class EnergyPuzzleModule : MonoBehaviour
 
     public void StartPuzzle()
     {
-        if (_puzzleVisualParent != null) _puzzleVisualParent.SetActive(true);
+        if (_puzzleVisualParent != null)
+            _puzzleVisualParent.SetActive(true);
+
         GeneratePuzzle();
     }
 
@@ -44,7 +45,8 @@ public class EnergyPuzzleModule : MonoBehaviour
     {
         if (bottomLeftAnchor == null || topRightAnchor == null) return;
 
-        foreach (Transform child in transform) Destroy(child.gameObject);
+        foreach (Transform child in transform)
+            Destroy(child.gameObject);
 
         _grid = new PuzzleTile[width, height];
         _isSolved = false;
@@ -55,6 +57,7 @@ public class EnergyPuzzleModule : MonoBehaviour
 
         float stepX = (width > 1) ? (totalWidth / (width - 1)) : 0;
         float stepY = (height > 1) ? (totalHeight / (height - 1)) : 0;
+
         List<Vector2Int> path = GenerateAStarPath();
 
         for (int x = 0; x < width; x++)
@@ -73,16 +76,19 @@ public class EnergyPuzzleModule : MonoBehaviour
                                  (bottomLeftAnchor.up * y * stepY * spacingMultiplier);
 
                 Vector3 spawnPos = bottomLeftAnchor.position + offset;
+
                 GameObject go = Instantiate(prefab, spawnPos, bottomLeftAnchor.rotation, transform);
                 go.transform.Rotate(0, -90, -90, Space.Self);
 
                 PuzzleTile tile = go.GetComponent<PuzzleTile>();
-                _grid[x, y] = tile;
-                tile.Init(this);
 
-                if (x == width - 1 && y == height - 1) tile.SetColorManual(Color.red);
+                _grid[x, y] = tile;
+
+                bool isGoal = (x == width - 1 && y == height - 1);
+                tile.Init(this, isGoal);
             }
         }
+
         ScrambleBoard();
         CheckConnection();
     }
@@ -92,44 +98,64 @@ public class EnergyPuzzleModule : MonoBehaviour
         List<Vector2Int> p = new List<Vector2Int>();
         Vector2Int curr = new Vector2Int(0, 0);
         p.Add(curr);
+
         while (curr.x < width - 1 || curr.y < height - 1)
         {
-            if (curr.x < width - 1 && (Random.value > 0.5f || curr.y == height - 1)) curr.x++;
-            else curr.y++;
+            if (curr.x < width - 1 && (Random.value > 0.5f || curr.y == height - 1))
+                curr.x++;
+            else
+                curr.y++;
+
             p.Add(curr);
         }
+
         return p;
     }
 
     GameObject GetRequiredPiece(List<Vector2Int> path, Vector2Int curr)
     {
         int i = path.IndexOf(curr);
-        if (i <= 0 || i >= path.Count - 1) return straightPrefab;
+
+        if (i <= 0 || i >= path.Count - 1)
+            return straightPrefab;
+
         Vector2Int prev = path[i - 1];
         Vector2Int next = path[i + 1];
-        return (prev.x == next.x || prev.y == next.y) ? straightPrefab : cornerPrefab;
+
+        return (prev.x == next.x || prev.y == next.y)
+            ? straightPrefab
+            : cornerPrefab;
     }
 
     GameObject PickRandomPrefab()
     {
         int r = Random.Range(0, 3);
+
         if (r == 0) return straightPrefab;
         if (r == 1) return cornerPrefab;
+
         return crossPrefab;
     }
 
     public void CheckConnection()
     {
         if (_isSolved) return;
-        foreach (var t in _grid) if (t != null) t.SetPowerVisual(false);
-        if (_grid != null && _grid.Length > 0) _grid[width - 1, height - 1].SetColorManual(Color.red);
+
+        foreach (var t in _grid)
+        {
+            if (t != null)
+                t.SetPowerVisual(false);
+        }
+
         FlowPower(0, 0, new List<PuzzleTile>());
     }
 
     void FlowPower(int x, int y, List<PuzzleTile> visited)
     {
         if (x < 0 || x >= width || y < 0 || y >= height) return;
+
         PuzzleTile curr = _grid[x, y];
+
         if (curr == null || visited.Contains(curr)) return;
 
         visited.Add(curr);
@@ -138,15 +164,21 @@ public class EnergyPuzzleModule : MonoBehaviour
         if (x == width - 1 && y == height - 1)
         {
             _isSolved = true;
-            curr.SetColorManual(Color.green);
             StartCoroutine(HandleWinSequence());
             return;
         }
 
-        if (curr.North && y + 1 < height && _grid[x, y + 1].South) FlowPower(x, y + 1, visited);
-        if (curr.South && y - 1 >= 0 && _grid[x, y - 1].North) FlowPower(x, y - 1, visited);
-        if (curr.East && x + 1 < width && _grid[x + 1, y].West) FlowPower(x + 1, y, visited);
-        if (curr.West && x - 1 >= 0 && _grid[x - 1, y].East) FlowPower(x - 1, y, visited);
+        if (curr.North && y + 1 < height && _grid[x, y + 1].South)
+            FlowPower(x, y + 1, visited);
+
+        if (curr.South && y - 1 >= 0 && _grid[x, y - 1].North)
+            FlowPower(x, y - 1, visited);
+
+        if (curr.East && x + 1 < width && _grid[x + 1, y].West)
+            FlowPower(x + 1, y, visited);
+
+        if (curr.West && x - 1 >= 0 && _grid[x - 1, y].East)
+            FlowPower(x - 1, y, visited);
     }
 
     private IEnumerator HandleWinSequence()
@@ -160,12 +192,15 @@ public class EnergyPuzzleModule : MonoBehaviour
         foreach (var t in _grid)
         {
             int r = Random.Range(1, 4);
-            for (int i = 0; i < r; i++) t.RotateTile();
+
+            for (int i = 0; i < r; i++)
+                t.RotateTile();
         }
     }
 
     public void OnVictory()
     {
-        if (_puzzleVisualParent != null) _puzzleVisualParent.SetActive(false);
+        if (_puzzleVisualParent != null)
+            _puzzleVisualParent.SetActive(false);
     }
 }
