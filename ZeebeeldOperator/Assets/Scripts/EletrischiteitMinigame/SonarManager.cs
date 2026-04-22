@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// used to change the sonar material
+/// </summary>
 public class SonarManager : MonoBehaviour
 {
     [SerializeField] private GameObject _sonarObject;
