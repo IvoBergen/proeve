@@ -13,6 +13,8 @@ namespace bnyhtz
         [SerializeField] private Material _greenMaterial;
         [SerializeField] private BoxCollider _interactionZone;
         [SerializeField] public MeshRenderer _cardMeshRenderer;
+        [SerializeField] private Door _door;
+        [SerializeField] private GameObject _keycardUI;
 
         private bool _startZoneVisited;
 
@@ -24,7 +26,7 @@ namespace bnyhtz
             SetStatusLightCompleted(false);
             _interactionZone.enabled = true;
             _cardMeshRenderer.enabled = false;       
-
+            _keycardUI.SetActive(false);
         }
 
         public void Interact()
@@ -37,6 +39,7 @@ namespace bnyhtz
             _startZoneVisited = false;
             _interactionActive = true;
             _cardMeshRenderer.enabled = true;
+            _keycardUI.SetActive(true);
             SetStatusLightCompleted(false);
             _interactionZone.enabled = false;
             Debug.Log("Keycard minigame started.");
@@ -67,10 +70,14 @@ namespace bnyhtz
                 _completed = true;
                 _interactionActive = false;
                 SetStatusLightCompleted(true);
+                _door.OpenDoor();
+                _cardMeshRenderer.enabled = false;       
+                _keycardUI.SetActive(false);
                 Debug.Log("Keycard swipe completed.");
+
             }
         }
-
+    
         private void SetStatusLightCompleted(bool completed)
         {
             if (_statusLightRenderer == null)
