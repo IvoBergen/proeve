@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace bnyhtz
 {
+    /// <summary>
+    /// Manages keycard swipe interaction flow, validates swipe order, updates scanner feedback, and unlocks the door on success.
+    /// </summary>
     public class KeycardScanner : MonoBehaviour, IInterface
     {
         [SerializeField] private bool _interactionActive;
@@ -42,7 +45,6 @@ namespace bnyhtz
             _keycardUI.SetActive(true);
             SetStatusLightCompleted(false);
             _interactionZone.enabled = false;
-            Debug.Log("Keycard minigame started.");
         }
 
         public void StopInteraction()
@@ -61,7 +63,6 @@ namespace bnyhtz
             if (zone == _startZone)
             {
                 _startZoneVisited = true;
-                Debug.Log("Keycard entered start zone.");
                 return;
             }
 
@@ -73,8 +74,6 @@ namespace bnyhtz
                 _door.OpenDoor();
                 _cardMeshRenderer.enabled = false;       
                 _keycardUI.SetActive(false);
-                Debug.Log("Keycard swipe completed.");
-
             }
         }
     

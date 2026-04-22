@@ -2,7 +2,10 @@ using UnityEngine;
 
 namespace bnyhtz
 {
-public class KeycardDrag : MonoBehaviour
+    /// <summary>
+    /// Handles card dragging, scrolling distance control, and collision-safe movement during the keycard swipe minigame.
+    /// </summary>
+    public class KeycardDrag : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private KeycardScanner _scanner;
