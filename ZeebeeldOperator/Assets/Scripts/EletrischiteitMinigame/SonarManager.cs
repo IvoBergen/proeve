@@ -1,31 +1,62 @@
 using UnityEngine;
+
 /// <summary>
-/// used to change the sonar material
+/// Manages sonar effects, door states, and NPC positioning.
 /// </summary>
 public class SonarManager : MonoBehaviour
 {
+    [Header("Sonar Settings")]
     [SerializeField] private GameObject _sonarObject;
     [SerializeField] private Material _sonarMaterial;
+
+    [Header("World Objects")]
+    [SerializeField] private GameObject _door;
+    [SerializeField] private GameObject _firstNPC;
+    [SerializeField] private GameObject _lastNPC;
+
+    [Header("Waypoints")]
+    [SerializeField] private Transform _npcPos;
+    [SerializeField] private Transform _finalNpcPos;
 
     public void TurnOnSonar()
     {
         if (_sonarObject != null && _sonarMaterial != null)
         {
-            Renderer rend = _sonarObject.GetComponent<Renderer>();
-
-            if (rend != null)
+            if (_sonarObject.TryGetComponent<Renderer>(out Renderer rend))
             {
                 rend.material = _sonarMaterial;
-                Debug.Log("Sonar material applied!");
             }
             else
             {
-                Debug.LogError("No Renderer found on the Sonar Object.");
             }
         }
         else
         {
-            Debug.LogWarning("Sonar Object or Material is missing in the Inspector.");
+        }
+    }
+
+    public void OpenDoor()
+    {
+        if (_door != null)
+        {
+            _door.transform.rotation = Quaternion.Euler(270, 90, 0);
+        }
+        else
+        {
+
+        }
+    }
+
+    public void SetNpcActive()
+    {
+        if (_firstNPC != null && _finalNpcPos != null)
+        {
+            _firstNPC.transform.position = _finalNpcPos.position;
+        }
+
+        if (_lastNPC != null && _npcPos != null)
+        {
+            _lastNPC.transform.position = _npcPos.position;
         }
     }
 }
