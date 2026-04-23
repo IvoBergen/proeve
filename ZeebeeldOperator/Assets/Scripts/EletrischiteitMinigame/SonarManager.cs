@@ -26,12 +26,6 @@ public class SonarManager : MonoBehaviour
             {
                 rend.material = _sonarMaterial;
             }
-            else
-            {
-            }
-        }
-        else
-        {
         }
     }
 
@@ -40,10 +34,6 @@ public class SonarManager : MonoBehaviour
         if (_door != null)
         {
             _door.transform.rotation = Quaternion.Euler(270, 90, 0);
-        }
-        else
-        {
-
         }
     }
 
