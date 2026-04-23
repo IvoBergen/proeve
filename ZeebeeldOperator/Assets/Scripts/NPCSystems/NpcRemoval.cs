@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Responsable
+/// Responsable for removing the npc from the scene      
 /// </summary>
 public class NpcRemoval : MonoBehaviour
 {
