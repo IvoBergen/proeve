@@ -43,14 +43,9 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!_gameHasStarted)
-            {
-                return;
-            }
-            if (GuessUIActive)
-            {
-                return;
-            }
+            if (!_gameHasStarted) return;
+
+            if (GuessUIActive) return;
 
             if (_pausemenuActive)
             {
