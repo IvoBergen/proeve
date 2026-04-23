@@ -97,8 +97,9 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         _moveDirection = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
+        _rb.AddForce(_moveDirection.normalized * _moveSpeed * 10f, ForceMode.Force);
 
-        if (OnSlope())
+        /*if (OnSlope())
         {
             Vector3 slopeMoveDir = GetSlopeMoveDirection();
             _rb.AddForce(slopeMoveDir * _moveSpeed * 10f, ForceMode.Force);
@@ -107,14 +108,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            _rb.AddForce(_moveDirection.normalized * _moveSpeed * 10f, ForceMode.Force);
 
             _rb.useGravity = true;
-        }
+        }*/
     }
 
 
-    /// <summary>
+    /*/// <summary>
     /// Returns true if the player is standing on a slope within the allowed angle.
     /// </summary>
     private bool OnSlope()
@@ -134,5 +134,5 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(_moveDirection, _slopeHit.normal).normalized;
-    }
+    }*/
 }
