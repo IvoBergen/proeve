@@ -1,31 +1,33 @@
 using UnityEngine;
+
 /// <summary>
-/// used to change the sonar material
+/// Handles sonar activation and door state.
 /// </summary>
 public class SonarManager : MonoBehaviour
 {
+    [Header("Sonar Settings")]
     [SerializeField] private GameObject _sonarObject;
     [SerializeField] private Material _sonarMaterial;
+
+    [Header("Door")]
+    [SerializeField] private GameObject _door;
 
     public void TurnOnSonar()
     {
         if (_sonarObject != null && _sonarMaterial != null)
         {
-            Renderer rend = _sonarObject.GetComponent<Renderer>();
-
-            if (rend != null)
+            if (_sonarObject.TryGetComponent<Renderer>(out Renderer rend))
             {
                 rend.material = _sonarMaterial;
-                Debug.Log("Sonar material applied!");
-            }
-            else
-            {
-                Debug.LogError("No Renderer found on the Sonar Object.");
             }
         }
-        else
+    }
+
+    public void OpenDoor()
+    {
+        if (_door != null)
         {
-            Debug.LogWarning("Sonar Object or Material is missing in the Inspector.");
+            _door.transform.rotation = Quaternion.Euler(270, 90, 0);
         }
     }
 }
