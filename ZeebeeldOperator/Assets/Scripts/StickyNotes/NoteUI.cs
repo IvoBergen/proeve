@@ -67,7 +67,6 @@ public class NoteUI : MonoBehaviour
     {
         _papersFound++;
         UpdateCounterUI();
-        Debug.Log("2");
         Sprite spriteToShow = (_papersFound >= _totalPapers) ? note.clueImage : note.normalImage;
 
         OpenPhoto(spriteToShow);
