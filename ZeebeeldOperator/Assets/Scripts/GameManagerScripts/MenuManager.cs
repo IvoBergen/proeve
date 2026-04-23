@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour
     [Header("Variables")]
     public bool GuessUIActive;
     private bool _pausemenuActive;
+    bool _gameHasStarted = false;
 
     [Header("References")]
     [SerializeField] private GameStateManager _gameStateManager;
@@ -42,10 +43,9 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (GuessUIActive)
-            {
-                return;
-            }
+            if (!_gameHasStarted) return;
+
+            if (GuessUIActive) return;
 
             if (_pausemenuActive)
             {
@@ -67,6 +67,7 @@ public class MenuManager : MonoBehaviour
     {
         _mainMenuHolder.SetActive(false);
         Unpause();
+        _gameHasStarted = true;
     }
 
     /// <summary>
@@ -99,6 +100,7 @@ public class MenuManager : MonoBehaviour
 
         Application.Quit();
     }
+
 
     public void Pause()
     {
