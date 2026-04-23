@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class NpcRemoval : MonoBehaviour
 {
-    [SerializeField] public GameObject Npc;
+    public GameObject Npc;
 
     public void RemoveNPC()
     {
