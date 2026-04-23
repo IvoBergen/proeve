@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Manages sonar effects, door states, and NPC positioning.
+/// Handles sonar activation and door state.
 /// </summary>
 public class SonarManager : MonoBehaviour
 {
@@ -9,14 +9,8 @@ public class SonarManager : MonoBehaviour
     [SerializeField] private GameObject _sonarObject;
     [SerializeField] private Material _sonarMaterial;
 
-    [Header("World Objects")]
+    [Header("Door")]
     [SerializeField] private GameObject _door;
-    [SerializeField] private GameObject _firstNPC;
-    [SerializeField] private GameObject _lastNPC;
-
-    [Header("Waypoints")]
-    [SerializeField] private Transform _npcPos;
-    [SerializeField] private Transform _finalNpcPos;
 
     public void TurnOnSonar()
     {
@@ -34,19 +28,6 @@ public class SonarManager : MonoBehaviour
         if (_door != null)
         {
             _door.transform.rotation = Quaternion.Euler(270, 90, 0);
-        }
-    }
-
-    public void SetNpcActive()
-    {
-        if (_firstNPC != null && _finalNpcPos != null)
-        {
-            _firstNPC.transform.position = _finalNpcPos.position;
-        }
-
-        if (_lastNPC != null && _npcPos != null)
-        {
-            _lastNPC.transform.position = _npcPos.position;
         }
     }
 }
