@@ -1,11 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// Responsable
+/// </summary>
 public class NpcRemoval : MonoBehaviour
 {
-    [SerializeField] GameObject NPC;
+    [SerializeField] public GameObject Npc;
 
     public void RemoveNPC()
     {
-        NPC.SetActive(false);
+        Npc.SetActive(false);
     }
 }
