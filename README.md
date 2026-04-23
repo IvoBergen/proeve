@@ -19,6 +19,7 @@ The game revolves around **observation, analysis, and decision-making under time
 - Observe crew members and the environment  
 - Collect clues  
 - Use the clipboard to analyze ships  
+- Unlock secure doors with the keycard mini game  
 - Identify the hostile ship before time runs out  
 
 ---
@@ -31,6 +32,8 @@ The game revolves around **observation, analysis, and decision-making under time
 | Look around | Mouse |
 | Interact | E |
 | Open clipboard | TAB |
+| Drag keycard | Left mouse button |
+| Adjust keycard distance | Mouse scroll |
 | Select ship | Arrow keys |
 | Confirm | Enter |
 
@@ -45,7 +48,9 @@ The game revolves around **observation, analysis, and decision-making under time
 - **Guess System** – identifying ships  
 - **Dialogue System** – communication with NPCs  
 - **Movement System** – player and camera control  
+- **Clue System** â€“ collecting and storing evidence  
 - **Clipboard System** – collecting and analyzing information  
+- **Keycard Mini game** - swipe puzzle for unlocking doors  
 - **Wire Mini game** - Puzzle mini game
 - **Chef mini game** - Timing mini game
 - **Goal System** - Give the current objective to the player
@@ -131,6 +136,52 @@ This system allows the player to talk with NPCs.
 Script:  
 
 - [Dialogue scripts](ZeebeeldOperator/Assets/Scripts/Dialogue)
+
+---
+
+### Clue System (by Akari Le)  
+
+This system allows the player to collect clues from interactable objects and NPC-linked interactions.  
+Collected clues are stored in a central manager and categorized as **Letter**, **Photo**, or **NPC** clues.  
+
+**User story:**  
+> As a player, I want clues to be collected and saved automatically, so I can use all gathered evidence when making my final decision.  
+
+Script:  
+
+- [Clue scripts](ZeebeeldOperator/Assets/Scripts/Clues)
+
+---
+
+### Clipboard System (by Akari Le)  
+
+This system lets the player open the clipboard with **TAB** to review all collected clues in real time.  
+The clipboard updates automatically when new clues are found, integrates with the game state manager, and can switch to guess UI navigation with arrow keys.  
+
+**User story:**  
+> As a player, I want to open my clipboard at any time and see all clues clearly, so I can analyze information and make better choices under pressure.  
+
+![Clipboard Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/ClipboardVisualSheet.png)  
+
+Script:  
+
+- [Clipboard script](ZeebeeldOperator/Assets/Scripts/ClipBoard/ClipBoard.cs)
+
+---
+
+### Keycard Mini game  
+
+This system adds a swipe-based puzzle for locked doors.  
+The player activates the scanner, drags the keycard through the correct start-to-end swipe path, and unlocks the door when completed successfully.  
+
+**User story:**  
+> As a player, I want to complete a keycard swipe challenge to unlock restricted areas, so that progression feels interactive and rewarding.  
+
+![Keycard Visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/KeycardVisualSheet.png)  
+
+Script:  
+
+- [Keycard scripts](ZeebeeldOperator/Assets/Scripts/Minigames/KeycardSwipe)
 
 ---
 
@@ -257,3 +308,5 @@ Use the following branch structure:
 | Christiaan Oostwouder | Movement |
 
 ---
+
+
