@@ -43,7 +43,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_gameHasStarted == false)
+            if (!_gameHasStarted)
             {
                 return;
             }
