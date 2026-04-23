@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages the User Interface for the note collection quest, including 
@@ -52,7 +52,7 @@ public class NoteUI : MonoBehaviour
     {
         if (_isViewingPhoto)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) // || Input.GetKeyDown(KeyCode.E))
             {
                 ClosePhoto();
             }
@@ -67,7 +67,7 @@ public class NoteUI : MonoBehaviour
     {
         _papersFound++;
         UpdateCounterUI();
-
+        Debug.Log("2");
         Sprite spriteToShow = (_papersFound >= _totalPapers) ? note.clueImage : note.normalImage;
 
         OpenPhoto(spriteToShow);

@@ -16,6 +16,7 @@ public class Notes : MonoBehaviour, IInterface
 
         if (ui != null && ui.IsQuestActive)
         {
+            Debug.Log("hi");
             ui.OnPaperCollected(this);
         }
     }
