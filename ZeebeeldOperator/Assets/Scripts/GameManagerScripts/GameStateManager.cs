@@ -11,8 +11,13 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] PlayerMovement playerMovement;
     [SerializeField] LevelTimer levelTimer;
     [SerializeField] Clipboard clipboard;
+    [SerializeField] GameObject gameGUI;
     public bool IsClipboardOpen { get; private set; }
 
+    public void EnableGUI()
+    {
+        gameGUI.SetActive(true);
+    }
     public void Gameover()
     {
         GameoverUI.SetActive(true);
