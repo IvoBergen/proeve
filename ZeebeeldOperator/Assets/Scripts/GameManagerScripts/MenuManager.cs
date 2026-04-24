@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -95,8 +94,6 @@ public class MenuManager : MonoBehaviour
 
     public void ExitGame()
     {
-
-        EditorApplication.isPlaying = false;
 
         Application.Quit();
     }
