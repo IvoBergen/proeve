@@ -4937,7 +4937,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3952110826437236678, guid: 9c067525eee0d5e428c3d9fded3533f5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1720468435}
   m_SourcePrefab: {fileID: 100100000, guid: 9c067525eee0d5e428c3d9fded3533f5, type: 3}
 --- !u!1 &532909632
 GameObject:
@@ -6166,8 +6170,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
+      propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
       propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 1838930197}
+    - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CloseMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MiniGameTriggerer, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8442587566374975643, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
@@ -6227,7 +6246,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6441602925118641463, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1838930197}
   m_SourcePrefab: {fileID: 100100000, guid: 1215ec0a1f4cdb84280a67cf97ef16c0, type: 3}
 --- !u!1 &661808966
 GameObject:
@@ -6390,111 +6413,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2962932899807534245, guid: 9dc93a8514660764392a3bc65b7f1b1c, type: 3}
---- !u!1 &678922552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 678922556}
-  - component: {fileID: 678922555}
-  - component: {fileID: 678922554}
-  - component: {fileID: 678922553}
-  m_Layer: 0
-  m_Name: StairCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &678922553
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678922552}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &678922554
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678922552}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &678922555
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678922552}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &678922556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678922552}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.19490503, y: -0.6797147, z: -0.19490503, w: 0.6797147}
-  m_LocalPosition: {x: -11.644, y: 1.45, z: -20.918}
-  m_LocalScale: {x: 1, y: 0.1, z: 0.1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -32, y: -90, z: 0}
 --- !u!1 &683639012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7686278304051017022, guid: be342463d7bff8f4cb5288120a0a5b04,
@@ -9224,9 +9142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _allNames:
-  - SSS jimmy
-  - 'SS Saul '
-  - SS goodman
+  - Hr. Hogepraat
+  - Pek Pelikaan
+  - Hr. Hagel
 --- !u!114 &1127393790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10148,6 +10066,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3355483113770201390, guid: c3e515983f8ba4c4fb672443c58e7738,
     type: 3}
   m_PrefabInstance: {fileID: 657856386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1254838294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6441602925118641463, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 658617602}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1269871714 stripped
 GameObject:
@@ -11323,7 +11247,7 @@ Transform:
   m_GameObject: {fileID: 1432113633}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.423, z: 0.23799999}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0.23799999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11600,10 +11524,9 @@ MonoBehaviour:
     name: Chef Willem
     firstTimeSentences:
     - 'Hi, jij bent de gene die het vijandelijk schip moest vinden toch? '
-    - ik weet toevallig dat het schipt begint met de letter J verder weet ik niet
-      zo veel
     - Ik zag het schip toen ik even buiten pauze had. Maar ik Kon de letters niet
       zo goed lezen.
+    - ik weet toevallig nog dat het schip richting het zuid-westen ging.
     - maar ik heb wel je hulp nodig met groente snijden.
     - Veel succes!
     repeatSentences:
@@ -11612,7 +11535,7 @@ MonoBehaviour:
   onFirstDialogueEnded:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1838930197}
         m_TargetAssemblyTypeName: MiniGameTriggerer, Assembly-CSharp
         m_MethodName: Interact
         m_Mode: 1
@@ -11669,7 +11592,7 @@ MonoBehaviour:
   _clue:
     clueName: 
     clueType: 0
-    clueText: schip begint met de letter j
+    clueText: schip begint met de letter h
 --- !u!1 &1504278451
 GameObject:
   m_ObjectHideFlags: 0
@@ -13623,8 +13546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepRayUpper: {fileID: 1969645237}
   stepRayLower: {fileID: 419625197}
-  stepHeight: 0.3
-  stepSmooth: 2
+  stepHeight: 0.5
+  stepSmooth: 1
 --- !u!1 &1664118533
 GameObject:
   m_ObjectHideFlags: 0
@@ -13951,6 +13874,34 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8969243131242307867, guid: 38c4434d84263734587e57a980ab56e7, type: 3}
+--- !u!1 &1720468430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3952110826437236678, guid: 9c067525eee0d5e428c3d9fded3533f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 525641640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1720468435
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720468430}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7364653193422382683, guid: 12dc5ced56f18fa4ebc69fbaf4124d47, type: 3}
 --- !u!1001 &1722516276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14868,6 +14819,123 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 658617602}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1838930194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 658617602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254838294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1163dc8c4c82b48b0ef78748e67511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1838930195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6567103592726497495, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 658617602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254838294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b376b19385f684cb6212120420e4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1838930197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254838294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4725cc61842a774094a7b2d66dbef58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCamera: {fileID: 1819229493}
+  _minigameCamera: {fileID: 1471680827}
+  _closeDelay: 3
+  OnMinigameStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1838930195}
+        m_TargetAssemblyTypeName: GenerateCutSpots, Assembly-CSharp
+        m_MethodName: SpawnNewCubes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1661609532}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: StopShowingInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnMinigameEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1661609532}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: StartShowingInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1838930194}
+        m_TargetAssemblyTypeName: HitCounter, Assembly-CSharp
+        m_MethodName: EndMinigame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1254838294}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 150820816}
+        m_TargetAssemblyTypeName: GoalTrigger, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1851904837
 GameObject:
   m_ObjectHideFlags: 0
@@ -17782,7 +17850,6 @@ SceneRoots:
   - {fileID: 303773372}
   - {fileID: 1661609536}
   - {fileID: 860148046}
-  - {fileID: 678922556}
   - {fileID: 1360130021}
   - {fileID: 1046452130}
   - {fileID: 1546620658}

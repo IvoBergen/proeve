@@ -98,41 +98,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _moveDirection = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
         _rb.AddForce(_moveDirection.normalized * _moveSpeed * 10f, ForceMode.Force);
-
-        /*if (OnSlope())
-        {
-            Vector3 slopeMoveDir = GetSlopeMoveDirection();
-            _rb.AddForce(slopeMoveDir * _moveSpeed * 10f, ForceMode.Force);
-
-            _rb.useGravity = false;
-        }
-        else
-        {
-
-            _rb.useGravity = true;
-        }*/
     }
 
-
-    /*/// <summary>
-    /// Returns true if the player is standing on a slope within the allowed angle.
-    /// </summary>
-    private bool OnSlope()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, out _slopeHit, _playerHeight * 0.5f + 0.3f))
-        {
-            float angle = Vector3.Angle(Vector3.up, _slopeHit.normal);
-            return angle < _maxSlopeAngle && angle != 0f;
-        }
-        return false;
-    }
-
-
-    /// <summary>
-    /// Projects the flat move direction onto the slope surface normal.
-    /// </summary>
-    private Vector3 GetSlopeMoveDirection()
-    {
-        return Vector3.ProjectOnPlane(_moveDirection, _slopeHit.normal).normalized;
-    }*/
 }
