@@ -18,11 +18,6 @@ public class GameStateManager : MonoBehaviour
     {
         gameGUI.SetActive(true);
     }
-
-    public void DisableGUI()
-    {
-        gameGUI.SetActive(false);
-    }
     public void Gameover()
     {
         GameoverUI.SetActive(true);
