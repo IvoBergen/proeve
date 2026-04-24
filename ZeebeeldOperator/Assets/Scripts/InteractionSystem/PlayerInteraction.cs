@@ -1,4 +1,5 @@
 using UnityEngine;
+using bnyhtz;
 
 /// <summary>
 /// Detects nearby interactables, shows the interaction prompt,
@@ -17,8 +18,9 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private GameObject _canvasHolder;
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private GameStateManager _gameStateManager;
+    [SerializeField] private KeycardScanner _keycardScanner;
 
-    private IInterface[] _currentInteractables; // all IInterface components on the hit object
+    private IInterface[] _currentInteractables;
     private bool _hasInteracted = false;
 
     void Update()
@@ -39,6 +41,14 @@ public class PlayerInteraction : MonoBehaviour
             return;
         }
 
+        if (_keycardScanner != null && _keycardScanner.IsInteractionActive)
+        {
+            _currentInteractables = null;
+            _hasInteracted = false;
+            _canvasHolder.SetActive(false);
+            return;
+        }
+
         DetectInteractable();
 
         _canvasHolder.SetActive(_currentInteractables != null && !_hasInteracted);
@@ -47,7 +57,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             foreach (var interactable in _currentInteractables)
             {
-                interactable.Interact(); // call interact on all scripts implementing IInterface
+                interactable.Interact();
             }
             _hasInteracted = true;
         }
@@ -60,7 +70,6 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Physics.SphereCast(ray, _radius, out hit, _range, _interactableLayer))
         {
-            // grab all scripts on the hit object that implement IInterface
             IInterface[] interactables = hit.collider.GetComponents<IInterface>();
 
             if (interactables.Length > 0)
@@ -89,12 +98,25 @@ public class PlayerInteraction : MonoBehaviour
             _radius
         );
     }
+    public void StopShowingInteraction()
+    {
+        _dialogueManager.Active = true;
+    }
+    public void StartShowingInteraction()
+    {
+        _dialogueManager.Active = false;
+    }
 
     private void Awake()
     {
         if (_gameStateManager == null)
         {
             _gameStateManager = FindObjectOfType<GameStateManager>();
+        }
+
+        if (_keycardScanner == null)
+        {
+            _keycardScanner = FindObjectOfType<KeycardScanner>();
         }
     }
 }
