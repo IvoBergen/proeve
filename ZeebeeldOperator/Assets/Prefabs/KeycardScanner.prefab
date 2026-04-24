@@ -236,8 +236,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8987603678629029897}
   - {fileID: 1398071610369487036}
@@ -609,9 +609,9 @@ Transform:
   m_GameObject: {fileID: 5919876282728940523}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004699707, y: 0.091800004, z: 0.02}
-  m_LocalScale: {x: 0.012036577, y: 0.012036577, z: 0.012036577}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.004699707, y: 0.187, z: 0.05}
+  m_LocalScale: {x: 0.02407316, y: 0.02407316, z: 0.02407316}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5407447443502924761}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -817,8 +817,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3536706794895334690}
   - {fileID: 7890971280853665777}
@@ -904,3 +904,5 @@ MonoBehaviour:
   _greenMaterial: {fileID: 2100000, guid: 7e6be6a479bfc55418ea4ba5d0df271e, type: 2}
   _interactionZone: {fileID: 7666693774468458351}
   _cardMeshRenderer: {fileID: 0}
+  _door: {fileID: 0}
+  _keycardUI: {fileID: 0}
