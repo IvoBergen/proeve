@@ -32,10 +32,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Start()
     {
-        RefreshRate currentRate = Screen.currentResolution.refreshRateRatio;
-        Screen.SetResolution(Screen.width, Screen.height, FullScreenMode.FullScreenWindow, currentRate);
-        Application.targetFrameRate = (int)currentRate.value;
-        QualitySettings.vSyncCount = 1;
+
         _camera = GetComponent<Camera>();
 
         if (_orientation == null && transform.parent != null)
@@ -49,7 +46,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_movementDisabled == true)
             return;
