@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace bnyhtz
 {
@@ -18,6 +19,7 @@ namespace bnyhtz
         [SerializeField] public MeshRenderer _cardMeshRenderer;
         [SerializeField] private Door _door;
         [SerializeField] private GameObject _keycardUI;
+        [SerializeField] private UnityEvent _FinishedEvent;
 
         private bool _startZoneVisited;
 
@@ -28,7 +30,7 @@ namespace bnyhtz
         {
             SetStatusLightCompleted(false);
             _interactionZone.enabled = true;
-            _cardMeshRenderer.enabled = false;       
+            _cardMeshRenderer.enabled = false;
             _keycardUI.SetActive(false);
         }
 
@@ -68,15 +70,16 @@ namespace bnyhtz
 
             if (zone == _endZone && _startZoneVisited)
             {
+                _FinishedEvent.Invoke();
                 _completed = true;
                 _interactionActive = false;
                 SetStatusLightCompleted(true);
                 _door.OpenDoor();
-                _cardMeshRenderer.enabled = false;       
+                _cardMeshRenderer.enabled = false;
                 _keycardUI.SetActive(false);
             }
         }
-    
+
         private void SetStatusLightCompleted(bool completed)
         {
             if (_statusLightRenderer == null)
