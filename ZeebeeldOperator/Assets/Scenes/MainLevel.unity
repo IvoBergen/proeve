@@ -6498,15 +6498,34 @@ MonoBehaviour:
   dialogue:
     name: Marienier Kees
     firstTimeSentences:
-    - De kaptein Heeft een taak voor je, hier heb je de lijst.
-    - Het is iets over een oefening van een schip vinden.
-    - Klik (tab) om je taak en aanweizingen te zien.
+    - Hey, de kaptein doet vandaag een opdracht om ons te testen.
+    - De bedoeling is om een vijandelijk schip te identificeren.
+    - Er zijn in totaal 3 schepen.
+    - Een schip daarvan is een vijandelijk schip.
+    - Jouw doel is om dit schip te indentificeren door middel van je klembord.
+    - Op dit klembord kan je ook zien welke hints je hebt verzameld.
+    - Ook als je op de rechter pijltje drukt op je klembord dan ga je naar de raad
+      pagina.
+    - Gebruik deze pagina als je weet welk schip het vijandelijk schip is.
+    - Veel succes!
     repeatSentences:
     - ...
   _hasTalked: 0
   onFirstDialogueEnded:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 972246738}
+        m_TargetAssemblyTypeName: GoalTrigger, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 586882996}
         m_TargetAssemblyTypeName: NpcRemoval, Assembly-CSharp
         m_MethodName: RemoveNPC
@@ -7009,6 +7028,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clipboard
       objectReference: {fileID: 0}
+    - target: {fileID: 1366585347219622218, guid: c3e515983f8ba4c4fb672443c58e7738,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1414323827579646091, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -7072,7 +7096,7 @@ PrefabInstance:
     - target: {fileID: 3442229912749565057, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4693062838897395582, guid: c3e515983f8ba4c4fb672443c58e7738,
         type: 3}
