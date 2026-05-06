@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
 /// <summary>
@@ -37,14 +37,18 @@ public class HitCutSpots : MonoBehaviour
 
     private void HitCutSpot()
     {
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
             if (!canBePressed) return;
 
-
             onHit?.Invoke();
+            // 🔊 Play chop sound directly
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.Play("Chop");
+            }
+
+            _chopEvent?.Invoke();
 
             Destroy(gameObject);
         }
