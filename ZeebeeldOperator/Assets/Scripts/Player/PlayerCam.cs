@@ -32,6 +32,7 @@ public class PlayerCam : MonoBehaviour
 
     private void Start()
     {
+
         _camera = GetComponent<Camera>();
 
         if (_orientation == null && transform.parent != null)
@@ -45,7 +46,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_movementDisabled == true)
             return;
@@ -69,8 +70,8 @@ public class PlayerCam : MonoBehaviour
 
     private void HandleMouseLook()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = Input.GetAxis("Mouse X") * sensX * 0.01f;
+        float mouseY = Input.GetAxis("Mouse Y") * sensY * 0.01f;
 
         _yRotation += mouseX;
         _xRotation -= mouseY;
