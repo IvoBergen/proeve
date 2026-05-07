@@ -46,7 +46,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (_movementDisabled == true)
             return;
