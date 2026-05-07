@@ -15423,6 +15423,7 @@ GameObject:
   - component: {fileID: 1661609535}
   - component: {fileID: 1661609532}
   - component: {fileID: 1661609537}
+  - component: {fileID: 1661609541}
   - component: {fileID: 1661609538}
   - component: {fileID: 1661609539}
   - component: {fileID: 1661609540}
@@ -15566,6 +15567,29 @@ MonoBehaviour:
   stepRayLower: {fileID: 419625197}
   stepHeight: 0.5
   stepSmooth: 1
+--- !u!136 &1661609541
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661609531}
+  m_Material: {fileID: 13400000, guid: 8adeb5de18443384b90ffbd44bab8f70, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45
+  m_Height: 1.98
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1664118533
 GameObject:
   m_ObjectHideFlags: 0
