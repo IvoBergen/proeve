@@ -3770,17 +3770,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.146
+      value: 0.10099983
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.56
+      value: -5.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.518
+      value: -1.7769985
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
@@ -4763,17 +4763,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.635
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.56
+      value: -5.92
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.811
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
@@ -5062,7 +5062,7 @@ PrefabInstance:
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.repeatSentences.Array.data[0]
-      value: Veel succes met zoeken
+      value: Veel succes met zoeken.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -5073,18 +5073,18 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[0]
       value: Ah!  Je bent er, jouw taak voor vandaag is het uitvoeren van een oefening.
-        Het is de bedoeling dat jij het vijandig schip identificeert
+        Het is de bedoeling dat jij het vijandig schip identificeert.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[1]
-      value: "Er zijn 3 schepen. Hiervan is er \xE9\xE9n vijandig"
+      value: "Er zijn 3 schepen. Hiervan is er \xE9\xE9n vijandig."
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[2]
       value: Om er achter te komen welk schip het is, moet je hints verzamelen. Deze
-        hints kan je altijd terug zien in je klembord
+        hints kan je altijd terug zien in je klembord.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -5094,27 +5094,27 @@ PrefabInstance:
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[4]
-      value: "(Druk op TAB om deze te openen tijdens het spelen) \t"
+      value: "(Druk op TAB om deze te openen tijdens het spelen.) \t"
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[5]
       value: Wanneer je denkt te weten welk schip vijandig is, dan kun je op je klembord
         op het pijltje naar rechts klikken voor de volgende pagina. Daar kan jij
-        je keuze maken
+        je keuze maken.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[6]
       value: Voor de eerste hint was er een collega aanwezig die het vijandige schip
-        gespot heeft. Waar hij is kan ik je niet vertellen
+        gespot heeft. Waar hij is kan ik je niet vertellen.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[7]
-      value: 'Maar waar je hem kan vinden heeft hij opgeschreven. Helaas is dit papiertje
-        kwijt geraakt in de brug. Wanneer je deze hebt gevonden kun je door met de
-        opdracht '
+      value: Waar je hem kunt vinden, heeft hij opgeschreven. Helaas is dit papiertje
+        kwijtgeraakt in de brug. Wanneer je het hebt gevonden, kun je doorgaan met
+        de opdracht.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -5789,12 +5789,12 @@ PrefabInstance:
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.repeatSentences.Array.data[0]
-      value: Ik ben druk
+      value: Ik ben druk.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[0]
-      value: Bedankt voor je hulp maar nu ben ik druk
+      value: Bedankt voor je hulp maar nu ben ik druk.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -6524,9 +6524,9 @@ MonoBehaviour:
   dialogue:
     name: Kees
     firstTimeSentences:
-    - De kaptein kan je hier boven vinden
+    - De kapitein kan je hier boven vinden.
     repeatSentences:
-    - Je moet de trap op om bij de brug te komen
+    - Je moet de trap op om bij de brug te komen.
   _hasTalked: 0
   onFirstDialogueEnded:
     m_PersistentCalls:
@@ -7148,10 +7148,10 @@ MonoBehaviour:
   dialogue:
     name: Kees
     firstTimeSentences:
-    - Goedemorgen Doornroosje
-    - De kapitein heeft een opdracht voor je
-    - 'Hij zal je alles uitleggen. je kan hem vinden in de brug '
-    - Ga zo snel mogelijk naar hem toe
+    - Goedemorgen Doornroosje.
+    - De kapitein heeft een opdracht voor je.
+    - Hij zal je alles uitleggen. je kan hem vinden in de brug.
+    - Ga zo snel mogelijk naar hem toe.
     repeatSentences:
     - ...
   _hasTalked: 0
@@ -10990,6 +10990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1046452130}
+  - component: {fileID: 1046452131}
   m_Layer: 0
   m_Name: NPCHolder
   m_TagString: Untagged
@@ -11025,6 +11026,22 @@ Transform:
   - {fileID: 522491985}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1046452131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046452129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bc7e0be0eced54dbb8aa2e04aca894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firstNPC: {fileID: 474889135}
+  _lastNPC: {fileID: 522491986}
+  _npcPos: {fileID: 1008800620}
+  _finalNpcPos: {fileID: 1379158958}
 --- !u!1 &1057351341 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2176600714173024956, guid: 9fd2e3d7460a04c41878fcdd972e61b0,
@@ -11148,7 +11165,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.397, g: 0.397, b: 0.397, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13644,9 +13661,9 @@ MonoBehaviour:
   dialogue:
     name: Chef Willem
     firstTimeSentences:
-    - Nu even niet, ik ben erg druk bezig
+    - Nu even niet, ik ben erg druk bezig.
     repeatSentences:
-    - Ik ben druk
+    - Ik ben druk.
   _hasTalked: 0
   onFirstDialogueEnded:
     m_PersistentCalls:
@@ -14776,12 +14793,12 @@ MonoBehaviour:
   dialogue:
     name: Chef Willem
     firstTimeSentences:
-    - Kan ik je helpen
-    - Ah, Jij bent op zoek naar het vijandige schip
-    - 'Ik ben nog wel erg druk bezig als jij mij nu helpt met de groenten snijden.
-      Dan geef ik jou wat jij nodig hebt '
+    - Kan ik je helpen.
+    - Ah, Jij bent op zoek naar het vijandige schip.
+    - Ik ben nog even druk. Als jij mij helpt met het snijden van de groenten, dan
+      geef ik je wat je nodig hebt.
     repeatSentences:
-    - Dankjewel voor je hulp
+    - Dankjewel voor je hulp.
   _hasTalked: 0
   onFirstDialogueEnded:
     m_PersistentCalls:
@@ -14811,6 +14828,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 3772598516417762475}
+        m_TargetAssemblyTypeName: NPCLocationManager, Assembly-CSharp
+        m_MethodName: SetNpcActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1046452131}
         m_TargetAssemblyTypeName: NPCLocationManager, Assembly-CSharp
         m_MethodName: SetNpcActive
         m_Mode: 1
@@ -19353,12 +19382,12 @@ MonoBehaviour:
   dialogue:
     name: Elektricien Paulien
     firstTimeSentences:
-    - Fijn, je bent er, ik heb je hulp echt hard nodig
-    - De stroom voor de radar ligt er uit maar ik krijg het zelf niet opgelost
-    - Zorg er voor dat de stroom vloeit van links onder naar rechts boven
-    - Je kunt op elk draadje klikken waardoor deze draait
+    - Fijn, je bent er, ik heb je hulp echt hard nodig.
+    - De stroom voor de radar ligt er uit maar ik krijg het zelf niet opgelost.
+    - Zorg er voor dat de stroom vloeit van links onder naar rechts boven.
+    - Je kunt op elk draadje klikken waardoor deze draait.
     repeatSentences:
-    - Bedankt voor de hulp! Vergeet niet om op de radar te kijken
+    - Bedankt voor de hulp! Vergeet niet om op de radar te kijken.
   _hasTalked: 0
   onFirstDialogueEnded:
     m_PersistentCalls:
@@ -20439,9 +20468,9 @@ MonoBehaviour:
   dialogue:
     name: Elektricien Paulien
     firstTimeSentences:
-    - 'Ik ben druk bezig, kun je later bij mij terug komen '
+    - Ik ben druk bezig, kun je later bij mij terug komen?
     repeatSentences:
-    - Ben nu echt even druk bezig
+    - Ben nu echt even druk bezig.
   _hasTalked: 0
   onFirstDialogueEnded:
     m_PersistentCalls:
