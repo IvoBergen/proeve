@@ -915,10 +915,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b43e9338f0531aa4bbea1630d11131ef,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2108498956}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b43e9338f0531aa4bbea1630d11131ef,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2108498959}
   m_SourcePrefab: {fileID: 100100000, guid: b43e9338f0531aa4bbea1630d11131ef, type: 3}
 --- !u!1001 &68206862
@@ -11164,7 +11160,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.397, g: 0.397, b: 0.397, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14145,6 +14141,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GoalManager, Assembly-CSharp
         m_MethodName: SetGoal
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1748813760}
+        m_TargetAssemblyTypeName: bnyhtz.ClueHolder, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1517438346}
+        m_TargetAssemblyTypeName: GoalTrigger, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -17300,6 +17320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1748813759}
   - component: {fileID: 1748813758}
+  - component: {fileID: 1748813760}
   m_Layer: 0
   m_Name: StickyNoteMiniGameHolder
   m_TagString: Untagged
@@ -17343,6 +17364,22 @@ Transform:
   - {fileID: 1407699283}
   m_Father: {fileID: 1360130021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1748813760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748813757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9f8fd80fbfea44bbad015651d39dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clue:
+    clueName: 
+    clueType: 0
+    clueText: Ik moet naar de chef die weet meer
 --- !u!1 &1750795777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7426347877478491958, guid: be342463d7bff8f4cb5288120a0a5b04,
@@ -19750,7 +19787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2058730015
 Transform:
   m_ObjectHideFlags: 0
@@ -20281,22 +20318,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 66598248}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2108498956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2108498954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d9f8fd80fbfea44bbad015651d39dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _clue:
-    clueName: 
-    clueType: 0
-    clueText: ik moet op de radar kijken
 --- !u!65 &2108498957
 BoxCollider:
   m_ObjectHideFlags: 0
