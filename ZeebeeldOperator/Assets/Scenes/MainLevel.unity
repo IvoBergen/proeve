@@ -5112,9 +5112,9 @@ PrefabInstance:
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: dialogue.firstTimeSentences.Array.data[7]
-      value: Maar waar je hem kan vinden heeft hij opgeschreven. Helaas is dit papiertje
-        kwijt geraakt in de brug. Wanneer je deze hebt gevonden kun je door met de
-        opdracht.
+      value: Waar je hem kunt vinden, heeft hij opgeschreven. Helaas is dit papiertje
+        kwijtgeraakt in de brug. Wanneer je het hebt gevonden, kun je doorgaan met
+        de opdracht.
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -11165,7 +11165,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.397, g: 0.397, b: 0.397, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14795,8 +14795,8 @@ MonoBehaviour:
     firstTimeSentences:
     - Kan ik je helpen.
     - Ah, Jij bent op zoek naar het vijandige schip.
-    - Ik ben nog wel erg druk bezig als jij mij nu helpt met de groenten snijden.
-      Dan geef ik jou wat jij nodig hebt.
+    - Ik ben nog even druk. Als jij mij helpt met het snijden van de groenten, dan
+      geef ik je wat je nodig hebt.
     repeatSentences:
     - Dankjewel voor je hulp.
   _hasTalked: 0
