@@ -17100,7 +17100,6 @@ GameObject:
   - component: {fileID: 1661609537}
   - component: {fileID: 1661609538}
   - component: {fileID: 1661609539}
-  - component: {fileID: 1661609540}
   - component: {fileID: 1661609542}
   m_Layer: 0
   m_Name: Player
@@ -17223,27 +17222,11 @@ MonoBehaviour:
   _rb: {fileID: 1661609538}
   _orientation: {fileID: 1661609536}
   _playerCamera: {fileID: 0}
-  _moveSpeed: 2
+  _moveSpeed: 3.5
   _bobFrequency: 5
   _bobAmplitude: 0.1
   _maxSlopeAngle: 45
   _playerHeight: 2
---- !u!114 &1661609540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661609531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92dc99dc2d32c0840bddc32a6bc0ccd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stepRayUpper: {fileID: 1969645237}
-  stepRayLower: {fileID: 419625197}
-  stepHeight: 0.5
-  stepSmooth: 1
 --- !u!114 &1661609542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18239,7 +18222,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788450321}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
