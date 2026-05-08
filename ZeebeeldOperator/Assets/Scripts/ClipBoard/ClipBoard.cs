@@ -8,15 +8,20 @@ using UnityEngine.Events;
 /// Manages clipboard visibility and clue text rendering.
 /// Toggles the clipboard with TAB, blocks opening during dialogue,
 /// and routes open/close state through the GameStateManager.
+/// Resets to default clue view when closed to prevent soft-locks.
 /// </summary>
 public class Clipboard : MonoBehaviour
 {
+    #region Serialized Fields
+
     [SerializeField] private ClueManager _clueManager;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private GameStateManager _gameStateManager;
     [SerializeField] private DialogueManager _dialogueManager;
     [SerializeField] private KeyCode _toggleKey = KeyCode.Tab;
     [SerializeField] private bool _startOpen = false;
+    [SerializeField] private bool _guessSystemOpen;
+
     [Header("Wall Clipping")]
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private LayerMask _clipboardCollisionMask = ~0;
@@ -25,11 +30,19 @@ public class Clipboard : MonoBehaviour
     [SerializeField] private float _positionSmoothing = 18f;
     [SerializeField] private float _hideIfCloserThan = 0.1f;
     [SerializeField] private bool _debugWallHideTransitions = true;
+
+    [Header("Visuals")]
     [SerializeField] private GameObject _clipboardVisualRoot;
     [SerializeField] private GameObject _clipboardVisual;
     [SerializeField] private GameObject _differentClipboardUI;
+
+    [Header("Events")]
     public UnityEvent guessSystemActive;
     public UnityEvent guessSystemDeactivated;
+
+    #endregion
+
+    #region Private Fields
 
     private bool _isOpen;
     private Transform _selfTransform;
@@ -44,6 +57,10 @@ public class Clipboard : MonoBehaviour
     private const float MinCastDistance = 0.0001f;
     private const float MinSmoothing = 0.01f;
 
+    #endregion
+
+    #region Unity Lifecycle
+
     private void Awake()
     {
         _selfTransform = transform;
@@ -52,34 +69,15 @@ public class Clipboard : MonoBehaviour
         CacheDefaultLocalPose();
         DisablePhysicalClipboardColliders();
 
-        if (_clueManager == null)
-        {
-            _clueManager = ClueManager.Instance;
-        }
-
-        if (_gameStateManager == null)
-        {
-            _gameStateManager = FindObjectOfType<GameStateManager>();
-        }
-
-        if (_dialogueManager == null)
-        {
-            _dialogueManager = FindObjectOfType<DialogueManager>();
-        }
+        if (_clueManager == null) _clueManager = ClueManager.Instance;
+        if (_gameStateManager == null) _gameStateManager = FindObjectOfType<GameStateManager>();
+        if (_dialogueManager == null) _dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     private void OnEnable()
     {
-        if (_clueManager == null)
-        {
-            _clueManager = ClueManager.Instance;
-        }
-
-        if (_clueManager != null)
-        {
-            _clueManager.OnCluesChanged += RefreshText;
-        }
-
+        if (_clueManager == null) _clueManager = ClueManager.Instance;
+        if (_clueManager != null) _clueManager.OnCluesChanged += RefreshText;
         RefreshText();
     }
 
@@ -90,64 +88,93 @@ public class Clipboard : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!_isOpen)
-        {
-            return;
-        }
-
+        if (!_isOpen) return;
         ResolveWallClipping();
     }
 
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(_toggleKey))
         {
-            _clipboardVisual.SetActive(false);
-            guessSystemActive.Invoke();
-            _differentClipboardUI.SetActive(true);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            _differentClipboardUI.SetActive(false);
-            guessSystemDeactivated.Invoke();
-            _clipboardVisual.SetActive(true);
-        }
-        if (!Input.GetKeyDown(_toggleKey))
-        {
-            return;
+            bool wantsToOpen = !_isOpen;
+            if (wantsToOpen && _dialogueManager != null && _dialogueManager.Active) return;
+
+            SetClipboardState(wantsToOpen, false);
         }
 
-        bool wantsToOpen = !_isOpen;
-        if (wantsToOpen && _dialogueManager != null && _dialogueManager.Active)
+        if (!_isOpen) return;
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            return;
+            _guessSystemOpen = !_guessSystemOpen;
+            UpdateUIVisuals();
         }
-
-        SetClipboardState(wantsToOpen, false);
-
     }
 
     private void OnDisable()
     {
-        if (_isOpen)
+        if (_isOpen) SetClipboardState(false, false);
+        if (_clueManager != null) _clueManager.OnCluesChanged -= RefreshText;
+    }
+
+    #endregion
+
+    #region Clipboard Logic
+
+    private void SetClipboardState(bool open, bool force)
+    {
+        if (!force && _isOpen == open) return;
+
+        _isOpen = open;
+        _hiddenByWall = false;
+
+        if (!open)
         {
-            SetClipboardState(false, false);
+            ResetToDefaultClueMode();
+            RestoreDefaultLocalPose();
         }
 
-        if (_clueManager != null)
+        SetVisualsActive(open);
+
+        if (_gameStateManager != null)
         {
-            _clueManager.OnCluesChanged -= RefreshText;
+            if (open) _gameStateManager.OpenClipboard();
+            else _gameStateManager.CloseClipboard();
         }
     }
 
+    private void ResetToDefaultClueMode()
+    {
+        _guessSystemOpen = false;
+        UpdateUIVisuals();
+    }
+
+    private void UpdateUIVisuals()
+    {
+        if (_guessSystemOpen)
+        {
+            _clipboardVisual.SetActive(false);
+            _differentClipboardUI.SetActive(true);
+
+            guessSystemActive.Invoke();
+
+        }
+        else
+        {
+
+            _differentClipboardUI.SetActive(false);
+            _clipboardVisual.SetActive(true);
+            guessSystemDeactivated.Invoke();
+        }
+    }
+
+    #endregion
+
+    #region UI & Text Rendering
+
     private void RefreshText()
     {
-        if (_text == null)
-        {
-            return;
-        }
-
+        if (_text == null) return;
         if (_clueManager == null)
         {
             _text.text = string.Empty;
@@ -162,58 +189,27 @@ public class Clipboard : MonoBehaviour
         }
 
         StringBuilder builder = new StringBuilder();
-
         for (int i = 0; i < clues.Count; i++)
         {
-            if (i > 0)
-            {
-                builder.AppendLine();
-            }
-
-            builder.Append("- ");
-            builder.Append(clues[i]?.clueText ?? string.Empty);
+            if (i > 0) builder.AppendLine();
+            builder.Append("- ").Append(clues[i]?.clueText ?? string.Empty);
         }
-
         _text.text = builder.ToString();
     }
 
-    private void SetClipboardState(bool open, bool force)
+    private void SetVisualsActive(bool active)
     {
-        if (!force && _isOpen == open)
-        {
-            return;
-        }
-
-        _isOpen = open;
-        _hiddenByWall = false;
-
-        SetVisualsActive(open);
-
-        if (_gameStateManager != null)
-        {
-            if (open)
-            {
-                _gameStateManager.OpenClipboard();
-            }
-            else
-            {
-                _gameStateManager.CloseClipboard();
-            }
-        }
-
-        if (!open)
-        {
-            RestoreDefaultLocalPose();
-        }
+        if (_clipboardVisualRoot != null) _clipboardVisualRoot.SetActive(active);
     }
+
+    #endregion
+
+    #region Wall Clipping Logic
 
     private void ResolveWallClipping()
     {
         Transform cameraTransform = GetCameraTransform();
-        if (cameraTransform == null)
-        {
-            return;
-        }
+        if (cameraTransform == null) return;
 
         CacheDefaultLocalPose();
         Quaternion desiredRotation = GetDesiredWorldRotation();
@@ -230,28 +226,15 @@ public class Clipboard : MonoBehaviour
 
         Vector3 direction = toDesired / distance;
         Vector3 resolvedPosition = desiredPosition;
-        RaycastHit[] hits = Physics.SphereCastAll(
-            origin,
-            _probeRadius,
-            direction,
-            distance,
-            _clipboardCollisionMask,
-            QueryTriggerInteraction.Ignore);
+        RaycastHit[] hits = Physics.SphereCastAll(origin, _probeRadius, direction, distance, _clipboardCollisionMask, QueryTriggerInteraction.Ignore);
 
         float nearestDistance = float.PositiveInfinity;
         Collider nearestCollider = null;
+
         for (int i = 0; i < hits.Length; i++)
         {
             Collider hitCollider = hits[i].collider;
-            if (hitCollider == null)
-            {
-                continue;
-            }
-
-            if (IsSelfOrChildCollider(hitCollider))
-            {
-                continue;
-            }
+            if (hitCollider == null || IsSelfOrChildCollider(hitCollider)) continue;
 
             if (hits[i].distance < nearestDistance)
             {
@@ -267,17 +250,13 @@ public class Clipboard : MonoBehaviour
             resolvedPosition = origin + direction * safeDistance;
         }
 
-        UpdateBlockingDebugState(hasBlockingHit, nearestCollider, nearestDistance);
+        _blockedByWall = hasBlockingHit;
+        _lastBlocker = hasBlockingHit ? nearestCollider : null;
 
-        bool hideByWall = hasBlockingHit
-            && (resolvedPosition - origin).sqrMagnitude <= _hideIfCloserThan * _hideIfCloserThan;
-        SetHiddenByWall(hideByWall, nearestCollider, nearestDistance, resolvedPosition, origin);
-        if (hideByWall)
-        {
-            return;
-        }
+        bool hideByWall = hasBlockingHit && (resolvedPosition - origin).sqrMagnitude <= _hideIfCloserThan * _hideIfCloserThan;
+        SetHiddenByWall(hideByWall);
 
-        ApplyResolvedPose(resolvedPosition, desiredRotation);
+        if (!hideByWall) ApplyResolvedPose(resolvedPosition, desiredRotation);
     }
 
     private void ApplyResolvedPose(Vector3 resolvedPosition, Quaternion desiredRotation)
@@ -289,6 +268,18 @@ public class Clipboard : MonoBehaviour
         _selfTransform.rotation = desiredRotation;
     }
 
+    private void SetHiddenByWall(bool hidden)
+    {
+        if (_hiddenByWall == hidden) return;
+        _hiddenByWall = hidden;
+        if (!_isOpen) return;
+        SetVisualsActive(!hidden);
+    }
+
+    #endregion
+
+    #region Helpers
+
     private bool IsSelfOrChildCollider(Collider hitCollider)
     {
         Transform hitTransform = hitCollider.transform;
@@ -297,47 +288,25 @@ public class Clipboard : MonoBehaviour
 
     private Transform GetCameraTransform()
     {
-        if (_cameraTransform != null)
-        {
-            return _cameraTransform;
-        }
-
+        if (_cameraTransform != null) return _cameraTransform;
         Camera mainCamera = Camera.main;
-        if (mainCamera != null)
-        {
-            _cameraTransform = mainCamera.transform;
-        }
-
+        if (mainCamera != null) _cameraTransform = mainCamera.transform;
         return _cameraTransform;
     }
 
     private Vector3 GetDesiredWorldPosition()
     {
-        if (_selfTransform.parent != null)
-        {
-            return _selfTransform.parent.TransformPoint(_defaultLocalPosition);
-        }
-
-        return _defaultLocalPosition;
+        return (_selfTransform.parent != null) ? _selfTransform.parent.TransformPoint(_defaultLocalPosition) : _defaultLocalPosition;
     }
 
     private Quaternion GetDesiredWorldRotation()
     {
-        if (_selfTransform.parent != null)
-        {
-            return _selfTransform.parent.rotation * _defaultLocalRotation;
-        }
-
-        return _defaultLocalRotation;
+        return (_selfTransform.parent != null) ? _selfTransform.parent.rotation * _defaultLocalRotation : _defaultLocalRotation;
     }
 
     private void CacheDefaultLocalPose()
     {
-        if (_hasCachedDefaultPose)
-        {
-            return;
-        }
-
+        if (_hasCachedDefaultPose) return;
         _defaultLocalPosition = _selfTransform.localPosition;
         _defaultLocalRotation = _selfTransform.localRotation;
         _hasCachedDefaultPose = true;
@@ -352,84 +321,12 @@ public class Clipboard : MonoBehaviour
 
     private void DisablePhysicalClipboardColliders()
     {
-        if (_physicalColliders == null)
+        if (_physicalColliders == null) return;
+        foreach (var col in _physicalColliders)
         {
-            return;
-        }
-
-        for (int i = 0; i < _physicalColliders.Length; i++)
-        {
-            Collider col = _physicalColliders[i];
-            if (col == null)
-            {
-                continue;
-            }
-
-            col.enabled = false;
+            if (col != null) col.enabled = false;
         }
     }
 
-    private void SetHiddenByWall(bool hidden, Collider blocker, float hitDistance, Vector3 resolvedPosition, Vector3 cameraOrigin)
-    {
-        if (_hiddenByWall == hidden)
-        {
-            return;
-        }
-
-        _hiddenByWall = hidden;
-
-        if (_debugWallHideTransitions)
-        {
-            if (hidden)
-            {
-                string blockerName = blocker != null ? blocker.gameObject.name : "Unknown";
-                float resolvedDistance = Vector3.Distance(cameraOrigin, resolvedPosition);
-            }
-            else
-            {
-
-            }
-        }
-
-        if (!_isOpen)
-        {
-            return;
-        }
-
-        SetVisualsActive(!hidden);
-    }
-
-    private void SetVisualsActive(bool active)
-    {
-        if (_clipboardVisualRoot != null)
-        {
-            _clipboardVisualRoot.SetActive(active);
-        }
-    }
-
-    private void UpdateBlockingDebugState(bool blocked, Collider blocker, float hitDistance)
-    {
-        if (!_debugWallHideTransitions)
-        {
-            _blockedByWall = blocked;
-            _lastBlocker = blocked ? blocker : null;
-            return;
-        }
-
-        if (blocked)
-        {
-            bool startedBlocking = !_blockedByWall;
-            bool blockerChanged = _lastBlocker != blocker;
-            if (startedBlocking || blockerChanged)
-            {
-                string blockerName = blocker != null ? blocker.gameObject.name : "Unknown";
-            }
-        }
-        else if (_blockedByWall)
-        {
-        }
-
-        _blockedByWall = blocked;
-        _lastBlocker = blocked ? blocker : null;
-    }
+    #endregion
 }
