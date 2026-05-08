@@ -223,7 +223,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.033
+      value: 23.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
@@ -233,7 +233,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.696
+      value: -2.56
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
@@ -9042,7 +9042,7 @@ MonoBehaviour:
     name: Chef Willem
     firstTimeSentences:
     - 'Ik zag het schip toen ik in de brug zat. Toevallig weet ik nog dat het schip
-      voer richting het zuid-westen. '
+      voer richting het Noord-westen. '
     repeatSentences: []
   _hasTalked: 0
   onFirstDialogueEnded:
@@ -16702,7 +16702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c2973c4f97e574c9860fa157f8a463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 3
+  _range: 1.5
   _radius: 0.1
   _interactableLayer:
     serializedVersion: 2
@@ -16755,7 +16755,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.4
   m_Height: 2
@@ -16803,7 +16803,10 @@ MonoBehaviour:
   movementdisabled: 0
   _rb: {fileID: 1661609538}
   _orientation: {fileID: 1661609536}
+  _playerCamera: {fileID: 0}
   _moveSpeed: 2
+  _bobFrequency: 5
+  _bobAmplitude: 0.1
   _maxSlopeAngle: 45
   _playerHeight: 2
 --- !u!114 &1661609540
@@ -19679,12 +19682,37 @@ PrefabInstance:
     - target: {fileID: -7598642267973545925, guid: 060c60261f952454e938992835065328,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.069
+      value: 48.999
       objectReference: {fileID: 0}
     - target: {fileID: -7598642267973545925, guid: 060c60261f952454e938992835065328,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.858
+      value: 25.859
+      objectReference: {fileID: 0}
+    - target: {fileID: -7598642267973545925, guid: 060c60261f952454e938992835065328,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7598642267973545925, guid: 060c60261f952454e938992835065328,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7598642267973545925, guid: 060c60261f952454e938992835065328,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7598642267973545925, guid: 060c60261f952454e938992835065328,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7598642267973545925, guid: 060c60261f952454e938992835065328,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7400125502307059490, guid: 060c60261f952454e938992835065328,
         type: 3}
