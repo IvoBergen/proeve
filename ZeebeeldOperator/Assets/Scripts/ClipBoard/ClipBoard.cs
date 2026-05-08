@@ -101,7 +101,7 @@ public class Clipboard : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             _clipboardVisual.SetActive(false);
             guessSystemActive.Invoke();
