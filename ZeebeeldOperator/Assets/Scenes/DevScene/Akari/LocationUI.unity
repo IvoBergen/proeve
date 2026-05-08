@@ -17555,10 +17555,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _npcHead: {fileID: 1333889081}
   _player: {fileID: 1661609536}
-  _lookRange: 5
-  _rotationSpeed: 5
+  _lookRange: 2
+  _rotationSpeed: 3
   _maxHorizontalAngle: 70
-  _maxVerticalAngle: 35
+  _maxVerticalAngle: 10
 --- !u!1 &1713411393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5280931724227078304, guid: 060c60261f952454e938992835065328,
