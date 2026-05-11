@@ -55,18 +55,13 @@ public class GuessUI : MonoBehaviour
         _gameStateManager.InDialogue();
         _gameStateManager.PauseTimer();
 
-        // ====================================
-        // CONFIRMATION SCREEN INPUT
-        // ====================================
+
         if (_confirming)
         {
             HandleConfirmationInput();
             return;
         }
 
-        // ====================================
-        // NORMAL SHIP SELECTION INPUT
-        // ====================================
 
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
@@ -92,13 +87,6 @@ public class GuessUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             OpenConfirm();
-        }
-
-        // Close guessing UI completely
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            StopGuess();
-            StopGuessing.Invoke();
         }
     }
 
@@ -142,9 +130,7 @@ public class GuessUI : MonoBehaviour
         }
     }
 
-    // ====================================
-    // CONFIRMATION SCREEN
-    // ====================================
+
 
     private void OpenConfirm()
     {
