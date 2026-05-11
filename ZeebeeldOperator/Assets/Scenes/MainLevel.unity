@@ -6500,6 +6500,187 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582745135}
   m_CullTransparentMesh: 1
+--- !u!1001 &583417753
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1046452130}
+    m_Modifications:
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: _hasTalked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: dialogue.repeatSentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: dialogue.firstTimeSentences.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: dialogue.repeatSentences.Array.data[0]
+      value: 'De chef is in de kantine '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: dialogue.firstTimeSentences.Array.data[0]
+      value: Bedankt voor het zoeken. Zo te zien weet de chef meer. Ga naar hem toe
+        in de kantine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1517438346}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GoalTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.045544624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.5300674
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.17674774
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9842562
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 200.361
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_Name
+      value: SM_CapitanIdle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6673167894589843734, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0336365a3d6e25a4cbda7beea0d68609, type: 2}
+    - target: {fileID: 6673167894589843734, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 23ea756de8bdcba449dfd32d9b9967ae, type: 2}
+    - target: {fileID: 6673167894589843734, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0336365a3d6e25a4cbda7beea0d68609, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 583417756}
+  m_SourcePrefab: {fileID: 100100000, guid: 1dba63c1aec1ed149949e0da075503a5, type: 3}
+--- !u!1 &583417754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 583417753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &583417755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 583417753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &583417756
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583417754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e0542365ed724f41be44138f48be0c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &586268708
 GameObject:
   m_ObjectHideFlags: 0
@@ -9578,7 +9759,7 @@ MonoBehaviour:
     name: Chef Willem
     firstTimeSentences:
     - 'Ik zag het schip toen ik in de brug zat. Toevallig weet ik nog dat het schip
-      voer richting het Noord-westen. '
+      voer richting het Zuid-westen. '
     repeatSentences: []
   _hasTalked: 0
   onFirstDialogueEnded:
@@ -11302,6 +11483,7 @@ Transform:
   - {fileID: 2108498955}
   - {fileID: 474889134}
   - {fileID: 522491985}
+  - {fileID: 583417755}
   - {fileID: 557003430}
   - {fileID: 586883001}
   m_Father: {fileID: 0}
@@ -14813,6 +14995,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1360130021}
+  - component: {fileID: 1360130022}
   m_Layer: 0
   m_Name: MiniGameHolder
   m_TagString: Untagged
@@ -14843,6 +15026,22 @@ Transform:
   - {fileID: 1838930193}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1360130022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360130020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bc7e0be0eced54dbb8aa2e04aca894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firstNPC: {fileID: 583417754}
+  _lastNPC: {fileID: 522491986}
+  _npcPos: {fileID: 1008800620}
+  _finalNpcPos: {fileID: 1379158958}
 --- !u!1 &1379158957
 GameObject:
   m_ObjectHideFlags: 0
@@ -14938,6 +15137,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GoalManager, Assembly-CSharp
         m_MethodName: SetGoal
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1748813758}
+        m_TargetAssemblyTypeName: NPCLocationManager, Assembly-CSharp
+        m_MethodName: SetNpcActive
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -15912,6 +16123,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1360130022}
+        m_TargetAssemblyTypeName: NPCLocationManager, Assembly-CSharp
+        m_MethodName: SetNpcActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1502651356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
@@ -16316,7 +16539,19 @@ MonoBehaviour:
   _goalIndex: 1
   OnTriggered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1530091928
 GameObject:
   m_ObjectHideFlags: 0
@@ -18106,10 +18341,10 @@ MonoBehaviour:
   movementdisabled: 0
   _rb: {fileID: 1661609538}
   _orientation: {fileID: 1661609536}
-  _playerCamera: {fileID: 0}
+  _playerCamera: {fileID: 1432113634}
   _moveSpeed: 2
   _bobFrequency: 5
-  _bobAmplitude: 0.1
+  _bobAmplitude: 0.02
   _maxSlopeAngle: 45
   _playerHeight: 2
 --- !u!114 &1661609540
@@ -18813,7 +19048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstNPC: {fileID: 474889135}
-  _lastNPC: {fileID: 522491986}
+  _lastNPC: {fileID: 583417754}
   _npcPos: {fileID: 1008800620}
   _finalNpcPos: {fileID: 1379158958}
 --- !u!4 &1748813759
