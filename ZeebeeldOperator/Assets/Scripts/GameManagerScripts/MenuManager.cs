@@ -20,6 +20,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _menuHolder;
     [SerializeField] private GameObject _optionsMenuHolder;
     [SerializeField] private GameObject _controlsMenu;
+    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private LevelTimer _levelTimer;
 
     private void Start()
     {
@@ -90,6 +92,9 @@ public class MenuManager : MonoBehaviour
     public void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _playerMovement.enabled = true;
+        _levelTimer.enabled = true;
+
     }
 
     public void ExitGame()

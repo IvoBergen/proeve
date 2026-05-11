@@ -20,13 +20,18 @@ public class GameStateManager : MonoBehaviour
     }
     public void Gameover()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         GameoverUI.SetActive(true);
-        Time.timeScale = 0f;
+        playerMovement.enabled = false;
+        levelTimer.enabled = false;
     }
     public void GameWin()
     {
         WinUI.SetActive(true);
-        Time.timeScale = 0f;
+        playerMovement.enabled = false;
+        levelTimer.enabled = false;
     }
     public void InDialogue()
     {
