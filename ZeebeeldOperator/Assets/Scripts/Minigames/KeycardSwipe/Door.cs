@@ -7,8 +7,8 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] private float _openSpeed = 2.5f;
+    [SerializeField] private Transform _openPosition;
 
-    private static readonly Vector3 _openPosition = new Vector3(-11.5714216f, 2.79099989f, -22.2609997f);
     private Coroutine _openRoutine;
 
     public void OpenDoor()
@@ -23,17 +23,17 @@ public class Door : MonoBehaviour
 
     private IEnumerator OpenDoorRoutine()
     {
-        while (Vector3.Distance(transform.position, _openPosition) > 0.001f)
+        while (Vector3.Distance(transform.position, _openPosition.position) > 0.001f)
         {
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                _openPosition,
+                _openPosition.position,
                 _openSpeed * Time.deltaTime
             );
             yield return null;
         }
 
-        transform.position = _openPosition;
+        transform.position = _openPosition.position;
         _openRoutine = null;
     }
 }
