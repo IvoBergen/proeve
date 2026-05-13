@@ -13,6 +13,7 @@ public class HitCutSpots : MonoBehaviour
     public bool canBePressed;
 
     public static event Action onHit;
+    public static HitCutSpots currentCutSpot;
 
     private void Update()
     {
@@ -24,6 +25,7 @@ public class HitCutSpots : MonoBehaviour
         if (other.tag == "CutSpot")
         {
             canBePressed = true;
+            currentCutSpot = this;
         }
     }
 
@@ -32,26 +34,34 @@ public class HitCutSpots : MonoBehaviour
         if (other.tag == "CutSpot")
         {
             canBePressed = false;
+            if (currentCutSpot == this)
+                currentCutSpot = null;
         }
     }
 
     private void HitCutSpot()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!canBePressed) return;
-
-            onHit?.Invoke();
-            // 🔊 Play chop sound directly
-            if (SoundManager.Instance != null)
-            {
-                SoundManager.Instance.Play("Chop");
-            }
-
-            _chopEvent?.Invoke();
-
-            Destroy(gameObject);
+            TryHitCutSpot();
         }
+    }
+
+    public void TryHitCutSpot()
+    {
+        if (!canBePressed) return;
+        Debug.Log("hit!");
+
+        onHit?.Invoke();
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.Play("Chop");
+        }
+
+        _chopEvent?.Invoke();
+
+        Destroy(gameObject);
     }
 
 }

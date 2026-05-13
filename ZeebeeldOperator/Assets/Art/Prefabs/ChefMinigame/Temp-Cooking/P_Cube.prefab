@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8024615717425893022}
   m_Layer: 0
   m_Name: P_Cube
-  m_TagString: Untagged
+  m_TagString: CutSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,6 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551987245b090984db9a39e8abfcd009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chopEvent:
+    m_PersistentCalls:
+      m_Calls: []
   _requiredCutFood: 2
   _requiredHits: 3
   canBePressed: 0
