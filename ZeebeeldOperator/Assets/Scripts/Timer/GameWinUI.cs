@@ -1,11 +1,11 @@
 using TMPro;
 using UnityEngine;
-
+/// <summary>
+/// handles the timer in the game ui
+/// </summary>
 public class GameWinUI : MonoBehaviour
 {
-    /// <summary>
-    /// handles the timer in the game ui
-    /// </summary>
+
     [Header("References")]
     [SerializeField] private LevelTimer _levelTimer;
     [SerializeField] private TMP_Text _finalTimeText;
