@@ -53,8 +53,8 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _offtime: 4
-    - _ontime: 4.53
+    - _offtime: 0.25
+    - _ontime: 0.52
     - _pulsespeed: 5.3
     - _scale: 1.05
     m_Colors:
