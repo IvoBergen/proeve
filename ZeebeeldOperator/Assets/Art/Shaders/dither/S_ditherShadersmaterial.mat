@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8923571450244307827
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: watermaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 5eec3122780453b4aa1b0eb0948060dd,
+  m_Name: S_ditherShadersmaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 84618011e0ecb7e448159cb7384cbc39,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -51,17 +38,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _specular_density: 14.7
-    - _specular_speed: 1.92
-    - _specular_thickness: 5.96
-    - _wafefrequency: 0.99
-    - _water_depth: 0.001
-    - _waveemplitude: -0.14
-    - _wavespeed: 1
-    m_Colors:
-    - _deepwater: {r: 0.067176916, g: 0.426967, b: 0.6981132, a: 0}
-    - _shalowwater: {r: 0.57071555, g: 0.85019934, b: 0.87169814, a: 0}
-    - _specular_color: {r: 2.639016, g: 2.639016, b: 2.639016, a: 0}
+    - _Brightness: 1
+    - _colorresolution: 9.67
+    - _ditherspread: 0.09
+    m_Colors: []
   m_BuildTextureStacks: []

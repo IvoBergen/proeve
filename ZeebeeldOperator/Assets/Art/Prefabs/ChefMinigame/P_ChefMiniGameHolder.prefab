@@ -642,7 +642,7 @@ GameObject:
   - component: {fileID: 6567103592726497495}
   - component: {fileID: 7893608426714971510}
   m_Layer: 0
-  m_Name: ChefMiniGameHolder
+  m_Name: P_ChefMiniGameHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
