@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Mario-style countdown timer with milestone panic animations and safe UI shake.
+/// Mario-style countdown timer with milestone panic animations
+/// and frozen final completion time support.
 /// </summary>
 public class LevelTimer : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class LevelTimer : MonoBehaviour
     [SerializeField] private float _animationDuration = 0.15f;
     [SerializeField] private float _shakeIntensity = 5f;
     [SerializeField] private float _milestoneDuration = 0.5f;
-    [SerializeField] private float _maxShake = 20f; // clamp maximum shake in units
+    [SerializeField] private float _maxShake = 20f;
 
     private float _currentTime;
 
@@ -44,8 +45,11 @@ public class LevelTimer : MonoBehaviour
     private int _lastDisplayedSecond;
 
     private Vector3 _originalScale;
-    private Vector2 _originalPosition; // anchoredPosition
+    private Vector2 _originalPosition;
     private Coroutine _animationRoutine;
+
+    private string _savedCompletionTime;
+    private bool _timeSaved;
 
     private void Start()
     {
@@ -61,7 +65,8 @@ public class LevelTimer : MonoBehaviour
 
     private void Update()
     {
-        if (_firedTimeUp || _isPaused) return;
+        if (_firedTimeUp || _isPaused)
+            return;
 
         _currentTime -= Time.deltaTime;
 
@@ -74,9 +79,13 @@ public class LevelTimer : MonoBehaviour
             _firedTimeUp = true;
 
             UpdateUI();
+
+            SaveFinalTime();
+
             TriggerMilestone(onTimeUp);
         }
     }
+
 
     private void UpdateUI()
     {
@@ -141,9 +150,6 @@ public class LevelTimer : MonoBehaviour
         _animationRoutine = StartCoroutine(MilestoneAnimation());
     }
 
-    // ----------------------
-    // Normal tick animation
-    // ----------------------
     private IEnumerator AnimateTimer()
     {
         float time = 0f;
@@ -151,9 +157,11 @@ public class LevelTimer : MonoBehaviour
         while (time < _animationDuration)
         {
             time += Time.deltaTime;
+
             float t = time / _animationDuration;
 
             float scale = Mathf.Lerp(_scaleMultiplier, 1f, t);
+
             _timerText.transform.localScale = _originalScale * scale;
 
             if (_currentTime <= 30f)
@@ -168,9 +176,6 @@ public class LevelTimer : MonoBehaviour
         _timerText.rectTransform.anchoredPosition = _originalPosition;
     }
 
-    // ----------------------
-    // Milestone override animation
-    // ----------------------
     private IEnumerator MilestoneAnimation()
     {
         _isInMilestoneAnimation = true;
@@ -183,9 +188,11 @@ public class LevelTimer : MonoBehaviour
         while (time < _milestoneDuration)
         {
             time += Time.deltaTime;
+
             float t = time / _milestoneDuration;
 
             float scale = Mathf.Lerp(scaleBoost, 1f, t);
+
             _timerText.transform.localScale = _originalScale * scale;
 
             ShakeText(shakeBoost);
@@ -199,21 +206,54 @@ public class LevelTimer : MonoBehaviour
         _isInMilestoneAnimation = false;
     }
 
-    // ----------------------
-    // Shake helper (clamped)
-    // ----------------------
     private void ShakeText(float intensity)
     {
-        float shakeX = Mathf.Clamp(Random.Range(-1f, 1f) * intensity, -_maxShake, _maxShake);
-        float shakeY = Mathf.Clamp(Random.Range(-1f, 1f) * intensity, -_maxShake, _maxShake);
+        float shakeX = Mathf.Clamp(
+            Random.Range(-1f, 1f) * intensity,
+            -_maxShake,
+            _maxShake
+        );
+
+        float shakeY = Mathf.Clamp(
+            Random.Range(-1f, 1f) * intensity,
+            -_maxShake,
+            _maxShake
+        );
 
         _timerText.rectTransform.anchoredPosition =
             _originalPosition + new Vector2(shakeX, shakeY);
     }
 
-    // ----------------------
-    // Pause Controls
-    // ----------------------
+
+    public void SaveFinalTime()
+    {
+        if (_timeSaved)
+            return;
+
+        _timeSaved = true;
+
+        float completionTime = _startTime - _currentTime;
+
+        int minutes = Mathf.FloorToInt(completionTime / 60);
+        int seconds = Mathf.FloorToInt(completionTime % 60);
+
+        _savedCompletionTime = $"{minutes:00}:{seconds:00}";
+    }
+
+
+    public string GetSavedCompletionTime()
+    {
+        return _savedCompletionTime;
+    }
+
+    public string GetRemainingTime()
+    {
+        int minutes = Mathf.FloorToInt(_currentTime / 60);
+        int seconds = Mathf.FloorToInt(_currentTime % 60);
+
+        return $"{minutes:00}:{seconds:00}";
+    }
+
     public void PauseTimer() => _isPaused = true;
 
     public void ResumeTimer() => _isPaused = false;
