@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private GameObject _dialogueUI;
     [SerializeField] private float _dialogueTextSpeed;
+
+    [Header("Events")]
+    public UnityEvent OnDialogueStarted;
+    public UnityEvent OnDialogueEnded;
 
     private Queue<string> _sentences;
 
@@ -49,6 +54,8 @@ public class DialogueManager : MonoBehaviour
         foreach (string s in sentences)
             _sentences.Enqueue(s);
 
+        OnDialogueStarted?.Invoke();
+
         ShowNextLine();
     }
 
@@ -85,5 +92,7 @@ public class DialogueManager : MonoBehaviour
         _dialogueUI.SetActive(false);
 
         gameStateManager.exitDialouge();
+
+        OnDialogueEnded?.Invoke();
     }
 }

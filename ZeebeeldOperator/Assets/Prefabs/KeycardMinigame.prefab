@@ -202,12 +202,12 @@ PrefabInstance:
     - target: {fileID: 4611010244365918202, guid: 2dc021655a990884cb65891a05bf4428,
         type: 3}
       propertyPath: m_text
-      value: 'Hold LMB = Drag Card
+      value: 'ingedrukt LMB = Kaart Trekken
 
-        Scroll = Push & Pull Card
+        Scroll = Push & Pull Kaart
 
-        Swipe
-        Card to Continue.'
+        Veeg
+        de kaart om verder te gaan'
       objectReference: {fileID: 0}
     - target: {fileID: 4611010244365918202, guid: 2dc021655a990884cb65891a05bf4428,
         type: 3}
@@ -216,8 +216,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4611010244365918202, guid: 2dc021655a990884cb65891a05bf4428,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e11c5eaf81f735340a48f804a266ed23,
+        type: 2}
+    - target: {fileID: 4611010244365918202, guid: 2dc021655a990884cb65891a05bf4428,
+        type: 3}
       propertyPath: m_fontSizeBase
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611010244365918202, guid: 2dc021655a990884cb65891a05bf4428,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6540907602696343497, guid: e11c5eaf81f735340a48f804a266ed23,
+        type: 2}
+    - target: {fileID: 4611010244365918202, guid: 2dc021655a990884cb65891a05bf4428,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4633681004427942672, guid: 2dc021655a990884cb65891a05bf4428,
         type: 3}
