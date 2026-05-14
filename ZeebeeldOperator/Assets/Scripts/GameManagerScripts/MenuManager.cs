@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _controlsMenu;
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private LevelTimer _levelTimer;
-
+    [SerializeField] private bool _inDialogue;
     private void Start()
     {
         _mainMenuHolder.SetActive(true);
@@ -46,14 +46,17 @@ public class MenuManager : MonoBehaviour
         {
             if (!_gameHasStarted) return;
 
-            if (GuessUIActive) return;
+            if (GuessUIActive || _inDialogue) return;
 
             if (_pausemenuActive)
             {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
                 Unpause();
                 _pausemenuActive = false;
                 return;
             }
+
 
             Pause();
             _menuHolder.SetActive(true);
@@ -145,7 +148,7 @@ public class MenuManager : MonoBehaviour
     public void CloseOptions()
     {
         _optionsMenuHolder.SetActive(false);
-        _menuHolder.SetActive(true);
+        Unpause();
     }
 
     public void MainMenuSettingsOpen()
@@ -159,4 +162,9 @@ public class MenuManager : MonoBehaviour
         _mainMenuSettings.SetActive(false);
         _mainMenuHolder.SetActive(true);
     }
+    public void EnterDialogue()
+    {
+        _inDialogue = true;
+    }
+    public void ExitDialogue() { _inDialogue = false; }
 }
