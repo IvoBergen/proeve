@@ -46,9 +46,7 @@ public class MenuManager : MonoBehaviour
         {
             if (!_gameHasStarted) return;
 
-            if (GuessUIActive) return;
-
-            if (_inDialogue) return;
+            if (GuessUIActive || _inDialogue) return;
 
             if (_pausemenuActive)
             {
