@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class HitCutSpots : MonoBehaviour
 {
     [SerializeField] private UnityEvent _chopEvent;
-    [SerializeField] private int _requiredCutFood = 2;
     [SerializeField] private int _requiredHits;
 
     public bool canBePressed;
@@ -50,7 +49,6 @@ public class HitCutSpots : MonoBehaviour
     public void TryHitCutSpot()
     {
         if (!canBePressed) return;
-        Debug.Log("hit!");
 
         onHit?.Invoke();
 
