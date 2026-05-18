@@ -149,17 +149,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba3b41307df7824e94d0e97e6c81775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kiwiSet:
+  _kiwiSet:
     leftPrefab: {fileID: 6998792691412883487, guid: 73314719fc72f9a469ab835d3ff5e407,
       type: 3}
     rightPrefab: {fileID: 6998792691412883487, guid: 073765d0bf9a68543bfba45210056697,
       type: 3}
-  cucumberSet:
+  _cucumberSet:
     leftPrefab: {fileID: 6998792691412883487, guid: b391b225a5d6a8546a6d44ade7ba8343,
       type: 3}
     rightPrefab: {fileID: 6998792691412883487, guid: a07379597eae67449b85035af5da4200,
       type: 3}
-  splitDistance: 0.2
+  _splitDistance: 0.1
 --- !u!114 &169289066659032862
 MonoBehaviour:
   m_ObjectHideFlags: 0
