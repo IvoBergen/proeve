@@ -3,6 +3,9 @@ using UnityEngine.Serialization;
 
 namespace bnyhtz
 {
+    /// <summary>
+    /// Defines a room transition trigger by storing the old and new room names for the LocationSystem.
+    /// </summary>
     public class LocationCube : MonoBehaviour
     {
         [FormerlySerializedAs("_currentRoom")]

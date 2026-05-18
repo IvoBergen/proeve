@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace bnyhtz
 {
+    /// <summary>
+    /// Tracks the player's current room by reading LocationCube transitions and updates the location UI text.
+    /// </summary>
     public class LocationSystem : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _text;
