@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace bnyhtz
 {
+    /// <summary>
+    /// Shows or hides the crosshair UI object for systems that need to control player aiming feedback.
+    /// </summary>
     public class CrosshairSwitch : MonoBehaviour
     {
         [SerializeField] private GameObject _crosshair;
