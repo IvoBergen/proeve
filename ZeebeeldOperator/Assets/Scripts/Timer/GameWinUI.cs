@@ -27,7 +27,7 @@ public class GameWinUI : MonoBehaviour
         _levelTimer.SaveFinalTime();
 
         _finalTimeText.text =
-            "Gehaald in" + _levelTimer.GetSavedCompletionTime();
+            "Gehaald in: " + _levelTimer.GetSavedCompletionTime();
 
 
         if (_winScreen != null)
