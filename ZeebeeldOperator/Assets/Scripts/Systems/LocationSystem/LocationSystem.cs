@@ -70,8 +70,6 @@ namespace bnyhtz
             if (_text == null) return;
 
             _text.text = _currentRoom;
-
-            Debug.Log("Updated Current Room: " + _currentRoom);
         }
     }
 }
