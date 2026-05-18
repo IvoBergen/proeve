@@ -11,32 +11,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0901253
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.09012529
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.09012529
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.207
+      value: 6.089
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.015
+      value: -0.14884695
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.817
+      value: -22.978605
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 755c25b9044b80e42b658874fc45b86e,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -81,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 755c25b9044b80e42b658874fc45b86e,
         type: 3}
       propertyPath: m_Name
-      value: wortelPiece3
+      value: P_wortelPiece3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

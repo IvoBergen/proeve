@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3754860133849207850}
   m_Layer: 0
-  m_Name: KeycardUI
+  m_Name: P_KeycardUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
