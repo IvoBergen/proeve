@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6362156643870660228}
   - component: {fileID: 4693062838897395582}
   m_Layer: 0
-  m_Name: Clipboard
+  m_Name: P_Clipboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

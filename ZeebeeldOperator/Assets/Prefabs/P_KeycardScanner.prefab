@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 7666693774468458351}
   - component: {fileID: 4955361090667870122}
   m_Layer: 6
-  m_Name: KeycardScanner
+  m_Name: P_KeycardScanner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

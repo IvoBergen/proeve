@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6293095510533837503}
   - component: {fileID: 235796136011391199}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: P_SonarLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

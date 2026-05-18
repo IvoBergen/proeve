@@ -204,7 +204,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1838930199}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CutButton, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -5440,17 +5440,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.41
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.92
+      value: -7.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.07
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: effe263c6a2db2c45ac63584ab221d76,
         type: 3}
@@ -8755,6 +8755,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 864237980997086745, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
+      propertyPath: _leftPrefab
+      value: 
+      objectReference: {fileID: 6998792691412883487, guid: 73314719fc72f9a469ab835d3ff5e407,
+        type: 3}
+    - target: {fileID: 864237980997086745, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: _rightPrefab
+      value: 
+      objectReference: {fileID: 6998792691412883487, guid: 073765d0bf9a68543bfba45210056697,
+        type: 3}
+    - target: {fileID: 864237980997086745, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: _splitDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864237980997086745, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
       propertyPath: _chopEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -8768,6 +8785,46 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7e6be6a479bfc55418ea4ba5d0df271e, type: 2}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 532909634}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Chop
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140432145922800017, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: Chopped.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2636837032045403868, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
       propertyPath: m_UiScaleMode
@@ -8782,6 +8839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481678697322019226, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4588270362986521918, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
@@ -8883,11 +8945,43 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5989776147895602659, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6441602925118641463, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
       propertyPath: m_Name
       value: ChefMiniGameHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 6567103592726497495, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: _arrowMover
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567103592726497495, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: _minSpacing
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567103592726497495, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: _cubePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6567103592726497495, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: _cubePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1091632139512761027, guid: 35c3bddd9212aab429605917df7b6379,
+        type: 3}
+    - target: {fileID: 6567103592726497495, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: _cubePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1091632139512761027, guid: a3715e31699475a4babb8ffaf10f7419,
+        type: 3}
     - target: {fileID: 7416383739456158209, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -8915,6 +9009,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
+      propertyPath: _cutSpots
+      value: 
+      objectReference: {fileID: 1838930195}
+    - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
       propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8933,6 +9032,11 @@ PrefabInstance:
       propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1838930202}
     - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
       propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -8960,6 +9064,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
+      propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameOver
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
       propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: CloseMinigame
       objectReference: {fileID: 0}
@@ -8972,6 +9081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      propertyPath: miniGameEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RoundManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
@@ -9130,7 +9244,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4660852313305224543, guid: 1215ec0a1f4cdb84280a67cf97ef16c0, type: 3}
+    - {fileID: 1689685128487158033, guid: 1215ec0a1f4cdb84280a67cf97ef16c0, type: 3}
+    - {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0, type: 3}
     m_RemovedGameObjects:
     - {fileID: 288189030000860757, guid: 1215ec0a1f4cdb84280a67cf97ef16c0, type: 3}
     m_AddedGameObjects:
@@ -9150,7 +9267,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6441602925118641463, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1838930199}
+      addedObject: {fileID: 1838930203}
+    - targetCorrespondingSourceObject: {fileID: 6441602925118641463, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1838930202}
   m_SourcePrefab: {fileID: 100100000, guid: 1215ec0a1f4cdb84280a67cf97ef16c0, type: 3}
 --- !u!1 &659667587 stripped
 GameObject:
@@ -16847,6 +16968,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 0336365a3d6e25a4cbda7beea0d68609, type: 2}
+    - target: {fileID: 8360541269754427224, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.982
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16855,6 +16981,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1314701253}
+    - targetCorrespondingSourceObject: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1314701256}
   m_SourcePrefab: {fileID: 100100000, guid: 1dba63c1aec1ed149949e0da075503a5, type: 3}
 --- !u!1 &1314701251 stripped
 GameObject:
@@ -16889,6 +17019,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1314701256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314701251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3246ca2ceb7fcff478e7f8f1f8345c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Npc: {fileID: 1314701251}
 --- !u!1001 &1316700872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19096,6 +19239,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1046452131}
         m_TargetAssemblyTypeName: NPCLocationManager, Assembly-CSharp
         m_MethodName: SetNpcActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1314701256}
+        m_TargetAssemblyTypeName: NpcRemoval, Assembly-CSharp
+        m_MethodName: RemoveNPC
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23368,18 +23523,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 658617602}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1838930194 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7893608426714971510, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 658617602}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254838294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c1163dc8c4c82b48b0ef78748e67511, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1838930195 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6567103592726497495, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
@@ -23410,18 +23553,6 @@ MonoBehaviour:
   OnMinigameStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1838930195}
-        m_TargetAssemblyTypeName: GenerateCutSpots, Assembly-CSharp
-        m_MethodName: SpawnNewCubes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1661609532}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: StopShowingInteraction
@@ -23433,6 +23564,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1838930202}
+        m_TargetAssemblyTypeName: RoundManager, Assembly-CSharp
+        m_MethodName: StartRound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1838930200}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   OnMinigameEnded:
     m_PersistentCalls:
@@ -23449,9 +23604,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1838930194}
-        m_TargetAssemblyTypeName: HitCounter, Assembly-CSharp
-        m_MethodName: EndMinigame
+      - m_Target: {fileID: 1838930202}
+        m_TargetAssemblyTypeName: RoundManager, Assembly-CSharp
+        m_MethodName: GameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23497,7 +23652,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1838930199
+      - m_Target: {fileID: 1838930200}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1838930197}
+        m_TargetAssemblyTypeName: MiniGameTriggerer, Assembly-CSharp
+        m_MethodName: CloseMinigame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1838930200 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9002651922836177790, guid: 1215ec0a1f4cdb84280a67cf97ef16c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 658617602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254838294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40d3f52b4c130146b60e95c0be51503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1838930202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23506,7 +23697,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1254838294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a81ba4acd741b414bb84f5dd44e2715c, type: 3}
+  m_Script: {fileID: 11500000, guid: ff4c699299afa1f48bbb0ca9894c98af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRounds: 2
+  gameOverEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1838930197}
+        m_TargetAssemblyTypeName: MiniGameTriggerer, Assembly-CSharp
+        m_MethodName: CloseMinigame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _spawner: {fileID: 0}
+  _uiHolder: {fileID: 0}
+  _roundText: {fileID: 0}
+--- !u!114 &1838930203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254838294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2825045c9560a4d8acfde14b156981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1839734802

@@ -1,44 +1,27 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+
 /// <summary>
-/// <c>HitCutSpots</c> Responsible for making the player be able to cut the vegetable.
+/// Responsible for making the player able to cut the vegetable.
 /// </summary>
 public class HitCutSpots : MonoBehaviour
 {
     [SerializeField] private UnityEvent _chopEvent;
     [SerializeField] private int _requiredHits;
 
-    public bool canBePressed;
+    [Header("Split Prefabs")]
+    [SerializeField] private GameObject _leftPrefab;
+    [SerializeField] private GameObject _rightPrefab;
+    [SerializeField] private float _splitDistance = 5f;
 
-    public static event Action onHit;
-    public static HitCutSpots currentCutSpot;
+    private bool _canBePressed;
+    private GameObject _currentSpot;
+
+    public static event Action OnHit;
+    public static HitCutSpots _currentCutSpot;
 
     private void Update()
-    {
-        HitCutSpot();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "CutSpot")
-        {
-            canBePressed = true;
-            currentCutSpot = this;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "CutSpot")
-        {
-            canBePressed = false;
-            if (currentCutSpot == this)
-                currentCutSpot = null;
-        }
-    }
-
-    private void HitCutSpot()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -46,11 +29,34 @@ public class HitCutSpots : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CutSpot"))
+        {
+            _canBePressed = true;
+            _currentCutSpot = this;
+            _currentSpot = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("CutSpot"))
+        {
+            _canBePressed = false;
+
+            if (_currentCutSpot == this)
+                _currentCutSpot = null;
+
+            _currentSpot = null;
+        }
+    }
+
     public void TryHitCutSpot()
     {
-        if (!canBePressed) return;
+        if (!_canBePressed || _currentSpot == null) return;
 
-        onHit?.Invoke();
+        OnHit?.Invoke();
 
         if (SoundManager.Instance != null)
         {
@@ -59,7 +65,25 @@ public class HitCutSpots : MonoBehaviour
 
         _chopEvent?.Invoke();
 
-        Destroy(gameObject);
+        SpawnSplitPieces(_currentSpot.transform);
+        Destroy(_currentSpot);
     }
 
+    private void SpawnSplitPieces(Transform spot)
+    {
+        Vector3 right = spot.right;
+
+        Vector3 leftPos = spot.position - right * _splitDistance;
+        Vector3 rightPos = spot.position + right * _splitDistance;
+
+        Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
+
+        GameObject left = Instantiate(_leftPrefab, leftPos, rotation);
+        GameObject rightObj = Instantiate(_rightPrefab, rightPos, rotation);
+
+        float destroyTime = UnityEngine.Random.Range(2f, 5f);
+
+        Destroy(left, destroyTime);
+        Destroy(rightObj, destroyTime);
+    }
 }
