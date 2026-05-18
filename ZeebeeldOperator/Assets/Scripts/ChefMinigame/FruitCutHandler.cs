@@ -89,7 +89,7 @@ public class FruitCutHandler : MonoBehaviour
         GameObject left = Instantiate(set.leftPrefab, leftPos, rot);
         GameObject rightObj = Instantiate(set.rightPrefab, rightPos, rot);
 
-        float lifeTime = UnityEngine.Random.Range(0.5f, 1.5f);
+        float lifeTime = UnityEngine.Random.Range(1f, 2.5f);
 
         Destroy(left, lifeTime);
         Destroy(rightObj, lifeTime);

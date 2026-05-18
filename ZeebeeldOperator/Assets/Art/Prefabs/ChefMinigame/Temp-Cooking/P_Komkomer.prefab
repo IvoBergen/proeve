@@ -172,7 +172,7 @@ MonoBehaviour:
       type: 3}
     rightPrefab: {fileID: 6998792691412883487, guid: a07379597eae67449b85035af5da4200,
       type: 3}
-  _splitDistance: 0.1
+  _splitDistance: 0
 --- !u!114 &3811795626990585791
 MonoBehaviour:
   m_ObjectHideFlags: 0

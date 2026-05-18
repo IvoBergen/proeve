@@ -19960,7 +19960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 1819229493}
   _minigameCamera: {fileID: 1504278451}
-  _closeDelay: 3
+  _closeDelay: 2
   OnMinigameStarted:
     m_PersistentCalls:
       m_Calls:
@@ -23607,7 +23607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 1819229493}
   _minigameCamera: {fileID: 1471680827}
-  _closeDelay: 3
+  _closeDelay: 1
   OnMinigameStarted:
     m_PersistentCalls:
       m_Calls:
