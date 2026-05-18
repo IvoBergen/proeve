@@ -3,39 +3,46 @@ using UnityEngine;
 namespace bnyhtz
 {
     /// <summary>
-    /// Spawns an exclamation object above an NPC while the player is nearby.
+    /// Spawns a hovering exclamation object above an NPC.
     /// </summary>
     public class NPCExclamation : MonoBehaviour
     {
-        [SerializeField] private Transform _player;
         [SerializeField] private GameObject _exclamationPrefab;
-        [SerializeField] private float _range = 5f;
         [SerializeField] private float _heightOffset = 2f;
+        [SerializeField] private float _hoverHeight = 0.25f;
+        [SerializeField] private float _hoverSpeed = 2f;
 
         private GameObject _spawnedExclamation;
+        private Vector3 _spawnPosition;
         private bool _destroyed;
+
+        private void Start()
+        {
+            SpawnExclamation();
+        }
 
         private void Update()
         {
-            if (_destroyed || _player == null || _exclamationPrefab == null) return;
-
-            bool playerInRange = Vector3.Distance(transform.position, _player.position) <= _range;
-
-            if (playerInRange)
-            {
-                SpawnExclamation();
-                return;
-            }
-
-            RemoveExclamation();
+            if (_destroyed) return;
+            
+            HoverExclamation();
         }
 
         private void SpawnExclamation()
         {
+            if (_exclamationPrefab == null) return;
             if (_spawnedExclamation != null) return;
 
-            Vector3 spawnPosition = transform.position + Vector3.up * _heightOffset;
-            _spawnedExclamation = Instantiate(_exclamationPrefab, spawnPosition, Quaternion.identity);
+            _spawnPosition = transform.position + Vector3.up * _heightOffset;
+            _spawnedExclamation = Instantiate(_exclamationPrefab, _spawnPosition, Quaternion.identity);
+        }
+
+        private void HoverExclamation()
+        {
+            if (_spawnedExclamation == null) return;
+
+            float hoverOffset = Mathf.Sin(Time.time * _hoverSpeed) * _hoverHeight;
+            _spawnedExclamation.transform.position = _spawnPosition + Vector3.up * hoverOffset;
         }
 
         private void RemoveExclamation()

@@ -5993,6 +5993,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1502651358}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: effe263c6a2db2c45ac63584ab221d76,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1502651359}
   m_SourcePrefab: {fileID: 100100000, guid: effe263c6a2db2c45ac63584ab221d76, type: 3}
 --- !u!1001 &474889133
 PrefabInstance:
@@ -6093,11 +6097,16 @@ PrefabInstance:
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
@@ -6112,7 +6121,17 @@ PrefabInstance:
       objectReference: {fileID: 1321989675}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 474889142}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
@@ -6127,6 +6146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DestroyExclamation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: NoteUI, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -6137,7 +6161,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: bnyhtz.NPCExclamation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
@@ -6227,6 +6261,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 474889141}
+    - targetCorrespondingSourceObject: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 474889142}
   m_SourcePrefab: {fileID: 100100000, guid: 1dba63c1aec1ed149949e0da075503a5, type: 3}
 --- !u!4 &474889134 stripped
 Transform:
@@ -6279,6 +6317,23 @@ MonoBehaviour:
   _rotationSpeed: 5
   _maxHorizontalAngle: 50
   _maxVerticalAngle: 6.9
+--- !u!114 &474889142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474889135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ee551212927a3469ac02e322a0ae02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 3791428329857603878, guid: e7bb3fd4e80c4a742aab856a90b9dabe,
+    type: 3}
+  _heightOffset: 1.9
+  _hoverHeight: 0.035
+  _hoverSpeed: 3
 --- !u!1 &476867385
 GameObject:
   m_ObjectHideFlags: 0
@@ -19923,6 +19978,23 @@ MonoBehaviour:
   _rotationSpeed: 5
   _maxHorizontalAngle: 50
   _maxVerticalAngle: 10
+--- !u!114 &1502651359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502651351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ee551212927a3469ac02e322a0ae02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 919132149155446097, guid: 3a77309a1fc3034449ad6593bf3df28a,
+    type: 3}
+  _heightOffset: 2
+  _hoverHeight: 0.25
+  _hoverSpeed: 2
 --- !u!1 &1504278451
 GameObject:
   m_ObjectHideFlags: 0
