@@ -1,71 +1,89 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Manages the binocular system by switching background sprites based on the looking direction.
-/// </summary>
 public class BinocularSystem : MonoBehaviour
 {
-    [Header("UI References")]
+    public enum Direction
+    {
+        North,
+        East,
+        South,
+        West
+    }
+
+    [Header("UI")]
     [SerializeField] private Image _displayArea;
     [SerializeField] private RectTransform _photoRect;
 
-    [Header("Photo Sprites")]
-    [SerializeField] private Sprite _imageNorth;
-    [SerializeField] private Sprite _imageEast;
-    [SerializeField] private Sprite _imageSouth;
-    [SerializeField] private Sprite _imageWest;
+    [Header("North")]
+    [SerializeField] private Sprite _northSprite;
 
-    /// <summary>
-    /// Checks for player input every frame to switch the view.
-    /// </summary>
-    private void Update()
+    [Header("East")]
+    [SerializeField] private Sprite _eastSprite;
+
+    [Header("South")]
+    [SerializeField] private Sprite _southSprite;
+
+    [Header("West")]
+    [SerializeField] private Sprite _westSprite;
+
+    private Direction _currentDirection = Direction.North;
+
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SwitchView("North");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchView("East");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SwitchView("West");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SwitchView("South");
-        }
+        ApplyView();
     }
 
-    /// <summary>
-    /// Changes the displayed sprite based on a string direction and resets the photo position.
-    /// </summary>
-    /// <param name="direction">The cardinal direction to switch to (North, East, South, West).</param>
-    public void SwitchView(string direction)
+    // BUTTON FUNCTIONS
+    public void SetNorth()
     {
-        // Using &&/|| logic as per conventions if needed, though here we use string comparison.
-        if (direction == "North")
+        _currentDirection = Direction.North;
+        ApplyView();
+    }
+
+    public void SetEast()
+    {
+        _currentDirection = Direction.East;
+        ApplyView();
+    }
+
+    public void SetSouth()
+    {
+        _currentDirection = Direction.South;
+        ApplyView();
+    }
+
+    public void SetWest()
+    {
+        _currentDirection = Direction.West;
+        ApplyView();
+    }
+
+    private void ApplyView()
+    {
+        if (_displayArea == null)
+            return;
+
+        if (_currentDirection == Direction.North)
         {
-            _displayArea.sprite = _imageNorth;
+            _displayArea.sprite = _northSprite;
         }
-        else if (direction == "East")
+        else if (_currentDirection == Direction.East)
         {
-            _displayArea.sprite = _imageEast;
+            _displayArea.sprite = _eastSprite;
         }
-        else if (direction == "West")
+        else if (_currentDirection == Direction.South)
         {
-            _displayArea.sprite = _imageWest;
+            _displayArea.sprite = _southSprite;
         }
-        else if (direction == "South")
+        else if (_currentDirection == Direction.West)
         {
-            _displayArea.sprite = _imageSouth;
+            _displayArea.sprite = _westSprite;
         }
 
-        _photoRect.localPosition = Vector3.zero;
+        if (_photoRect != null)
+        {
+            _photoRect.localPosition = Vector3.zero;
+        }
     }
 }
