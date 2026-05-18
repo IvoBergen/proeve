@@ -12,6 +12,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] LevelTimer levelTimer;
     [SerializeField] Clipboard clipboard;
     [SerializeField] GameObject gameGUI;
+    [SerializeField] GameWinUI gameWinUI;
     public bool IsClipboardOpen { get; private set; }
 
     public void EnableGUI()
@@ -20,13 +21,19 @@ public class GameStateManager : MonoBehaviour
     }
     public void Gameover()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         GameoverUI.SetActive(true);
-        Time.timeScale = 0f;
+        playerMovement.enabled = false;
+        levelTimer.enabled = false;
     }
     public void GameWin()
     {
+        gameWinUI.ShowWinScreen();
         WinUI.SetActive(true);
-        Time.timeScale = 0f;
+        playerMovement.enabled = false;
+        levelTimer.enabled = false;
     }
     public void InDialogue()
     {
