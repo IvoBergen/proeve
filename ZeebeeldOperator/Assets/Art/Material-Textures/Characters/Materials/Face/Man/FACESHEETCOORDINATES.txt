@@ -1,0 +1,7 @@
+CHARACTER FACE SPRITE SHEET COORDINATES
+
+HORIZONTAL <-> 0, 0.167, 0.334, 0.5, 0.667, 0.834
+
+           /\
+vertical       0, -0.28, -0.56
+           \/
