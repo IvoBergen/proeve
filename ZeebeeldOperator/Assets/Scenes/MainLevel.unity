@@ -3250,10 +3250,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayArea: {fileID: 875979515}
   _photoRect: {fileID: 875979513}
-  _northSprite: {fileID: 21300000, guid: 93271ca71067fa44d8cbf4a7eefa03ac, type: 3}
-  _eastSprite: {fileID: 21300000, guid: 8816afde5c60e7d4e95058a30dd50b20, type: 3}
+  _northSprite: {fileID: 21300000, guid: 8816afde5c60e7d4e95058a30dd50b20, type: 3}
+  _eastSprite: {fileID: 21300000, guid: d36a6397f7eb8da498af3561ea284613, type: 3}
   _southSprite: {fileID: 21300000, guid: 80a77f5815e03de47bf3e168e31cca74, type: 3}
-  _westSprite: {fileID: 21300000, guid: d36a6397f7eb8da498af3561ea284613, type: 3}
+  _westSprite: {fileID: 0}
 --- !u!114 &233124786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9881,7 +9881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &667898574
 Transform:
   m_ObjectHideFlags: 0
@@ -11942,14 +11942,14 @@ RectTransform:
   m_GameObject: {fileID: 875979512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 22.48806, y: 22.48806, z: 22.48806}
+  m_LocalScale: {x: 17.12061, y: 17.12061, z: 17.12061}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 233124784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0028686523, y: 8}
+  m_AnchoredPosition: {x: -0.0028686523, y: -120}
   m_SizeDelta: {x: 140.86, y: 101.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875979514
@@ -11988,7 +11988,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 187100c194e63574a818c3011fa603c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8816afde5c60e7d4e95058a30dd50b20, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22922,9 +22922,9 @@ MonoBehaviour:
   _rb: {fileID: 1661609538}
   _orientation: {fileID: 1661609536}
   _playerCamera: {fileID: 1432113634}
-  _moveSpeed: 2
+  _moveSpeed: 3
   _bobFrequency: 10
-  _bobAmplitude: 0.01
+  _bobAmplitude: 0.05
   _maxSlopeAngle: 45
   _playerHeight: 2
 --- !u!114 &1661609540
