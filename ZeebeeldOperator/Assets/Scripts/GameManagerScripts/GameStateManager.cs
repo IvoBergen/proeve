@@ -34,6 +34,8 @@ public class GameStateManager : MonoBehaviour
         WinUI.SetActive(true);
         playerMovement.enabled = false;
         levelTimer.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void InDialogue()
     {
