@@ -22,10 +22,17 @@ namespace bnyhtz
         private Plane _dragPlane;
         private Vector3 _dragPlaneNormal;
         private float _holdDistance = 0.5f;
+        private Vector3 _initialLocalPosition;
+        private Quaternion _initialLocalRotation;
+        private float _initialHoldDistance;
         private const float MinMoveDistance = 0.0001f;
 
         private void Awake()
         {
+            _initialLocalPosition = transform.localPosition;
+            _initialLocalRotation = transform.localRotation;
+            _initialHoldDistance = _holdDistance;
+
             if (_camera == null)
             {
                 _camera = Camera.main;
@@ -263,6 +270,14 @@ namespace bnyhtz
             }
 
             transform.position = resolvedPosition;
+        }
+
+        public void ResetCard()
+        {
+            _held = false;
+            _holdDistance = _initialHoldDistance;
+            transform.localPosition = _initialLocalPosition;
+            transform.localRotation = _initialLocalRotation;
         }
     }
 }

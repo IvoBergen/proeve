@@ -19,6 +19,7 @@ namespace bnyhtz
         [SerializeField] public MeshRenderer _cardMeshRenderer;
         [SerializeField] private Door _door;
         [SerializeField] private GameObject _keycardUI;
+        [SerializeField] private KeycardDrag _keycardDrag;
         [SerializeField] private UnityEvent _FinishedEvent;
 
         private bool _startZoneVisited;
@@ -32,6 +33,19 @@ namespace bnyhtz
             _interactionZone.enabled = true;
             _cardMeshRenderer.enabled = false;
             _keycardUI.SetActive(false);
+
+            if (_keycardDrag == null)
+            {
+                _keycardDrag = FindObjectOfType<KeycardDrag>();
+            }
+        }
+
+        private void Update()
+        {
+            if (_interactionActive && !_completed && Input.GetKeyDown(KeyCode.R))
+            {
+                ResetActiveInteraction();
+            }
         }
 
         public void Interact()
@@ -77,6 +91,20 @@ namespace bnyhtz
                 _door.OpenDoor();
                 _cardMeshRenderer.enabled = false;
                 _keycardUI.SetActive(false);
+            }
+        }
+
+        private void ResetActiveInteraction()
+        {
+            _startZoneVisited = false;
+            _interactionActive = true;
+            _cardMeshRenderer.enabled = true;
+            _keycardUI.SetActive(true);
+            SetStatusLightCompleted(false);
+
+            if (_keycardDrag != null)
+            {
+                _keycardDrag.ResetCard();
             }
         }
 

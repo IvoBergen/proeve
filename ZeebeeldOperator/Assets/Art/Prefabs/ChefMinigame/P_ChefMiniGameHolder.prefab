@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 6717809072009383826}
   - component: {fileID: 8442587566374975643}
   - component: {fileID: 2324485122263669218}
-  - component: {fileID: 864237980997086745}
+  - component: {fileID: 1140432145922800017}
   m_Layer: 0
   m_Name: arrow
   m_TagString: Untagged
@@ -611,7 +611,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &864237980997086745
+--- !u!114 &1140432145922800017
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -620,15 +620,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6425951148693209693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 551987245b090984db9a39e8abfcd009, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ccb2b2dfb929e64c87636788acf3d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _chopEvent:
+  Chopped:
     m_PersistentCalls:
       m_Calls: []
-  _requiredCutFood: 0
-  _requiredHits: 0
-  canBePressed: 0
 --- !u!1 &6441602925118641463
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +638,8 @@ GameObject:
   - component: {fileID: 9002651922836177790}
   - component: {fileID: 6567103592726497495}
   - component: {fileID: 7893608426714971510}
+  - component: {fileID: 4660852313305224543}
+  - component: {fileID: 1689685128487158033}
   m_Layer: 0
   m_Name: P_ChefMiniGameHolder
   m_TagString: Untagged
@@ -697,8 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPoint: {fileID: 2170255975329188215}
   _endPoint: {fileID: 2284588199650673429}
-  _cubePrefab: {fileID: 1091632139512761027, guid: a3715e31699475a4babb8ffaf10f7419,
-    type: 3}
+  _cubePrefabs: []
   _arrowMover: {fileID: 0}
   _minSpacing: 0.1
   uiHolder: {fileID: 3481678697322019226}
@@ -746,6 +744,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4660852313305224543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441602925118641463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4c699299afa1f48bbb0ca9894c98af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1689685128487158033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6441602925118641463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2825045c9560a4d8acfde14b156981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6504154437124198690
 GameObject:
   m_ObjectHideFlags: 0

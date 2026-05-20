@@ -59,16 +59,24 @@ public class PlayerMovement : MonoBehaviour
         {
             _horizontalInput = 0f;
             _verticalInput = 0f;
-            _rb.velocity = Vector3.zero;
+            UpdateMoveDirection();
+            HandleHeadbob();
             return;
         }
 
         HandleInput();
+        UpdateMoveDirection();
         HandleHeadbob();
     }
 
     private void FixedUpdate()
     {
+        if (movementdisabled)
+        {
+            _rb.velocity = Vector3.zero;
+            return;
+        }
+
         MovePlayer();
     }
 
@@ -80,12 +88,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        _moveDirection = _orientation.forward * _verticalInput + _orientation.right * _horizontalInput;
-        HandleHeadbob();
+        UpdateMoveDirection();
+
         if (_moveDirection.magnitude > 0.1f)
         {
-            _rb.AddForce(_moveDirection.normalized * _moveSpeed * 10f, ForceMode.Force);
+            Vector3 targetVelocity = _moveDirection.normalized * _moveSpeed;
+            _rb.velocity = new Vector3(targetVelocity.x, _rb.velocity.y, targetVelocity.z);
         }
+        else
+        {
+            _rb.velocity = new Vector3(0f, _rb.velocity.y, 0f);
+        }
+    }
+
+    private void UpdateMoveDirection()
+    {
+        if (_orientation == null)
+        {
+            _moveDirection = Vector3.zero;
+            return;
+        }
+
+        Vector3 forward = Vector3.ProjectOnPlane(_orientation.forward, Vector3.up).normalized;
+        Vector3 right = Vector3.ProjectOnPlane(_orientation.right, Vector3.up).normalized;
+        _moveDirection = forward * _verticalInput + right * _horizontalInput;
     }
 
     private void HandleHeadbob()
