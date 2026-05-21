@@ -713,6 +713,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1321989680}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: effe263c6a2db2c45ac63584ab221d76,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1321989681}
   m_SourcePrefab: {fileID: 100100000, guid: effe263c6a2db2c45ac63584ab221d76, type: 3}
 --- !u!1 &23132744
 GameObject:
@@ -1607,6 +1611,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1934419953}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b43e9338f0531aa4bbea1630d11131ef,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1934419954}
   m_SourcePrefab: {fileID: 100100000, guid: b43e9338f0531aa4bbea1630d11131ef, type: 3}
 --- !u!4 &98466455 stripped
 Transform:
@@ -3510,7 +3518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &201083160
 Transform:
   m_ObjectHideFlags: 0
@@ -3774,7 +3782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Elektricien Paulien
+    name: "Elektrici\xEBn Paulien"
     firstTimeSentences:
     - Ik ben druk bezig, kun je later bij mij terug komen?
     repeatSentences:
@@ -6066,6 +6074,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 835521465}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: effe263c6a2db2c45ac63584ab221d76,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835521469}
   m_SourcePrefab: {fileID: 100100000, guid: effe263c6a2db2c45ac63584ab221d76, type: 3}
 --- !u!1 &326730991
 GameObject:
@@ -7847,11 +7859,16 @@ PrefabInstance:
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
@@ -7866,7 +7883,17 @@ PrefabInstance:
       objectReference: {fileID: 1321989675}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 474889139}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
@@ -7881,6 +7908,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: DestroyExclamation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: NoteUI, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -7891,7 +7923,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: bnyhtz.NPCExclamationPointSpawner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1392421605698195726, guid: 1dba63c1aec1ed149949e0da075503a5,
@@ -7977,6 +8019,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 474889138}
+    - targetCorrespondingSourceObject: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 474889139}
+    - targetCorrespondingSourceObject: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 474889142}
   m_SourcePrefab: {fileID: 100100000, guid: 1dba63c1aec1ed149949e0da075503a5, type: 3}
 --- !u!4 &474889134 stripped
 Transform:
@@ -8011,6 +8061,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &474889139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474889135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddad19a02300d04287f0160f8096f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 2289673712681711218, guid: aff0e143c4f79344aaabeda008b18dc1,
+    type: 3}
+  _manualSpawn: 0
+  _heightOffset: 1.955
+  _hoverHeight: 0.045
+  _hoverSpeed: 2
+--- !u!114 &474889142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474889135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0189a4aa786034f8146aed84ae4ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _npcHead: {fileID: 1501075684}
+  _player: {fileID: 1661609536}
+  _lookRange: 5
+  _rotationSpeed: 5
+  _maxHorizontalAngle: 50
+  _maxVerticalAngle: 10
 --- !u!1 &476867385
 GameObject:
   m_ObjectHideFlags: 0
@@ -8493,6 +8579,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1127393794}
+        m_TargetAssemblyTypeName: bnyhtz.CrosshairSwitch, Assembly-CSharp
+        m_MethodName: EnableCrosshair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &489392220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8793,6 +8891,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 478b87d2ece17f946b5cac73f0264536, type: 3}
+--- !u!1 &517379860 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383400480040811604, guid: aa6cd2f23b3a14543928426733c32da5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1664398860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &517379862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517379860}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.1, z: 0.3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &517379863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517379860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91a5af83ff35114897f282481fe8637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    firstTimeSentences:
+    - Nu even niet, ik ben erg druk bezig.
+    repeatSentences:
+    - Ik ben druk.
+  _hasTalked: 0
+  onFirstDialogueEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &517710702
 GameObject:
   m_ObjectHideFlags: 0
@@ -9015,6 +9162,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _hasTalked
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: dialogue.name
+      value: Kapitein John
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -9988,6 +10140,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 557003428}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c3f6dcdde59d7164fa8e150f9236f730,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 557003431}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c3f6dcdde59d7164fa8e150f9236f730,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 557003432}
   m_SourcePrefab: {fileID: 100100000, guid: c3f6dcdde59d7164fa8e150f9236f730, type: 3}
 --- !u!1 &557003425 stripped
 GameObject:
@@ -10016,7 +10176,19 @@ MonoBehaviour:
   _hasTalked: 0
   onFirstDialogueEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 557003431}
+        m_TargetAssemblyTypeName: bnyhtz.NPCExclamationPointSpawner, Assembly-CSharp
+        m_MethodName: DestroyExclamation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &557003429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10044,6 +10216,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 557003424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &557003431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557003425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddad19a02300d04287f0160f8096f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 2289673712681711218, guid: aff0e143c4f79344aaabeda008b18dc1,
+    type: 3}
+  _manualSpawn: 0
+  _heightOffset: 1.955
+  _hoverHeight: 0.045
+  _hoverSpeed: 2
+--- !u!114 &557003432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557003425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0189a4aa786034f8146aed84ae4ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _npcHead: {fileID: 1019293573}
+  _player: {fileID: 1661609536}
+  _lookRange: 3
+  _rotationSpeed: 5
+  _maxHorizontalAngle: 40
+  _maxVerticalAngle: 5
 --- !u!1 &559949875 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5812455092814463689, guid: ea5945c015c48ff4589ef816406d5cb1,
@@ -10502,6 +10710,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 586882996}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c3f6dcdde59d7164fa8e150f9236f730,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 586883004}
     - targetCorrespondingSourceObject: {fileID: -1143188817105336646, guid: c3f6dcdde59d7164fa8e150f9236f730,
         type: 3}
       insertIndex: -1
@@ -10581,6 +10793,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 586883004}
+        m_TargetAssemblyTypeName: bnyhtz.NPCExclamationPointSpawner, Assembly-CSharp
+        m_MethodName: DestroyExclamation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &586882998
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10651,6 +10875,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 586882993}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &586883004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586882994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddad19a02300d04287f0160f8096f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 2289673712681711218, guid: aff0e143c4f79344aaabeda008b18dc1,
+    type: 3}
+  _manualSpawn: 0
+  _heightOffset: 1.955
+  _hoverHeight: 0.045
+  _hoverSpeed: 2
 --- !u!1 &592397341
 GameObject:
   m_ObjectHideFlags: 0
@@ -15140,6 +15382,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 835521469}
+        m_TargetAssemblyTypeName: bnyhtz.NPCExclamationPointSpawner, Assembly-CSharp
+        m_MethodName: DestroyExclamation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &835521465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15204,6 +15458,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 326140383}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &835521469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835521463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddad19a02300d04287f0160f8096f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 2289673712681711218, guid: aff0e143c4f79344aaabeda008b18dc1,
+    type: 3}
+  _manualSpawn: 0
+  _heightOffset: 1.955
+  _hoverHeight: 0.045
+  _hoverSpeed: 2
 --- !u!1 &841157447
 GameObject:
   m_ObjectHideFlags: 0
@@ -18145,6 +18417,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1046452130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1019293573 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 339113012045333468, guid: c3f6dcdde59d7164fa8e150f9236f730,
+    type: 3}
+  m_PrefabInstance: {fileID: 557003424}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1022661952
 GameObject:
   m_ObjectHideFlags: 0
@@ -19677,6 +19955,7 @@ GameObject:
   - component: {fileID: 1127393791}
   - component: {fileID: 1127393792}
   - component: {fileID: 1127393793}
+  - component: {fileID: 1127393794}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -20099,6 +20378,19 @@ MonoBehaviour:
   _eastSprite: {fileID: 0}
   _southSprite: {fileID: 0}
   _westSprite: {fileID: 0}
+--- !u!114 &1127393794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127393780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851f42939109eff4098ade550cc4d8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _crosshair: {fileID: 201083159}
 --- !u!1001 &1130331872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24524,6 +24816,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: dialogue.name
+      value: Kapitein John
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: dialogue.repeatSentences.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -24550,7 +24847,7 @@ PrefabInstance:
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -24564,6 +24861,11 @@ PrefabInstance:
       objectReference: {fileID: 1517438346}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1314701259}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -24574,8 +24876,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DestroyExclamation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
       propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GoalTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      propertyPath: onFirstDialogueEnded.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: bnyhtz.NPCExclamationPointSpawner, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1021402832139113490, guid: 1dba63c1aec1ed149949e0da075503a5,
         type: 3}
@@ -24669,6 +24981,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1314701256}
+    - targetCorrespondingSourceObject: {fileID: 1736472724660292532, guid: 1dba63c1aec1ed149949e0da075503a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1314701259}
   m_SourcePrefab: {fileID: 100100000, guid: 1dba63c1aec1ed149949e0da075503a5, type: 3}
 --- !u!1 &1314701251 stripped
 GameObject:
@@ -24716,6 +25032,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Npc: {fileID: 1314701251}
+--- !u!114 &1314701259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314701251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddad19a02300d04287f0160f8096f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 2289673712681711218, guid: aff0e143c4f79344aaabeda008b18dc1,
+    type: 3}
+  _manualSpawn: 0
+  _heightOffset: 1.955
+  _hoverHeight: 0.045
+  _hoverSpeed: 2
 --- !u!1001 &1316700872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25207,6 +25541,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1321989681}
+        m_TargetAssemblyTypeName: bnyhtz.NPCExclamationPointSpawner, Assembly-CSharp
+        m_MethodName: DestroyExclamation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1321989681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321989674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddad19a02300d04287f0160f8096f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 2289673712681711218, guid: aff0e143c4f79344aaabeda008b18dc1,
+    type: 3}
+  _manualSpawn: 0
+  _heightOffset: 1.955
+  _hoverHeight: 0.045
+  _hoverSpeed: 2
 --- !u!1 &1322201791
 GameObject:
   m_ObjectHideFlags: 0
@@ -25937,10 +26301,34 @@ MonoBehaviour:
   _closeDelay: 3
   OnMinigameStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1127393794}
+        m_TargetAssemblyTypeName: bnyhtz.CrosshairSwitch, Assembly-CSharp
+        m_MethodName: DisableCrosshair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnMinigameEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1127393794}
+        m_TargetAssemblyTypeName: bnyhtz.CrosshairSwitch, Assembly-CSharp
+        m_MethodName: EnableCrosshair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1352585967
 GameObject:
   m_ObjectHideFlags: 0
@@ -27950,6 +28338,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a04946f7da5f434f9680e0ed79216cd, type: 3}
+--- !u!4 &1501075684 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6767104651891782570, guid: 1dba63c1aec1ed149949e0da075503a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 474889133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504020553
 GameObject:
   m_ObjectHideFlags: 0
@@ -28811,7 +29205,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1532854219
 MonoBehaviour:
@@ -28846,6 +29240,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1661609532}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: StopShowingInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1127393794}
+        m_TargetAssemblyTypeName: bnyhtz.CrosshairSwitch, Assembly-CSharp
+        m_MethodName: DisableCrosshair
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28909,6 +29315,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3772598516417762474}
         m_TargetAssemblyTypeName: SonarManager, Assembly-CSharp
         m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WireMiniGameEnding
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1127393794}
+        m_TargetAssemblyTypeName: bnyhtz.CrosshairSwitch, Assembly-CSharp
+        m_MethodName: EnableCrosshair
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31566,6 +31984,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5548451268524263891, guid: aa6cd2f23b3a14543928426733c32da5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548451268524263891, guid: aa6cd2f23b3a14543928426733c32da5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548451268524263891, guid: aa6cd2f23b3a14543928426733c32da5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5610786857358894648, guid: aa6cd2f23b3a14543928426733c32da5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31713,6 +32146,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2010304048}
+    - targetCorrespondingSourceObject: {fileID: 383400480040811604, guid: aa6cd2f23b3a14543928426733c32da5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 517379863}
+    - targetCorrespondingSourceObject: {fileID: 383400480040811604, guid: aa6cd2f23b3a14543928426733c32da5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 517379862}
   m_SourcePrefab: {fileID: 100100000, guid: aa6cd2f23b3a14543928426733c32da5, type: 3}
 --- !u!1 &1668794898
 GameObject:
@@ -34623,6 +35064,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1127393794}
+        m_TargetAssemblyTypeName: bnyhtz.CrosshairSwitch, Assembly-CSharp
+        m_MethodName: DisableCrosshair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnMinigameEnded:
     m_PersistentCalls:
       m_Calls:
@@ -34702,6 +35155,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1127393794}
+        m_TargetAssemblyTypeName: bnyhtz.CrosshairSwitch, Assembly-CSharp
+        m_MethodName: EnableCrosshair
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -36623,7 +37088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Elektricien Paulien
+    name: "Elektrici\xEBn Paulien"
     firstTimeSentences:
     - Fijn, je bent er, ik heb je hulp echt hard nodig.
     - De stroom voor de radar ligt er uit maar ik krijg het zelf niet opgelost.
@@ -36638,6 +37103,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1532854219}
         m_TargetAssemblyTypeName: MiniGameTriggerer, Assembly-CSharp
         m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1934419954}
+        m_TargetAssemblyTypeName: bnyhtz.NPCExclamationPointSpawner, Assembly-CSharp
+        m_MethodName: DestroyExclamation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36695,6 +37172,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1934419954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934419948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddad19a02300d04287f0160f8096f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exclamationPrefab: {fileID: 2289673712681711218, guid: aff0e143c4f79344aaabeda008b18dc1,
+    type: 3}
+  _manualSpawn: 0
+  _heightOffset: 1.955
+  _hoverHeight: 0.045
+  _hoverSpeed: 2
 --- !u!1001 &1952612798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38097,7 +38592,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.8, y: 1.5, z: 0.7}
   m_Center: {x: 50.4, y: 0.8, z: 25.6}
@@ -38114,7 +38609,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010304043}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d91a5af83ff35114897f282481fe8637, type: 3}
   m_Name: 
@@ -39511,7 +40006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Elektricien Paulien
+    name: "Elektrici\xEBn Paulien"
     firstTimeSentences:
     - Ik ben druk bezig, kun je later bij mij terug komen?
     repeatSentences:
