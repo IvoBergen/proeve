@@ -50,6 +50,5 @@ public class MiniGameTriggerer : MonoBehaviour, IInterface
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         OnMinigameEnded.Invoke();
-        Destroy(gameObject);
     }
 }

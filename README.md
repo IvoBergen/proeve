@@ -215,8 +215,18 @@ Scripts:
 
 - [Chef Minigame](ZeebeeldOperator/Assets/Scripts/ChefMinigame)
 
----
+**User story:**
+> As a developer, i want a universal way to trigger all the mini games
 
+![Chef Minigame visualsheet](https://github.com/IvoBergen/proeve/blob/develop/ReadMEFiles/MiniGameTriggerer-BWP-VWO-Visualsheet.png)
+
+Scripts:
+
+- [Chef Minigame](ZeebeeldOperator/Assets/Scripts/MiniGameTriggerer)
+
+
+---
+- 
 ## Playtesting & Feedback  
 
 User tests and feedback can be found in the wiki:  

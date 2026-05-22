@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace bnyhtz
 {
@@ -18,6 +19,8 @@ namespace bnyhtz
         [SerializeField] public MeshRenderer _cardMeshRenderer;
         [SerializeField] private Door _door;
         [SerializeField] private GameObject _keycardUI;
+        [SerializeField] private KeycardDrag _keycardDrag;
+        [SerializeField] private UnityEvent _FinishedEvent;
 
         private bool _startZoneVisited;
 
@@ -28,8 +31,21 @@ namespace bnyhtz
         {
             SetStatusLightCompleted(false);
             _interactionZone.enabled = true;
-            _cardMeshRenderer.enabled = false;       
+            _cardMeshRenderer.enabled = false;
             _keycardUI.SetActive(false);
+
+            if (_keycardDrag == null)
+            {
+                _keycardDrag = FindObjectOfType<KeycardDrag>();
+            }
+        }
+
+        private void Update()
+        {
+            if (_interactionActive && !_completed && Input.GetKeyDown(KeyCode.R))
+            {
+                ResetActiveInteraction();
+            }
         }
 
         public void Interact()
@@ -68,15 +84,30 @@ namespace bnyhtz
 
             if (zone == _endZone && _startZoneVisited)
             {
+                _FinishedEvent.Invoke();
                 _completed = true;
                 _interactionActive = false;
                 SetStatusLightCompleted(true);
                 _door.OpenDoor();
-                _cardMeshRenderer.enabled = false;       
+                _cardMeshRenderer.enabled = false;
                 _keycardUI.SetActive(false);
             }
         }
-    
+
+        private void ResetActiveInteraction()
+        {
+            _startZoneVisited = false;
+            _interactionActive = true;
+            _cardMeshRenderer.enabled = true;
+            _keycardUI.SetActive(true);
+            SetStatusLightCompleted(false);
+
+            if (_keycardDrag != null)
+            {
+                _keycardDrag.ResetCard();
+            }
+        }
+
         private void SetStatusLightCompleted(bool completed)
         {
             if (_statusLightRenderer == null)

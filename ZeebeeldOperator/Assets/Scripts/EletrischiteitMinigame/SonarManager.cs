@@ -30,4 +30,8 @@ public class SonarManager : MonoBehaviour
             _door.transform.rotation = Quaternion.Euler(270, 90, 0);
         }
     }
+    public void CloseDoor()
+    {
+        _door.transform.rotation = Quaternion.Euler(270, 0, 0);
+    }
 }
