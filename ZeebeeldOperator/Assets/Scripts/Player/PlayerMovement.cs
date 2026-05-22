@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _sprintSpeed = 8f;
 
     [Header("Headbob Settings")]
     [SerializeField] private float _bobFrequency = 5f;
@@ -92,7 +93,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (_moveDirection.magnitude > 0.1f)
         {
-            Vector3 targetVelocity = _moveDirection.normalized * _moveSpeed;
+            float currentSpeed = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)
+                ? _sprintSpeed
+                : _moveSpeed;
+
+            Vector3 targetVelocity = _moveDirection.normalized * currentSpeed;
             _rb.velocity = new Vector3(targetVelocity.x, _rb.velocity.y, targetVelocity.z);
         }
         else
